@@ -1,0 +1,100 @@
+{% extends 'base.html' %}{% load static %}
+
+{% block content %}
+    <div class="ui middle aligned center aligned grid">
+        <div class="column">
+            <h2 class="ui teal center aligned header">
+                <img class="image" src="{% static 'software_architect_aide/logo.png' %}"/> سامانهٔ تصمیم‌یار معماری نرم‌افزار </h2>
+            <form class="ui large form" method="post" action="">
+                {% csrf_token %}
+                <div class="ui stacked segment">
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="user icon"></i> <input name="email" placeholder="آدرس ایمیل" type="text"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i> <input name="password" placeholder="رمز عبور" type="password"/>
+                        </div>
+                    </div>
+                    <div class="ui fluid large teal submit button">ورود</div>
+                </div>
+                {% if not success %}
+                    <div class="ui negative message">
+                        <i class="close icon"></i>
+                        <ul class="list">
+                            <li>نام کاربری یا رمز عبور را اشتباه وارد کردید.</li>
+                        </ul>
+                    </div>
+                {% endif %}
+                <div class="ui error message"></div>
+            </form>
+            <div class="ui message">حساب کاربری ندارید؟<a href="#"> ثبت‌نام</a></div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block begin_css %}
+    <style type="text/css">
+        body {
+            background-color: #dadada;
+            -webkit-font-smoothing: antialiased;
+            -moz-font-smoothing: grayscale;
+        }
+
+        body > .ui.grid {
+            height: 100%;
+        }
+
+        .column {
+            max-width: 450px;
+        }
+    </style>
+{% endblock %}
+
+{% block end_js %}
+    <script>
+        $(document).ready(function () {
+            $(".ui.form").form({
+                fields: {
+                    email: {
+                        identifier: "email",
+                        rules: [
+                            {
+                                type: "empty",
+                                prompt: "لطفا نشانی ایمیلتان را وارد کنید."
+                            },
+                            {
+                                type: "email",
+                                prompt: "لطفا ایمیل صحیح وارد کنید."
+                            }
+                        ]
+                    },
+                    password: {
+                        identifier: "password",
+                        rules: [
+                            {
+                                type: "empty",
+                                prompt: "لطفا رمز عبور را وارد کنید."
+                            },
+                            {
+                                type: "length[6]",
+                                prompt: "طول رمز عبور حداقل باید شش حرف باشد."
+                            }
+                        ]
+                    }
+                }
+            });
+        });
+
+        $('.message .close')
+            .on('click', function () {
+                $(this)
+                    .closest('.message')
+                    .transition('fade')
+                ;
+            })
+        ;
+    </script>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no"/>
+    <meta name="description" content="سامانهٔ تصمیم‌یار معماری نرم‌افزار"/>
+    <meta name="keywords" content="Data, Exporter"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <title>سامانهٔ تصمیم‌یار معماری نرم‌افزار</title>
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/semantic-ui/2.4.1/semantic.rtl.min.css" integrity="sha384-yXUIpeQfH3cuk6u6Mwu8uyJXB2R3UOLvcha1343UCMA2TA7lQ14BFmrudI6LAP8A" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'software_architect_aide/css/style.css' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'software_architect_aide/logo.png' %}"/>
+    {% block begin_css %}
+    {% endblock %}
+</head>
+<body id="root">
+{% block content %}
+{% endblock %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.rtlcss.com/semantic-ui/2.4.1/semantic.min.js" integrity="sha384-6urqf2sgCGDfIXcoxTUOVIoQV+jFr/Zuc4O2wCRS6Rnd8w0OJ17C4Oo3PuXu8ZtF" crossorigin="anonymous"></script>
+{% block end_js %}
+{% endblock %}
+</body>
+</html>
