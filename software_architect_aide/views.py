@@ -2,8 +2,12 @@ import os
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.shortcuts import redirect
 from django.shortcuts import render
+
+
+# from software_architect_aide.forms import UserRegisterForm
 
 
 def sign_in(request):
@@ -49,3 +53,23 @@ def tradeoff(request):
 def evolution(request):
     context = {'': '', }
     return render(request, 'dashboard_evolution.html', context)
+
+
+def register(request):
+    if request.method == 'POST':
+        password = request.POST['password']
+        password2 = request.POST['password']
+        email = request.POST['email']
+        username = request.POST['username']
+
+        if password2 != password:
+            return render(request, 'register.html', {'match_password': False})
+
+        user = authenticate(Q(username=username) | Q(email=email))
+        if user is not None:
+            return render(request, 'register.html', {'duplicate_user': True})
+
+        User.objects.create_user(username=username, email=email, password=password)
+        return redirect('sign_in')
+    else:
+        return render(request, 'register.html', {'success': True})

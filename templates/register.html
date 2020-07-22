@@ -5,7 +5,7 @@
         <div class="column">
             <h2 class="ui teal center aligned header">
                 <img class="image" src="{% static 'software_architect_aide/logo.png' %}"/> سامانهٔ تصمیم‌یار معماری نرم‌افزار </h2>
-            <form class="ui large form" method="post" action="">
+            <form class="ui large form" method="post" action="{% url 'register' %}">
                 {% csrf_token %}
                 <div class="ui stacked segment">
                     <div class="field">
@@ -15,22 +15,40 @@
                     </div>
                     <div class="field">
                         <div class="ui left icon input">
+                            <i class="user icon"></i> <input name="username" placeholder="نام کاربری" type="text"/>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="ui left icon input">
                             <i class="lock icon"></i> <input name="password" placeholder="رمز عبور" type="password"/>
                         </div>
                     </div>
-                    <div class="ui fluid large teal submit button">ورود</div>
+                    <div class="field">
+                        <div class="ui left icon input">
+                            <i class="lock icon"></i> <input name="password2" placeholder="تکرار رمز عبور" type="password"/>
+                        </div>
+                    </div>
+                    <div class="ui fluid large teal submit button">ثبت نام</div>
                 </div>
-                {% if not success %}
+                {% if  duplicate_user %}
                     <div class="ui negative message">
                         <i class="close icon"></i>
                         <ul class="list">
-                            <li>نام کاربری یا رمز عبور را اشتباه وارد کردید.</li>
+                            <li>این کاربر قبلا در سیستم ثبت نام شده است.</li>
+                        </ul>
+                    </div>
+                {% endif %}
+                {% if not match_password %}
+                    <div class="ui negative message">
+                        <i class="close icon"></i>
+                        <ul class="list">
+                            <li>پسورد ها با یکدیگر برابر نیستند.</li>
                         </ul>
                     </div>
                 {% endif %}
                 <div class="ui error message"></div>
             </form>
-            <div class="ui message">حساب کاربری ندارید؟<a href="{% url 'register' %}"> ثبت‌نام</a></div>
+            <div class="ui message">حساب کاربری دارید؟<a href="#">ورود</a></div>
         </div>
     </div>
 {% endblock %}
