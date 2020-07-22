@@ -6,7 +6,7 @@
             <h2 class="ui teal center aligned header">
                 <img class="image" src="{% static 'software_architect_aide/logo.png' %}"/> سامانهٔ تصمیم‌یار معماری
                 نرم‌افزار </h2>
-            <form class="ui large form" method="post" action="">
+            <form class="ui large form" method="post" action="{% url "accounts:sign_in" %}">
                 {% csrf_token %}
                 <div class="ui stacked segment">
                     <div class="field">
@@ -39,7 +39,7 @@
                 {% endif %}
                 <div class="ui error message"></div>
             </form>
-            <div class="ui message">حساب کاربری ندارید؟<a href="{% url 'register' %}"> ثبت‌نام</a></div>
+            <div class="ui message">حساب کاربری ندارید؟<a href="{% url 'accounts:register' %}"> ثبت‌نام</a></div>
         </div>
     </div>
 {% endblock %}

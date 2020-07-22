@@ -30,7 +30,7 @@ SECRET_KEY = 'cd#1+q1bkqnmo#c&ojqxjok6)h7c=#l7$c4%df%_)bg_u(1a4m'
 
 INSTALLED_APPS = ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes',
                   'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles',
-                  'software_architect_aide', ]
+                  'software_architect_aide', 'accounts.apps.AccountsConfig', ]
 
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware',
               'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware',
