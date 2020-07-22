@@ -7,7 +7,60 @@
             <div class="row">
                 <h1 class="ui huge dividing header">معماری نرم‌افزار</h1>
             </div>
+
+            <div class="row">
+                <table class="ui celled padded selectable table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>نام معماری</th>
+                        <th>تعداد اکسیوم‌ها</th>
+                        <th>تاریخ ایجاد</th>
+                        <th>تاریخ به‌روزرسانی</th>
+                        <th>فعالیت‌ها</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for architecture in architectures %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ architecture.name }}</td>
+                            <td>{{ architecture.count }}</td>
+                            <td>{{ architecture.date_added }}</td>
+                            <td>{{ architecture.last_modified }}</td>
+                            <td>
+                                <button class="ui icon button">
+                                    <i class="eye icon"></i>
+                                </button>
+                                <button class="ui icon button">
+                                    <i class="edit icon"></i>
+                                </button>
+                                <button class="ui icon button">
+                                    <i class="trash icon"></i>
+                                </button>
+                                <button class="ui icon button">
+                                    <i class="file icon"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                    <tfoot class="full-width">
+                    <tr>
+                        <th colspan="7">
+                            <div id="tables_download_update" class="ui small primary labeled icon button">
+                                <i class="refresh icon"></i> به‌روزرسانی
+                            </div>
+                        </th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
             <div class="center aligned row">
+                تعداد اکسیوم: {{ axioms_counts }} متن اول:
+                {% for statement in content %}
+                    {{ statement }}
+                {% endfor %}
             </div>
             <div class="ui hidden section divider"></div>
         </div>

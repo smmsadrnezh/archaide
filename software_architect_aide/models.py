@@ -1,12 +1,11 @@
+from django.contrib.auth.models import User
 from django.db import models
+from django.db.models import FileField
 
 
-class Paper(models.Model):
-    title = models.CharField(max_length=30)
-    authors = models.CharField(max_length=30)
-    keywords = models.CharField(max_length=30)
-    status = models.CharField(max_length=30, default='در دست بررسی')
-    paper = models.FileField(upload_to='papers')
-
-    def __str__(self):
-        return self.title
+class Architecture(models.Model):
+    name = models.CharField(max_length=30, unique=True)
+    owner = models.ForeignKey(User, related_name='architectures', on_delete=models.CASCADE)
+    date_added = models.DateTimeField(auto_now_add=True)
+    last_modified = models.DateTimeField(auto_now=True)
+    owl_file = FileField(upload_to='media/owl')
