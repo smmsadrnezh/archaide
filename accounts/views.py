@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 
+
 def sign_in(request):
     if request.method == "POST":
         try:
@@ -25,7 +26,7 @@ def sign_in(request):
 
 def sign_out(request):
     logout(request)
-    return redirect(sign_in)
+    return redirect('accounts:sign_in')
 
 
 def register(request):
