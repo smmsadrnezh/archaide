@@ -144,11 +144,252 @@
     
 
 
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Abstract_Common_Services -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Abstract_Common_Services">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Abstract_Data_Sources -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Abstract_Data_Sources">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Active_Redundancy -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Active_Redundancy">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Aggregate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Aggregate">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Authenticate_Actors -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Authenticate_Actors">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Authorize_Actors -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Authorize_Actors">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Quality_Attribute"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Active_Redundancy"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Condition_Monitoring"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Degardation"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Escalating_Restart"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exception_Handling"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exception_Prevention"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exeption_Detection"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Heartbeat"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Ignore_Faulty_Behaviour"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Competence_Set"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Non-Stop_Forwarding"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Passive_Redundancy"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Predictive_Model"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Reconfiguration"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Removal_From_Service"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Retry"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Rollback"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Shadow"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Software_Upgrade"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Spare"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#State_Resynchronization"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Timestamp"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Transactions"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Voting"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Ping/Echo"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Bound_Execution_Times -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Bound_Execution_Times">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Bound_Queue_Sizes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Bound_Queue_Sizes">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Cancel -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Cancel">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Change_Default_Settings -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Change_Default_Settings">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Condition_Monitoring -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Condition_Monitoring">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Defer_Binding_Time -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Defer_Binding_Time">
         <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
         <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Degardation -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Degardation">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Inrustion -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Inrustion">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Message_Delay -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Message_Delay">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Service_Denial -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Service_Denial">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Discover_Service -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Discover_Service">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Interoperability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Encapsulate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Encapsulate">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Encrypt_Data -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Encrypt_Data">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Escalating_Restart -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Escalating_Restart">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exception_Handling -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exception_Handling">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exception_Prevention -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exception_Prevention">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Executable_Assertions -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Executable_Assertions">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exeption_Detection -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Exeption_Detection">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Heartbeat -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Heartbeat">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Identify_Actors -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Identify_Actors">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Ignore_Faulty_Behaviour -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Ignore_Faulty_Behaviour">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
     </owl:NamedIndividual>
     
 
@@ -162,10 +403,176 @@
     
 
 
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Competence_Set -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Competence_Set">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Resource_Efficiency -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Resource_Efficiency">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Resources -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Resources">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Semantic_Coherence -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Semantic_Coherence">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Inform_Actors -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Inform_Actors">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Interoperability -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Interoperability">
         <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Quality_Attribute"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Discover_Service"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Orchestrate"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tailor_Interface"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Introduce_Concurrency -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Introduce_Concurrency">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Access -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Access">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Event_Response -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Event_Response">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Exposure -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Exposure">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Non-deteminism -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Non-deteminism">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Structural_Complexity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Structural_Complexity">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Localize_State_Storage -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Localize_State_Storage">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Lock_Computer -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Lock_Computer">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Audit_Trail -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Audit_Trail">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Multiple_Copies_Of_Computations -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Multiple_Copies_Of_Computations">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Multiple_Copies_Of_Data -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Multiple_Copies_Of_Data">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_System_Model -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_System_Model">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Task_Model -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Task_Model">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_User_Model -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_User_Model">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Manage_Sampling_Rate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Manage_Sampling_Rate">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
     </owl:NamedIndividual>
     
 
@@ -174,6 +581,30 @@
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability">
         <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Quality_Attribute"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Abstract_Common_Services"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Defer_Binding_Time"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Encapsulate"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Semantic_Coherence"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Refactor"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Restrict_Dependencies"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Split_Module"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Use_An_Intermediary"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Monitor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Monitor">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Non-Stop_Forwarding -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Non-Stop_Forwarding">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
     </owl:NamedIndividual>
     
 
@@ -187,11 +618,344 @@
     
 
 
-    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#ReduceCoupling -->
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Passive_Redundancy -->
 
-    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#ReduceCoupling">
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Passive_Redundancy">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Quality_Attribute"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Bound_Execution_Times"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Bound_Queue_Sizes"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Resource_Efficiency"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Increase_Resources"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Introduce_Concurrency"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Event_Response"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Multiple_Copies_Of_Computations"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Multiple_Copies_Of_Data"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Manage_Sampling_Rate"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Prioritize_Events"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Reduce_Overhead"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Schedule_Resources"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Predictive_Model -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Predictive_Model">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Prioritize_Events -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Prioritize_Events">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Reconfiguration -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Reconfiguration">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Reduce_Overhead -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Reduce_Overhead">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Refactor -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Refactor">
         <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
         <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Removal_From_Service -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Removal_From_Service">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Restore -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Restore">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Restrict_Dependencies -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Restrict_Dependencies">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Retry -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Retry">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Revoke_Access -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Revoke_Access">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Rollback -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Rollback">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Sanbox -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Sanbox">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Sanity_Checking -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Sanity_Checking">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Schedule_Resources -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Schedule_Resources">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Performance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security">
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Authenticate_Actors"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Authorize_Actors"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Change_Default_Settings"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Inrustion"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Message_Delay"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Detect_Service_Denial"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Encrypt_Data"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Identify_Actors"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Inform_Actors"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Access"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Exposure"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Lock_Computer"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Audit_Trail"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Restore"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Revoke_Access"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Separate_Entities"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Verify_Message_Integrity"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Self_Test -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Self_Test">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Separate_Entities -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Separate_Entities">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Shadow -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Shadow">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Software_Upgrade -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Software_Upgrade">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Spare -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Spare">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Specialized_Interfaces -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Specialized_Interfaces">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Split_Module -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Split_Module">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#State_Resynchronization -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#State_Resynchronization">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tailor_Interface -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tailor_Interface">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Interoperability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability">
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Abstract_Data_Sources"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Executable_Assertions"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Non-deteminism"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Limit_Structural_Complexity"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Localize_State_Storage"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Sanbox"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Specialized_Interfaces"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Record/Playback"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Timestamp -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Timestamp">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Transactions -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Transactions">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Undo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Undo">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability">
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Aggregate"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Cancel"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_System_Model"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_Task_Model"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Maintain_User_Model"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Undo"/>
+        <isAchievedBy rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Pause/Resume"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Use_An_Intermediary -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Use_An_Intermediary">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Modifiability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Verify_Message_Integrity -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Verify_Message_Integrity">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Voting -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Voting">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Pause/Resume -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Pause/Resume">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Usability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Ping/Echo -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Ping/Echo">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Record/Playback -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Record/Playback">
+        <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Testability"/>
     </owl:NamedIndividual>
 </rdf:RDF>
 
