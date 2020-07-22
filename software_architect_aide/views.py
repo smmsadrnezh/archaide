@@ -60,16 +60,15 @@ def register(request):
         password = request.POST['password']
         password2 = request.POST['password2']
         email = request.POST['email']
-        username = request.POST['username']
 
         if password2 != password:
             return render(request, 'register.html', {'match_password': False})
 
-        user = authenticate(Q(username=username) | Q(email=email))
+        # TODO: get user from database
         if user is not None:
             return render(request, 'register.html', {'duplicate_user': True})
 
-        User.objects.create_user(username=username, email=email, password=password)
+        User.objects.create_user(username=email, email=email, password=password)
         return redirect('sign_in')
     else:
         return render(request, 'register.html', {'success': True})
