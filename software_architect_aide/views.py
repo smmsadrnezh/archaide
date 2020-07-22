@@ -64,8 +64,7 @@ def register(request):
         if password2 != password:
             return render(request, 'register.html', {'match_password': False})
 
-        # TODO: get user from database
-        if user is not None:
+        if User.objects.filter(email=email).exists():
             return render(request, 'register.html', {'duplicate_user': True})
 
         User.objects.create_user(username=email, email=email, password=password)
