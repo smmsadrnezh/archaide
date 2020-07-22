@@ -2,13 +2,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.shortcuts import render
-
+from django.core.exceptions import ObjectDoesNotExist
 
 def sign_in(request):
     if request.method == "POST":
-        # TODO : correct this code
-        user = authenticate(username=User.objects.get(email=request.POST.get('email', '')).username,
-                            password=request.POST.get('password', ''))
+        try:
+            user = authenticate(username=User.objects.get(email=request.POST.get('email', '')).username,
+                                password=request.POST.get('password', ''))
+        except ObjectDoesNotExist:
+            return render(request, 'sign_in.html', {'success': False})
         if user is not None:
             login(request, user)
             return redirect('dashboard')
