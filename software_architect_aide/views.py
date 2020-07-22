@@ -58,7 +58,7 @@ def evolution(request):
 def register(request):
     if request.method == 'POST':
         password = request.POST['password']
-        password2 = request.POST['password']
+        password2 = request.POST['password2']
         email = request.POST['email']
         username = request.POST['username']
 
