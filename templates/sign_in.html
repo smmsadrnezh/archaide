@@ -4,7 +4,8 @@
     <div class="ui middle aligned center aligned grid">
         <div class="column">
             <h2 class="ui teal center aligned header">
-                <img class="image" src="{% static 'software_architect_aide/logo.png' %}"/> سامانهٔ تصمیم‌یار معماری نرم‌افزار </h2>
+                <img class="image" src="{% static 'software_architect_aide/logo.png' %}"/> سامانهٔ تصمیم‌یار معماری
+                نرم‌افزار </h2>
             <form class="ui large form" method="post" action="">
                 {% csrf_token %}
                 <div class="ui stacked segment">
@@ -25,6 +26,14 @@
                         <i class="close icon"></i>
                         <ul class="list">
                             <li>نام کاربری یا رمز عبور را اشتباه وارد کردید.</li>
+                        </ul>
+                    </div>
+                {% endif %}
+                {% if register_success %}
+                    <div class="ui positive message">
+                        <i class="close icon"></i>
+                        <ul class="list">
+                            <li>ثبت‌نام شما با موفقیت انجام پذیرفت.</li>
                         </ul>
                     </div>
                 {% endif %}

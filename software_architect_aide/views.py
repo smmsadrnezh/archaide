@@ -68,6 +68,6 @@ def register(request):
             return render(request, 'register.html', {'duplicate_user': True})
 
         User.objects.create_user(username=email, email=email, password=password)
-        return redirect('sign_in')
+        return render(request, 'sign_in.html', {'success': True, 'register_success': True})
     else:
         return render(request, 'register.html', {'success': True})
