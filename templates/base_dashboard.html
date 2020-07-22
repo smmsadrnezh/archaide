@@ -33,11 +33,11 @@
             <div class="ui vertical borderless fluid text menu">
                 <a class="{% if '/dashboard/' == request.path %}active {% endif %}item" href="/dashboard"> خانه</a>
 
-                <a class="{% if '/dashboard/instantiate/' == request.path %}active {% endif %}item" href="/dashboard/instantiate">
+                <a class="{% if '/dashboard/architecture/create/' == request.path %}active {% endif %}item" href="{% url 'architecture_create' %}">
                     نمونه‌گیری معماری</a>
-                <a class="{% if '/dashboard/tradeoff/' == request.path %}active {% endif %}item" href="/dashboard/tradeoff">
+                <a class="{% if '/dashboard/tradeoff/' == request.path %}active {% endif %}item" href="{% url 'tradeoff' %}">
                     تحلیل بده‌بستان‌های معماری</a>
-            <a class="{% if '/dashboard/evolution/' == request.path %}active {% endif %}item" href="/dashboard/evolution">
+                <a class="{% if '/dashboard/evolution/' == request.path %}active {% endif %}item" href="{% url 'evolution' %}">
                     تکامل معماری</a>
             </div>
         </div>
@@ -151,5 +151,14 @@
             });
         });
 
+    </script>
+
+    <script>
+        $('.delete_item').click(function () {
+            $('.ui.basic.modal')
+                .modal('show')
+            ;
+            this.preventDefault();
+        });
     </script>
 {% endblock %}

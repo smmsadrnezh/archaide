@@ -7,42 +7,31 @@
             <div class="row">
                 <h1 class="ui huge dividing header">نمونه‌گیری معماری</h1>
             </div>
-            <div class="center aligned row">
-
-                <form class="ui form" method="post" action="{% url 'architecture_create' %}">
-                    {% csrf_token %}
-                    <div class="field">
-                        <label>بارگذاری فایل owl:</label> <input type="file">
-                    </div>
-                    <div class="field">
-                        <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
-                    </div>
-                    <button class="ui button" type="submit">ایجاد معماری</button>
-                </form>
-
-
-
-                {% if success %}
+            {% if success %}
+                <div class="center aligned row">
                     <div class="ui positive message">
                         <i class="close icon"></i>
                         <ul class="list">
                             <li>معماری با موفقیت ایجاد شد.</li>
                         </ul>
                     </div>
-                {% endif %}
-
-            </div>
+                </div>
+            {% endif %}
 
             <div class="center aligned row">
-
                 <form class="ui form" method="post" action="{% url 'architecture_create' %}">
                     {% csrf_token %}
                     <div class="field">
-                        <label>نام معماری</label> <input type="text" name="name" placeholder="نام معماری">
+                        <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
+                    </div>
+                    <div class="field">
+                        <label>بارگذاری فایل هستان‌شناسی (owl):</label> <input type="file" name="ontology">
                     </div>
                     <button class="ui button" type="submit">ایجاد معماری</button>
                 </form>
+            </div>
 
+            <div class="center aligned row">
             </div>
             <div class="ui hidden section divider"></div>
         </div>
