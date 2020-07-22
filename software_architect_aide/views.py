@@ -1,16 +1,13 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from rdflib import Graph
 
-from software_architect_aide.local_settings import BASE_DIR
 from software_architect_aide.models import Architecture
 
 
 @login_required(login_url='/')
 def dashboard(request):
-    g = Graph()
-    g.parse(BASE_DIR + '/data/owl/ontology.owl')
-    context = {'axioms_counts': len(g), 'content': g, 'architectures': Architecture.objects.filter(owner=request.user)}
+    context = {'architectures': Architecture.objects.filter(owner=request.user)}
     return render(request, 'dashboard_home.html', context)
 
 
@@ -34,9 +31,15 @@ def architecture_edit(request):
 @login_required(login_url='/')
 def architecture_create(request):
     if request.method == 'POST':
-        name = request.POST.get('name', '')
-        Architecture.objects.create(name=name, owner=request.user)
-        return render(request, 'dashboard_home.html', {'success': 'True'})
+        architecture = Architecture(name=request.POST.get('name'), owner=request.user)
+        if request.FILES.get('ontology'):
+            architecture.owl_file = request.FILES.get('ontology')
+            architecture.save()
+            architecture.axiom_count = len(Graph().parse(architecture.owl_file.path))
+        else:
+            pass
+        architecture.save()
+        return redirect('dashboard')
     else:
         context = {'': '', }
         return render(request, 'dashboard_architecture_create.html', context)

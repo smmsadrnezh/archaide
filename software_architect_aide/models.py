@@ -8,4 +8,5 @@ class Architecture(models.Model):
     owner = models.ForeignKey(User, related_name='architectures', on_delete=models.CASCADE)
     date_added = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
-    owl_file = FileField(upload_to='media/owl')
+    owl_file = FileField(upload_to='owl')
+    axiom_count = models.IntegerField(default=0)

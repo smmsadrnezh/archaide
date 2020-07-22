@@ -25,7 +25,7 @@
                         <tr>
                             <td>{{ forloop.counter }}</td>
                             <td>{{ architecture.name }}</td>
-                            <td>{{ architecture.count }}</td>
+                            <td>{{ architecture.axiom_count }}</td>
                             <td>{{ architecture.date_added }}</td>
                             <td>{{ architecture.last_modified }}</td>
                             <td>
@@ -56,28 +56,46 @@
                     </tfoot>
                 </table>
             </div>
-            <div class="center aligned row">
-                تعداد اکسیوم: {{ axioms_counts }} متن اول:
-                {% for statement in content %}
-                    {{ statement }}
-                {% endfor %}
-            </div>
             <div class="ui hidden section divider"></div>
         </div>
     </div>
-    <div class="ui basic modal">
-        <div class="ui icon header">
-            <i class="trash icon"></i> آیا مایل به حذف این معماری هستید؟
+
+    <div class="ui modal tiny">
+        <i class="close icon"></i>
+        <div class="header">
+            آیا مایل به حذف این معماری هستید؟
         </div>
-        <div class="content">
-            <p>درصورت حذف این هستان‌شناسی امکان بازیابی آن وجود ندارد.</p>
+        <div class="image content">
+            <div class="description">
+                <p>درصورت حذف این هستان‌شناسی امکان بازیابی آن وجود ندارد.</p>
+            </div>
         </div>
         <div class="actions">
-            <div class="ui red basic cancel inverted button">
-                <i class="remove icon"></i> انصراف
+            <div class="ui black deny button">
+                انصراف
             </div>
-            <div class="ui red danger inverted button">
-                <i class="trash icon"></i> بله
+            <div class="ui red danger right labeled icon button">
+                بله <i class="trash icon"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="ui modal tiny">
+        <i class="close icon"></i>
+        <div class="header">
+            گرفتن خروجی و بارگیری هستان‌شناسی
+        </div>
+        <div class="image content">
+            <div class="description">
+                <p>فرمت خروجی را انتخاب کنید.</p>
+            </div>
+        </div>
+        <div class="actions">
+            <div class="ui black deny button">
+                انصراف
+            </div>
+            <div class="ui positive right labeled icon button">
+                بارگیری <i class="download icon"></i>
             </div>
         </div>
     </div>
