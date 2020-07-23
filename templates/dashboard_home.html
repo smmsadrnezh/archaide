@@ -21,13 +21,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                    {% if not architectures %}
-                        <tr>
-                            <th colspan="7">
-                                هنوز هیچ معماری‌ای ایجاد نشده. <a href="{% url 'architecture_create' %}">ساخت معماری</a>
-                            </th>
-                        </tr>
-                    {% endif %}
                     {% for architecture in architectures %}
                         <tr>
                             <td>{{ forloop.counter }}</td>
