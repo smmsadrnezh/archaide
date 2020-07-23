@@ -45,3 +45,8 @@ def pars_query_all_attribute_tactics(query_result):
 
 def triple_count(rdf_path):
     return len(Graph().parse(rdf_path))
+
+
+def get_all_tactic_by_qa(quality_attributes, qa_t):
+    for item in qa_t:
+        pass
