@@ -21,7 +21,7 @@ from . import views
 
 urlpatterns = [path('admin/', admin.site.urls), path('dashboard/', views.dashboard, name='dashboard'),
     path('dashboard/architecture/create/', views.architecture_create, name='architecture_create'),
-    path('dashboard/architecture/delete/(?P<architecture_id>\d+)', views.architecture_delete,
+    path('dashboard/architecture/delete/<int:architecture_id>', views.architecture_delete,
          name='architecture_delete'),
     path('dashboard/architecture/', views.architecture_edit, name='architecture_edit'),
     path('dashboard/tradeoff/', views.tradeoff, name='tradeoff'),
