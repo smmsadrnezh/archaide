@@ -34,7 +34,9 @@ def architecture_create(request):
         context = {'success': True}
         return render(request, 'dashboard_architecture_create.html', context)
     else:
-        context = {'': ''}
+        query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
+        qa_t = pars_query_all_attribute_tactics(query_result)
+        context = {'data': qa_t}
         return render(request, 'dashboard_architecture_create.html', context)
 
 
@@ -61,11 +63,3 @@ def tradeoff(request):
 def evolution(request):
     context = {'': '', }
     return render(request, 'dashboard_evolution.html', context)
-
-
-@login_required(login_url='/')
-def get_reference_architecture(request):
-    # quality_attributes = query(ALL_QUALITY_ATTRIBUTES)
-    query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
-    qa_t = pars_query_all_attribute_tactics(query_result)
-    return render(request, 'dashboard_architecture_create.html', context={'data': qa_t})

@@ -21,8 +21,7 @@
             {% endif %}
 
             <div class="center aligned row">
-                <form class="ui form" method="post" action="{% url 'architecture_create' %}"
-                      enctype="multipart/form-data">
+                <form class="ui form" method="post" action="{% url 'architecture_create' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="field">
                         <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
@@ -60,10 +59,35 @@
                         ساخت دستی معماری
                     </div>
                     <div class="ui secondary segment reference" style="display: none">
-                        <a href="{% url 'reference_architecture' %}">ساخت معماری از روی معماری مرجع
-                            {% for item in data %}
-                                {{ item }}
-                            {% endfor %}
+                        <div class="ui column  centered grid">
+
+                            <div class="ui ordered steps">
+                                <div class="completed step">
+                                    <div class="content">
+                                        <div class="title">ویژگی‌های کیفی</div>
+                                        <div class="description">ویژگی‌های کیفی را از فهرست زیر انتخاب کنید.</div>
+                                    </div>
+                                </div>
+                                <div class="completed step">
+                                    <div class="content">
+                                        <div class="title">تاکتیک‌ها</div>
+                                        <div class="description">تاکتیک‌های مرتبط با ویژگی‌های کیفی را انتخاب کنید.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="active step">
+                                    <div class="content">
+                                        <div class="title">تایید و ثبت معماری</div>
+                                        <div class="description">اطلاعات معماری را تایید کنید.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {% for item in data %}
+                            {{ item }}
+                        {% endfor %}
                         </a>
                     </div>
                     <button class="ui button" type="submit" onclick="loading()">ایجاد معماری</button>
