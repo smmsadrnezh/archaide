@@ -30,24 +30,24 @@
                     <div class="inline fields">
                         <label for="method">روش نمونه‌گیری:</label>
                         <div class="field">
-                            <div class="ui radio checkbox">
+                            <div class="ui radio checkbox" onclick="show_segment('upload')">
                                 <input type="radio" name="method" checked="" tabindex="0" class="hidden"> <label>بارگذاری
                                 هستان‌شناسی</label>
                             </div>
                         </div>
                         <div class="field">
-                            <div class="ui radio checkbox">
+                            <div class="ui radio checkbox" onclick="show_segment('reference')">
                                 <input type="radio" name="method" tabindex="0" class="hidden"> <label>ساخت براساس معماری
                                 مرجع</label>
                             </div>
                         </div>
                         <div class="field">
-                            <div class="ui radio checkbox">
+                            <div class="ui radio checkbox" onclick="show_segment('manual')">
                                 <input type="radio" name="method" tabindex="0" class="hidden"> <label>ساخت دستی</label>
                             </div>
                         </div>
                     </div>
-                    <div class="ui secondary segment">
+                    <div class="ui secondary segment upload">
                         <div class="field">
                             <label>بارگذاری فایل هستان‌شناسی (owl):</label>
                             <div class="ui left icon input">
@@ -56,9 +56,11 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ui secondary segment">
+                    <div class="ui secondary segment manual" style="display: none">
                         ساخت دستی معماری
                     </div>
+                    <div class="ui secondary segment reference" style="display: none">
+                        ساخت معماری از روی معماری مرجع
                     <div class="ui secondary segment">
                         <a href="{% url 'reference_architecture' %}">ساخت معماری از روی معماری مرجع
                             {% for item in data %}
@@ -66,7 +68,7 @@
                             {% endfor %}
                         </a>
                     </div>
-                    <button class="ui button" type="submit">ایجاد معماری</button>
+                    <button class="ui button" type="submit" onclick="loading()">ایجاد معماری</button>
                 </form>
             </div>
 
