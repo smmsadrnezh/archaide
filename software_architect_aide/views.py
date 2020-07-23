@@ -2,6 +2,7 @@ import os
 
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from rdflib import Graph
 
 from software_architect_aide.common import visualize, axiom_count
 from software_architect_aide.models import Architecture
@@ -40,8 +41,8 @@ def architecture_create(request):
             architecture.save()
             image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name.split('/')[-1] + '.png')
             rdf_path = architecture.owl_file.path
-            architecture.axiom_count = axiom_count(rdf_path)
-            visualize(rdf_path, image_path)
+            rdf_graph = Graph().parse(rdf_path)
+            architecture.axiom_count = len(rdf_graph)  # visualize(rdf_path, image_path)
         else:
             pass
         architecture.save()
