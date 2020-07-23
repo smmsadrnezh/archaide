@@ -1,9 +1,7 @@
-from pathlib import Path
-
+import matplotlib.pyplot as plt
 import networkx as nx
 from rdflib import Graph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
-import matplotlib.pyplot as plt
 
 from software_architect_aide.local_settings import BASE_DIR
 from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTES
@@ -32,3 +30,7 @@ def query():
     result = g.query(ALL_QUALITY_ATTRIBUTES)
     for row in result:
         print("%s knows %s" % row)
+
+
+def triple_count(rdf_path):
+    return len(Graph().parse(rdf_path))

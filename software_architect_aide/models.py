@@ -9,4 +9,4 @@ class Architecture(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     owl_file = FileField(upload_to='owl', unique=True)
-    axiom_count = models.IntegerField(default=0)
+    triple_count = models.IntegerField(default=0)
