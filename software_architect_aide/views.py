@@ -63,3 +63,20 @@ def tradeoff(request):
 def evolution(request):
     context = {'': '', }
     return render(request, 'dashboard_evolution.html', context)
+
+
+@login_required(login_url='/')
+def get_reference_architecture(request):
+    # quality_attributes = query(ALL_QUALITY_ATTRIBUTES)
+    query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
+    qa_t = pars_query_all_attribute_tactics(query_result)
+    qa_list = ['Security', 'Performance']
+    result = dict()
+    for qa in qa_list:
+        result.update({qa: []})
+    for item in qa_t:
+        key = list(item.keys())[0]
+        value = list(item.values())[0]
+        if key in result.keys():
+            result[key].append(value)
+    return render(request, 'dashboard_architecture_create.html', context={'data': qa_t})
