@@ -5,6 +5,9 @@ from rdflib import Graph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
 import matplotlib.pyplot as plt
 
+from software_architect_aide.local_settings import BASE_DIR
+from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTES
+
 
 def visualize(rdf_path, image_path):
     rdf_graph = Graph().parse(rdf_path)
@@ -21,3 +24,11 @@ def visualize(rdf_path, image_path):
 def axiom_count(rdf_path):
     rdf_graph = Graph().parse(rdf_path)
     return len(rdf_graph)
+
+
+def query():
+    g = Graph()
+    g.parse(BASE_DIR + "/data/owl/ontology.owl", format='xml')
+    result = g.query(ALL_QUALITY_ATTRIBUTES)
+    for row in result:
+        print("%s knows %s" % row)

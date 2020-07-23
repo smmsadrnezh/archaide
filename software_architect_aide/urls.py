@@ -20,13 +20,15 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [path('admin/', admin.site.urls), path('dashboard/', views.dashboard, name='dashboard'),
-    path('dashboard/architecture/create/', views.architecture_create, name='architecture_create'),
-    path('dashboard/architecture/delete/<int:architecture_id>', views.architecture_delete,
-         name='architecture_delete'),
-    path('dashboard/architecture/', views.architecture_edit, name='architecture_edit'),
-    path('dashboard/tradeoff/', views.tradeoff, name='tradeoff'),
-    path('dashboard/evolution/', views.evolution, name='evolution'),
-    path('', include('accounts.urls', namespace='accounts')),
+               path('dashboard/architecture/create/', views.architecture_create, name='architecture_create'),
+               path('dashboard/architecture/delete/<int:architecture_id>', views.architecture_delete,
+                    name='architecture_delete'),
+               path('dashboard/architecture/', views.architecture_edit, name='architecture_edit'),
+               path('dashboard/tradeoff/', views.tradeoff, name='tradeoff'),
+               path('dashboard/evolution/', views.evolution, name='evolution'),
+               path('dashnoard/reference_architecture', views.get_reference_architecture,
+                    name='reference_architecture'),
+               path('', include('accounts.urls', namespace='accounts')),
 
-]
+               ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

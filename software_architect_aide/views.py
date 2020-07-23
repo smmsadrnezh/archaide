@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from software_architect_aide.common import visualize, axiom_count
+from software_architect_aide.common import visualize, axiom_count, query
 from software_architect_aide.models import Architecture
 from software_architect_aide.settings import MEDIA_ROOT
 
@@ -59,3 +59,8 @@ def tradeoff(request):
 def evolution(request):
     context = {'': '', }
     return render(request, 'dashboard_evolution.html', context)
+
+
+@login_required(login_url='/')
+def get_reference_architecture(request):
+    result = query()
