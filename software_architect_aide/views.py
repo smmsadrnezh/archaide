@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from software_architect_aide.common import visualize, axiom_count
+from software_architect_aide.common import visualize, triple_count
 from software_architect_aide.models import Architecture
 from software_architect_aide.settings import MEDIA_ROOT
 
@@ -24,7 +24,7 @@ def architecture_create(request):
             architecture.save()
             image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
             rdf_path = architecture.owl_file.path
-            architecture.axiom_count = axiom_count(rdf_path)
+            architecture.triple_count = triple_count(rdf_path)
             visualize(rdf_path, image_path)
         else:
             pass

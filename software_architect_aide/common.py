@@ -18,6 +18,5 @@ def visualize(rdf_path, image_path):
     plt.savefig(image_path)
 
 
-def axiom_count(rdf_path):
-    rdf_graph = Graph().parse(rdf_path)
-    return len(rdf_graph)
+def triple_count(rdf_path):
+    return len(Graph().parse(rdf_path))
