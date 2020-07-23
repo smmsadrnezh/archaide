@@ -16,23 +16,6 @@ def dashboard(request):
 
 
 @login_required(login_url='/')
-def tradeoff(request):
-    context = {'': '', }
-    return render(request, 'dashboard_tradeoff.html', context)
-
-
-@login_required(login_url='/')
-def evolution(request):
-    context = {'': '', }
-    return render(request, 'dashboard_evolution.html', context)
-
-
-@login_required(login_url='/')
-def architecture_edit(request):
-    return None
-
-
-@login_required(login_url='/')
 def architecture_create(request):
     if request.method == 'POST':
         architecture = Architecture(name=request.POST.get('name'), owner=request.user)
@@ -59,3 +42,20 @@ def architecture_delete(request, architecture_id):
     if request.method == 'POST':
         architecture.delete()
     return HttpResponseRedirect('/dashboard')
+
+
+@login_required(login_url='/')
+def architecture_edit(request):
+    return None
+
+
+@login_required(login_url='/')
+def tradeoff(request):
+    context = {'': '', }
+    return render(request, 'dashboard_tradeoff.html', context)
+
+
+@login_required(login_url='/')
+def evolution(request):
+    context = {'': '', }
+    return render(request, 'dashboard_evolution.html', context)
