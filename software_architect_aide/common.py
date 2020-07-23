@@ -1,7 +1,9 @@
+from pathlib import Path
+
 import networkx as nx
-from matplotlib.pyplot import plot as plt
 from rdflib import Graph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
+import matplotlib.pyplot as plt
 
 
 def visualize(rdf_path, image_path):

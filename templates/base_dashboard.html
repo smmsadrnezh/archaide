@@ -154,15 +154,20 @@
     </script>
 
     <script>
-        {#Delete Modals#}
-        $('.delete_item').click(function () {
-            $('.tiny.modal')
+        {#Open Modals#}
+
+        function open_modal(id, type) {
+            $('.' + type + '_' + id)
                 .modal('show')
             ;
-            this.preventDefault();
-        });
+        }
 
-        {#Radio uttons#}
+        {#Open Dropdowns#}
+        $('.ui.dropdown')
+            .dropdown()
+        ;
+
+        {#Radio Buttons#}
         $('.ui.radio.checkbox')
             .checkbox()
         ;
