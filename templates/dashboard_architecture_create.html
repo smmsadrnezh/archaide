@@ -8,12 +8,14 @@
                 <h1 class="ui huge dividing header">نمونه‌گیری معماری</h1>
             </div>
             {% if success %}
-                <div class="center aligned row">
-                    <div class="ui positive message">
-                        <i class="close icon"></i>
-                        <ul class="list">
-                            <li>معماری با موفقیت ایجاد شد.</li>
-                        </ul>
+                <div class="ui positive icon small message">
+                    <i class="small inbox icon"></i>
+                    <div class="content">
+                        <div class="header">
+                            ایجاد معماری
+                        </div>
+                        <p>
+                            معماری با موفقیت ایجاد شد. <a href="{% url 'dashboard' %}"> نمایش مشخصات معماری‌ها</a></p>
                     </div>
                 </div>
             {% endif %}
@@ -24,19 +26,45 @@
                     <div class="field">
                         <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
                     </div>
-                    <div class="field">
-                        <label>بارگذاری فایل هستان‌شناسی (owl):</label>
-                        <div class="ui left icon input">
-                                    <i class="file icon"></i> <input type="file" accept=".owl" name="ontology" id="ontology">
-                                </div>
+                    <div class="inline fields">
+                        <label for="method">روش نمونه‌گیری:</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="method" checked="" tabindex="0" class="hidden"> <label>بارگذاری
+                                معماری</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="method" tabindex="0" class="hidden"> <label>ساخت براساس معماری مرجع</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="method" tabindex="0" class="hidden"> <label>ساخت دستی</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui secondary segment">
+                        <div class="field">
+                            <label>بارگذاری فایل هستان‌شناسی (owl):</label>
+                            <div class="ui left icon input">
+                                <i class="file icon"></i>
+                                <input type="file" accept=".owl" name="ontology" id="ontology">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui secondary segment">
+                        ساخت آنتولوژی
                     </div>
                     <button class="ui button" type="submit">ایجاد معماری</button>
                 </form>
             </div>
 
-            <div class="center aligned row">
-            </div>
+            <div class="center aligned row"></div>
             <div class="ui hidden section divider"></div>
         </div>
     </div>
+
+
 {% endblock %}

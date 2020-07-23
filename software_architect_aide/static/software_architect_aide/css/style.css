@@ -4,6 +4,6 @@ body {
 	font-weight: 300;
 	direction: rtl;
 }
-h1, h2, h3, h4, h5, h6,input, textarea, a, .button, .message {
+h1, h2, h3, h4, h5, h6,input, textarea, a, .button, .message, .item, .header {
     font-family: 'IRANSans', serif !important;
 }

@@ -154,11 +154,17 @@
     </script>
 
     <script>
+        {#Delete Modals#}
         $('.delete_item').click(function () {
             $('.tiny.modal')
                 .modal('show')
             ;
             this.preventDefault();
         });
+
+        {#Radio uttons#}
+        $('.ui.radio.checkbox')
+            .checkbox()
+        ;
     </script>
 {% endblock %}
