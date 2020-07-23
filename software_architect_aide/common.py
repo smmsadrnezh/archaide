@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import networkx as nx
 from rdflib import Graph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
