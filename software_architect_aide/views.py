@@ -1,6 +1,7 @@
 import os
 
 from django.contrib.auth.decorators import login_required
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from software_architect_aide.common import visualize, axiom_count
@@ -53,5 +54,8 @@ def architecture_create(request):
 
 
 @login_required(login_url='/')
-def architecture_delete(request):
-    return None
+def architecture_delete(request, architecture_id):
+    architecture = Architecture.objects.get(id=architecture_id)
+    if request.method == 'POST':
+        architecture.delete()
+    return HttpResponseRedirect('/dashboard')
