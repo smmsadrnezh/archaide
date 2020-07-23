@@ -1,5 +1,5 @@
 import networkx as nx
-from networkx.drawing.tests.test_pylab import plt
+from matplotlib.pyplot import plot as plt
 from rdflib import Graph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
 
