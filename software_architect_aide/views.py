@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from rdflib import Graph
 
+from software_architect_aide.common import visualize, axiom_count
 from software_architect_aide.models import Architecture
 
 
