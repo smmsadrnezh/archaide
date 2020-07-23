@@ -38,7 +38,7 @@ def architecture_create(request):
         if request.FILES.get('ontology'):
             architecture.owl_file = request.FILES.get('ontology')
             architecture.save()
-            image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name.split('/')[-1] + '.png')
+            image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
             rdf_path = architecture.owl_file.path
             architecture.axiom_count = axiom_count(rdf_path)
             visualize(rdf_path, image_path)

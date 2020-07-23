@@ -36,20 +36,91 @@
                             <td>{{ architecture.date_added }}</td>
                             <td>{{ architecture.last_modified }}</td>
                             <td>
-                                <button class="ui icon button">
+                                <button class="ui icon button" onclick="open_modal({{ forloop.counter }}, 'visualize')">
                                     <i class="eye icon"></i>
                                 </button>
                                 <button class="ui icon button">
                                     <i class="edit icon"></i>
                                 </button>
-                                <button class="ui icon button delete_item">
+                                <button class="ui icon button delete_item" onclick="open_modal({{ forloop.counter }}, 'delete')">
                                     <i class="trash icon"></i>
                                 </button>
-                                <button class="ui icon button">
+                                <button class="ui icon button" onclick="open_modal({{ forloop.counter }}, 'export')">
                                     <i class="download icon"></i>
                                 </button>
                             </td>
                         </tr>
+
+                        <div class="ui modal large visualize_{{ forloop.counter }}">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                نمایش تصویر هستان‌شناسی
+                            </div>
+                            <div class="image content">
+                                <div class="ui fluid image">
+                                    <img src="/media/visual/{{ architecture.owl_file }}.png">
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <div class="ui positive right labeled icon button">
+                                    بارگیری <i class="download icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui modal tiny delete_{{ forloop.counter }}">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                آیا مایل به حذف معماری هستید؟
+                            </div>
+                            <div class="image content">
+                                <div class="description">
+                                    <p>درصورت حذف معماری {{ architecture.name }} امکان بازیابی آن وجود ندارد.</p>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <div class="ui black deny button">
+                                    انصراف
+                                </div>
+                                <div class="ui red danger right labeled icon button">
+                                    بله <i class="trash icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ui modal tiny export_{{ forloop.counter }}">
+                            <i class="close icon"></i>
+                            <div class="header">
+                                گرفتن خروجی و بارگیری هستان‌شناسی {{ architecture.name }}
+                            </div>
+                            <div class="image content">
+                                <div class="description">
+                                    <p>فرمت خروجی را انتخاب کنید.</p>
+                                    <div class="ui form">
+                                        <div class="field">
+                                            <label>سریالایزر</label>
+                                            <div class="ui selection dropdown">
+                                                <input type="hidden" name="gender"> <i class="dropdown icon"></i>
+                                                <div class="default text">XML</div>
+                                                <div class="menu">
+                                                    <div class="item" data-value="xml">XML</div>
+                                                    <div class="item" data-value="turtle">Turtle</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="actions">
+                                <div class="ui black deny button">
+                                    انصراف
+                                </div>
+                                <div class="ui positive right labeled icon button">
+                                    بارگیری <i class="download icon"></i>
+                                </div>
+                            </div>
+                        </div>
+
                     {% endfor %}
                     </tbody>
                     <tfoot class="full-width">
@@ -67,43 +138,4 @@
         </div>
     </div>
 
-    <div class="ui modal tiny">
-        <i class="close icon"></i>
-        <div class="header">
-            آیا مایل به حذف این معماری هستید؟
-        </div>
-        <div class="image content">
-            <div class="description">
-                <p>درصورت حذف این هستان‌شناسی امکان بازیابی آن وجود ندارد.</p>
-            </div>
-        </div>
-        <div class="actions">
-            <div class="ui black deny button">
-                انصراف
-            </div>
-            <div class="ui red danger right labeled icon button">
-                بله <i class="trash icon"></i>
-            </div>
-        </div>
-    </div>
-
-    <div class="ui modal tiny">
-        <i class="close icon"></i>
-        <div class="header">
-            گرفتن خروجی و بارگیری هستان‌شناسی
-        </div>
-        <div class="image content">
-            <div class="description">
-                <p>فرمت خروجی را انتخاب کنید.</p>
-            </div>
-        </div>
-        <div class="actions">
-            <div class="ui black deny button">
-                انصراف
-            </div>
-            <div class="ui positive right labeled icon button">
-                بارگیری <i class="download icon"></i>
-            </div>
-        </div>
-    </div>
 {% endblock %}
