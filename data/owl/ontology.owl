@@ -1091,6 +1091,7 @@
     <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Verify_Message_Integrity -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Verify_Message_Integrity">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
         <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Security"/>
         <rdfs:label>Verify Message Integrity</rdfs:label>
     </owl:NamedIndividual>
@@ -1100,6 +1101,7 @@
     <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Voting -->
 
     <owl:NamedIndividual rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Voting">
+        <rdf:type rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
         <achieves rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Availability"/>
         <rdfs:label>Voting</rdfs:label>
     </owl:NamedIndividual>
