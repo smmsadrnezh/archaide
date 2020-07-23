@@ -4,15 +4,8 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX : <http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#>
 PREFIX sa: <http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#sa:>
-####################################################################################################
-SELECT ?subject
-	WHERE
-	{
-	 ?subject a :Tactic.
-	 ?subject :achieves :Security.
-	}
-ORDER BY ?subject
 ######################################################################################################
+لیست تمام تاکتیک های مرتبط با امنیت
 SELECT ?subject
 	WHERE
 	{
@@ -22,6 +15,7 @@ SELECT ?subject
 	}
 ORDER BY ?subject
 ######################################################################################################
+لیست تمام ویژگی های کیفی موجود
 SELECT ?subject
 	WHERE
 	{
@@ -29,3 +23,24 @@ SELECT ?subject
 	 ?subject rdfs:label ?qalabel.
 	}
 ORDER BY ?subject
+#####################################################################################################
+لیست تمام تاکتیک های موجود
+SELECT ?subject
+	WHERE { ?subject a :Tactic.
+		?subject rdfs:label ?tlabel.
+ }
+ORDER BY ?subject
+#####################################################################################################
+لیست تمام تاکتیک های مربط با هر ویژگی کیفی موجود
+SELECT ?subject ?object
+	WHERE
+	{
+	 ?subject a :Tactic.
+	?object a :Quality_Attribute.
+	 ?subject rdfs:label ?tlabel.
+	?object rdfs:label ?qalabel.
+	?subject :achieves ?object
+
+	}
+ORDER BY ?object ?subject
+#################################################################################################
