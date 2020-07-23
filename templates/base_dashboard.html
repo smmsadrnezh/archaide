@@ -171,5 +171,32 @@
         $('.ui.radio.checkbox')
             .checkbox()
         ;
+
+        {#  Loading After Submission  #}
+
+        function loading() {
+            $('.segment')
+                .addClass("loading");
+        }
+
+        {#  Loading  #}
+
+        function show_segment(type) {
+            $('.segment').hide();
+            switch (type) {
+                case "upload":
+                    $('.segment.upload')
+                        .show();
+                    break;
+                case "reference":
+                    $('.segment.reference')
+                        .show();
+                    break;
+                case "manual":
+                    $('.segment.manual')
+                        .show();
+                    break;
+            }
+        }
     </script>
 {% endblock %}
