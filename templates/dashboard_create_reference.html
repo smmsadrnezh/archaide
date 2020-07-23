@@ -5,7 +5,7 @@
     <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
         <div class="ui padded grid">
             <div class="row">
-                <h1 class="ui huge dividing header">نمونه‌گیری معماری</h1>
+                <h1 class="ui huge dividing header">ساخت براساس معماری مرجع</h1>
             </div>
             {% if success %}
                 <div class="ui positive icon small message">
@@ -21,46 +21,13 @@
             {% endif %}
 
             <div class="center aligned row">
-                <form class="ui form" method="post" action="{% url 'architecture_create' %}" enctype="multipart/form-data">
+                <form class="ui form" method="post" action="{% url 'create_upload' %}" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="field">
                         <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
                     </div>
-                    <div class="inline fields">
-                        <label for="method">روش نمونه‌گیری:</label>
-                        <div class="field">
-                            <div class="ui radio checkbox" onclick="show_segment('upload')">
-                                <input type="radio" name="method" checked="" tabindex="0" class="hidden"> <label>بارگذاری
-                                هستان‌شناسی</label>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui radio checkbox" onclick="show_segment('reference')">
-                                <input type="radio" name="method" tabindex="0" class="hidden"> <label>ساخت براساس معماری
-                                مرجع</label>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="ui radio checkbox" onclick="show_segment('manual')">
-                                <input type="radio" name="method" tabindex="0" class="hidden"> <label>ساخت دستی</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui secondary segment upload">
-                        <div class="field">
-                            <label>بارگذاری فایل هستان‌شناسی (owl):</label>
-                            <div class="ui left icon input">
-                                <i class="file icon"></i>
-                                <input type="file" accept=".owl" name="ontology" id="ontology">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ui secondary segment manual" style="display: none">
-                        ساخت دستی معماری
-                    </div>
-                    <div class="ui secondary segment reference" style="display: none">
-                        <div class="ui column  centered grid">
-
+                    <div class="ui secondary segments reference">
+                        <div class="ui center aligned segment">
                             <div class="ui ordered steps">
                                 <div class="completed step">
                                     <div class="content">
@@ -83,12 +50,11 @@
                                 </div>
                             </div>
                         </div>
-
-
-                        {% for item in data %}
-                            {{ item }}
-                        {% endfor %}
-                        </a>
+                        <div class="ui segment">
+                            {% for item in data %}
+                                {{ item }}
+                            {% endfor %}
+                        </div>
                     </div>
                     <button class="ui button" type="submit" onclick="loading()">ایجاد معماری</button>
                 </form>
@@ -97,6 +63,4 @@
             <div class="ui hidden section divider"></div>
         </div>
     </div>
-
-
 {% endblock %}

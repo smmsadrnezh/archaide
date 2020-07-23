@@ -18,26 +18,34 @@ def dashboard(request):
 
 
 @login_required(login_url='/')
-def architecture_create(request):
+def create_upload(request):
     if request.method == 'POST':
+        request.POST.get('name')
         architecture = Architecture(name=request.POST.get('name'), owner=request.user)
-        if request.FILES.get('ontology'):
-            architecture.owl_file = request.FILES.get('ontology')
-            architecture.save()
-            image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
-            rdf_path = architecture.owl_file.path
-            architecture.triple_count = triple_count(rdf_path)
-            visualize(rdf_path, image_path)
-        else:
-            pass
+        architecture.owl_file = request.FILES.get('ontology')
+        architecture.save()
+        image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
+        rdf_path = architecture.owl_file.path
+        architecture.triple_count = triple_count(rdf_path)
+        visualize(rdf_path, image_path)
         architecture.save()
         context = {'success': True}
-        return render(request, 'dashboard_architecture_create.html', context)
+        return render(request, 'dashboard_create_upload.html', context)
     else:
-        query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
-        qa_t = pars_query_all_attribute_tactics(query_result)
-        context = {'data': qa_t}
-        return render(request, 'dashboard_architecture_create.html', context)
+        return render(request, 'dashboard_create_upload.html')
+
+
+@login_required(login_url='/')
+def create_reference(request):
+    query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
+    qa_t = pars_query_all_attribute_tactics(query_result)
+    context = {'data': qa_t}
+    return render(request, 'dashboard_create_reference.html', context)
+
+
+@login_required(login_url='/')
+def create_manual(request):
+    return render(request, 'dashboard_create_manual.html', {})
 
 
 @login_required(login_url='/')
@@ -64,19 +72,18 @@ def evolution(request):
     context = {'': '', }
     return render(request, 'dashboard_evolution.html', context)
 
-
-@login_required(login_url='/')
-def get_reference_architecture(request):
-    # quality_attributes = query(ALL_QUALITY_ATTRIBUTES)
-    query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
-    qa_t = pars_query_all_attribute_tactics(query_result)
-    qa_list = ['Security', 'Performance']
-    result = dict()
-    for qa in qa_list:
-        result.update({qa: []})
-    for item in qa_t:
-        key = list(item.keys())[0]
-        value = list(item.values())[0]
-        if key in result.keys():
-            result[key].append(value)
-    return render(request, 'dashboard_architecture_create.html', context={'data': qa_t})
+# @login_required(login_url='/')
+# def get_reference_architecture(request):
+#     # quality_attributes = query(ALL_QUALITY_ATTRIBUTES)
+#     query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
+#     qa_t = pars_query_all_attribute_tactics(query_result)
+#     qa_list = ['Security', 'Performance']
+#     result = dict()
+#     for qa in qa_list:
+#         result.update({qa: []})
+#     for item in qa_t:
+#         key = list(item.keys())[0]
+#         value = list(item.values())[0]
+#         if key in result.keys():
+#             result[key].append(value)
+#     return render(request, 'dashboard_create_upload.html', context={'data': qa_t})

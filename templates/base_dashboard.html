@@ -30,11 +30,21 @@
     </div>
     <div class="ui padded grid">
         <div class="three wide tablet only three wide computer only column" id="sidebar">
-            <div class="ui vertical borderless fluid text menu">
-                <a class="{% if '/dashboard/' == request.path %}active {% endif %}item" href="/dashboard"> خانه</a>
-
-                <a class="{% if '/dashboard/architecture/create/' == request.path %}active {% endif %}item" href="{% url 'architecture_create' %}">
-                    نمونه‌گیری معماری</a>
+            <div class="ui borderless fluid text vertical menu">
+                <a class="{% if '/dashboard/' == request.path %}active {% endif %}item" href="/dashboard"> فهرست
+                    معماری‌ها</a>
+                <div class="ui horizontal divider">
+                    نمونه‌گیری معماری
+                </div>
+                <a class="{% if '/dashboard/architecture/create/upload/' == request.path %}active {% endif %}item" href="{% url 'create_upload' %}">
+                    بارگذاری معماری </a>
+                <a class="{% if '/dashboard/architecture/create/reference/' == request.path %}active {% endif %}item" href="{% url 'create_reference' %}">
+                    ساخت براساس معماری مرجع </a>
+                <a class="{% if '/dashboard/architecture/create/manual/' == request.path %}active {% endif %}item" href="{% url 'create_manual' %}">
+                    ساخت دستی </a>
+                <div class="ui horizontal divider">
+                    تحلیل معماری
+                </div>
                 <a class="{% if '/dashboard/tradeoff/' == request.path %}active {% endif %}item" href="{% url 'tradeoff' %}">
                     تحلیل بده‌بستان‌های معماری</a>
                 <a class="{% if '/dashboard/evolution/' == request.path %}active {% endif %}item" href="{% url 'evolution' %}">
@@ -167,11 +177,6 @@
             .dropdown()
         ;
 
-        {#Radio Buttons#}
-        $('.ui.radio.checkbox')
-            .checkbox()
-        ;
-
         {#  Loading After Submission  #}
 
         function loading() {
@@ -179,24 +184,30 @@
                 .addClass("loading");
         }
 
-        {#  Loading  #}
+        $('#risk_input a').click(function () {
+            $('#risk_input').append('<div class="ui field action input"><input type="text" name="name" placeholder="مخاطره"><button class="ui red right labeled icon button"><i class="trash icon"></i> حذف</button></div>\r\n');
+            remove_input()
+            $('#risk_input a').preventDefault()
+        });
+        $('#quality_input a').click(function () {
+            $('#quality_input').append('<div class="ui field action input"><input type="text" name="name" placeholder="ویژگی کیفی"><button class="ui red right labeled icon button"><i class="trash icon"></i> حذف</button></div>\r\n');
+            remove_input()
+            $('#quality_input a').preventDefault()
+        });
+        $('#need_input a').click(function () {
+            $('#need_input').append('<div class="ui field action input"><input type="text" name="name" placeholder="نیازمندی حرفه"><button class="ui red right labeled icon button"><i class="trash icon"></i> حذف</button></div>\r\n');
+            remove_input()
+            $('#need_input a').preventDefault()
+        });
 
-        function show_segment(type) {
-            $('.segment').hide();
-            switch (type) {
-                case "upload":
-                    $('.segment.upload')
-                        .show();
-                    break;
-                case "reference":
-                    $('.segment.reference')
-                        .show();
-                    break;
-                case "manual":
-                    $('.segment.manual')
-                        .show();
-                    break;
-            }
+        function remove_input() {
+            $('.ui.red.right.labeled.icon.button').click(function (e) {
+                    e.currentTarget.parentNode.remove();
+                    e.currentTarget.preventDefault();
+                }
+            )
         }
+
+        remove_input()
     </script>
 {% endblock %}

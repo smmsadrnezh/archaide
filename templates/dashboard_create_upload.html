@@ -1,0 +1,45 @@
+{% extends 'base_dashboard.html' %}{% load static %}
+
+
+{% block dashboard_content %}
+    <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
+        <div class="ui padded grid">
+            <div class="row">
+                <h1 class="ui huge dividing header">بارگذاری معماری</h1>
+            </div>
+            {% if success %}
+                <div class="ui positive icon small message">
+                    <i class="small inbox icon"></i>
+                    <div class="content">
+                        <div class="header">
+                            ایجاد معماری
+                        </div>
+                        <p>
+                            معماری با موفقیت ایجاد شد. <a href="{% url 'dashboard' %}"> نمایش مشخصات معماری‌ها</a></p>
+                    </div>
+                </div>
+            {% endif %}
+
+            <div class="center aligned row">
+                <form class="ui form" method="post" action="{% url 'create_upload' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="field">
+                        <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
+                    </div>
+                    <div class="ui secondary segment upload">
+                        <div class="field">
+                            <label>بارگذاری فایل هستان‌شناسی (owl):</label>
+                            <div class="ui left icon input">
+                                <i class="file icon"></i>
+                                <input type="file" accept=".owl" name="ontology" id="ontology">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="ui button" type="submit" onclick="loading()">ایجاد معماری</button>
+                </form>
+            </div>
+            <div class="center aligned row"></div>
+            <div class="ui hidden section divider"></div>
+        </div>
+    </div>
+{% endblock %}

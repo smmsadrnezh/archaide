@@ -20,7 +20,9 @@ from django.urls import path, include
 from . import views
 
 urlpatterns = [path('admin/', admin.site.urls), path('dashboard/', views.dashboard, name='dashboard'),
-               path('dashboard/architecture/create/', views.architecture_create, name='architecture_create'),
+               path('dashboard/architecture/create/upload/', views.create_upload, name='create_upload'),
+               path('dashboard/architecture/create/reference/', views.create_reference, name='create_reference'),
+               path('dashboard/architecture/create/manual/', views.create_manual, name='create_manual'),
                path('dashboard/architecture/delete/<int:architecture_id>', views.architecture_delete,
                     name='architecture_delete'),
                path('dashboard/architecture/', views.architecture_edit, name='architecture_edit'),
