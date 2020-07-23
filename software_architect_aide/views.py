@@ -4,10 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from software_architect_aide.common import query
+from software_architect_aide.common import query, pars_query_all_attribute_tactics
 from software_architect_aide.common import visualize, triple_count
 from software_architect_aide.models import Architecture
 from software_architect_aide.settings import MEDIA_ROOT
+from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTES, ALL_QUALITY_ATTRIBUTE_TACTIC
 
 
 @login_required(login_url='/')
@@ -64,4 +65,7 @@ def evolution(request):
 
 @login_required(login_url='/')
 def get_reference_architecture(request):
-    result = query()
+    # quality_attributes = query(ALL_QUALITY_ATTRIBUTES)
+    query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
+    qa_t = pars_query_all_attribute_tactics(query_result)
+    return render(request, 'dashboard_architecture_create.html', context={'data': qa_t})

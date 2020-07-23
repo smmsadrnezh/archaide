@@ -4,7 +4,6 @@ from rdflib import Graph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
 
 from software_architect_aide.local_settings import BASE_DIR
-from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTES
 
 
 def visualize(rdf_path, image_path):
@@ -24,12 +23,24 @@ def axiom_count(rdf_path):
     return len(rdf_graph)
 
 
-def query():
+def query(query_string):
     g = Graph()
     g.parse(BASE_DIR + "/data/owl/ontology.owl", format='xml')
-    result = g.query(ALL_QUALITY_ATTRIBUTES)
-    for row in result:
-        print("%s knows %s" % row)
+    return g.query(query_string)
+
+
+def pars_query_all_attributes(query_result):
+    quality_attributes = list()
+    for row in query_result:
+        quality_attributes.append(row.asdict()['qalabel'].value)
+    return quality_attributes
+
+
+def pars_query_all_attribute_tactics(query_result):
+    qa_t = list()
+    for row in query_result:
+        qa_t.append({row.asdict()['qa_label'].value: row.asdict()['tactic_label'].value})
+    return qa_t
 
 
 def triple_count(rdf_path):
