@@ -25,7 +25,6 @@ urlpatterns = [
     path('dashboard/architecture/', views.architecture_edit, name='architecture_edit'),
     path('dashboard/architecture/create/', views.architecture_create, name='architecture_create'),
     path('dashboard/architecture/delete/', views.architecture_delete, name='architecture_delete'),
-    path('dashboard/instantiate/', views.instantiate, name='instantiate'),
     path('dashboard/tradeoff/', views.tradeoff, name='tradeoff'),
     path('dashboard/evolution/', views.evolution, name='evolution'),
     path('', include('accounts.urls', namespace='accounts')),
