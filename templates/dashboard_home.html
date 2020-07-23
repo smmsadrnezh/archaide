@@ -79,12 +79,13 @@
                                 </div>
                             </div>
                             <div class="actions">
+                                <form action="{% url 'architecture_delete' architecture_id=architecture.id %}" method="POST">
                                 <div class="ui black deny button">
                                     انصراف
                                 </div>
-                                <div class="ui red danger right labeled icon button">
-                                    بله <i class="trash icon"></i>
-                                </div>
+                                    {% csrf_token %}
+                                    <button class="ui red danger right labeled icon button" type="submit">بله <i class="trash icon"></i></button>
+                                </form>
                             </div>
                         </div>
 
