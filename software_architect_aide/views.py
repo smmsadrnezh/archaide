@@ -155,7 +155,10 @@ def ontospy_report(request):
     context['reference_stats'] = reference_graph.stats()
     context['manual_stats'] = manual_graph.stats()
 
+    # context['reference_k'] = reference_graph
+
     # g.stats()
     # v = Dataviz(g)  # => instantiate the visualization object
     # v.build(output_path=BASE_DIR+'/data/ontospy/')  # => render visualization. You can pass an 'output_path' parameter too
     # v.preview()  # => open in browser
+    return render(request, 'dashboard_ontospy_report.html', context)
