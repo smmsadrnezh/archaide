@@ -73,6 +73,14 @@ def create_manual(request):
 
         elif current_step == 2:
 
+            pattern_list = request.POST.getlist('pattern[]')
+            tactic_list = request.POST.getlist('tactic[]')
+
+            owl_path = Architecture.objects.get(owner=request.user).owl_file.path
+
+            create_instances(pattern_list, 'Pattern', owl_path)
+            create_instances(tactic_list, 'Tactic', owl_path)
+
             context = {'current_step': current_step + 1}
     else:
         context = {'current_step': 1}

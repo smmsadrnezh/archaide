@@ -31,7 +31,7 @@
     <div class="ui padded grid">
         <div class="three wide tablet only three wide computer only column" id="sidebar">
             <div class="ui borderless fluid text vertical menu">
-                <a class="{% if '/dashboard/' == request.path %}active {% endif %}item" href="/dashboard"> فهرست
+                <a class="{% if '/dashboard/' == request.path %}active {% endif %}item" href="/dashboard"> مدیریت
                     معماری‌ها</a>
                 <div class="ui horizontal divider">
                     نمونه‌گیری معماری
@@ -184,20 +184,13 @@
                 .addClass("loading");
         }
 
-        $('#risk_input a').click(function () {
-            $('#risk_input').append('<div class="ui field action input"><input type="text" name="risk[]" placeholder="مخاطره"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
-            remove_input()
-            $('#risk_input a').preventDefault()
-        });
-        $('#quality_input a').click(function () {
-            $('#quality_input').append('<div class="ui field action input"><input type="text" name="quality[]" placeholder="ویژگی کیفی"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
-            remove_input()
-            $('#quality_input a').preventDefault()
-        });
-        $('#need_input a').click(function () {
-            $('#need_input').append('<div class="ui field action input"><input type="text" name="business[]" placeholder="نیازمندی حرفه"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
-            remove_input()
-            $('#need_input a').preventDefault()
+        var words = [['risk', 'مخاطره'], ['quality', 'ویژگی کیفی'], ['business', 'نیازمندی حرفه'], ['pattern', 'الگو'], ['tactic', 'راهکنش']];
+        words.forEach(function (word) {
+            $('#' + word[0] + '_input a').click(function () {
+                $('#' + word[0] + '_input').append('<div class="ui field action input"><input type="text" name="' + word[0] + '[]" placeholder="' + word[1] + '"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
+                remove_input()
+                $('#risk_input a').preventDefault()
+            });
         });
 
         function remove_input() {
