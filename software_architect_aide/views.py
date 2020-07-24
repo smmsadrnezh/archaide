@@ -76,12 +76,18 @@ def create_manual(request):
             pattern_list = request.POST.getlist('pattern[]')
             tactic_list = request.POST.getlist('tactic[]')
 
-            owl_path = Architecture.objects.get(owner=request.user).owl_file.path
+            owl_path = Architecture.objects.filter(owner=request.user)[-1].owl_file.path
 
             create_instances(pattern_list, 'Pattern', owl_path)
             create_instances(tactic_list, 'Tactic', owl_path)
 
             context = {'current_step': current_step + 1}
+
+        elif current_step == 3:
+            architecture = Architecture.objects.filter(owner=request.user).latest('id')
+            architecture.name = request.POST.get('name')
+            HttpResponseRedirect('/dashboard')
+
     else:
         context = {'current_step': 1}
     return render(request, 'dashboard_create_manual.html', context)
