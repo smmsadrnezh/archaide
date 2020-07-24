@@ -1,5 +1,4 @@
 import os
-import uuid
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
@@ -7,9 +6,12 @@ from django.shortcuts import render
 
 from software_architect_aide.common import query, pars_query_all_attribute_tactics, create_instances
 from software_architect_aide.common import visualize, triple_count
+from software_architect_aide.local_settings import RAW_ONTOLOGY_PATH
 from software_architect_aide.models import Architecture
+from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTE_TACTIC
 from software_architect_aide.settings import MEDIA_ROOT
-from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTES, ALL_QUALITY_ATTRIBUTE_TACTIC
+from software_architect_aide.utils import get_random_string
+from shutil import copyfile
 
 
 @login_required(login_url='/')
@@ -56,9 +58,9 @@ def create_manual(request):
             business_list = request.POST.getlist('business[]')
             risk_list = request.POST.getlist('risk[]')
 
-            random_string = 'hello'
+            random_string = 'ontology_' + get_random_string()
             owl_path = os.path.join(MEDIA_ROOT, 'owl', random_string + '.owl')
-            # TODO: Copy Core Ontology To owl_path and Give It To Model
+            copyfile(RAW_ONTOLOGY_PATH, owl_path)
 
             architecture = Architecture(owl_file=owl_path, owner=request.user)
             architecture.save()

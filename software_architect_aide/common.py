@@ -7,8 +7,12 @@ from software_architect_aide.local_settings import BASE_DIR
 
 
 def create_instances(instances, class_name, owl_path):
-    # TODO
-    pass
+    if class_name == 'Quality_Attribute':
+        pass
+    elif class_name == 'Business_Need':
+        pass
+    elif class_name == 'Risk_Mitigation':
+        pass
 
 
 def visualize(rdf_path, image_path):
