@@ -21,12 +21,14 @@
                     </div>
                     <div class="field">
                         <div class="ui left icon input">
-                            <i class="lock icon"></i> <input name="password2" placeholder="تکرار رمز عبور"
-                                                             type="password"/>
+                            <i class="lock icon"></i>
+                            <input name="password2" placeholder="تکرار رمز عبور" type="password"/>
                         </div>
                     </div>
-                    <script src='https://www.google.com/recaptcha/api.js'></script>
-                    <div class="g-recaptcha" data-sitekey="6LfYbLUZAAAAACC9Q4oHlcv0W45ybdpZVIJXnyjd"></div>
+
+                    <div class="field">
+                        <div class="g-recaptcha" data-sitekey="6LfYbLUZAAAAACC9Q4oHlcv0W45ybdpZVIJXnyjd"></div>
+                    </div>
                     <div class="ui fluid large teal submit button">ثبت نام</div>
                 </div>
                 {% if  duplicate_user %}
@@ -122,4 +124,5 @@
             })
         ;
     </script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 {% endblock %}
