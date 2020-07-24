@@ -13,28 +13,14 @@ BASE_URI = "http://www.semanticweb.org/milad/ontologies/2020/6/software_architec
 
 
 def create_instances(instances_name, class_name, owl_path):
-    if class_name == 'Quality_Attribute':
-        # Add URIRef
-        for instance_name in instances_name:
-            instance = URIRef(BASE_URI + instance_name)
-            quality_attribute = URIRef(BASE_URI + 'Quality_Attribute')
-            print(instance)
-
-            g = Graph()
-            # result_query = query(QULITY_ATTRIBUTE_CLASS)
-            # quality_class = pars_concern_result(result_query, 'Quality_Attribute')
-
-            g.parse(owl_path, format='xml')
-            g.bind("owl", OWL)
-
-            g.add((instance, RDF.type, quality_attribute))
-            owl_file = open(owl_path, 'w')
-            print(g.serialize(format="xml").decode("utf-8"), file=owl_file)
-
-    elif class_name == 'Business_Need':
-        pass
-    elif class_name == 'Risk_Mitigation':
-        pass
+    for instance_name in instances_name:
+        instance = URIRef(BASE_URI + instance_name)
+        class_ = URIRef(BASE_URI + class_name)
+        g = Graph()
+        g.parse(owl_path, format='application/rdf+xml', )
+        g.bind("owl", OWL)
+        g.add((instance, RDF.type, class_))
+        g.serialize(destination=owl_path, format="application/rdf+xml")
 
 
 def visualize(rdf_path, image_path):

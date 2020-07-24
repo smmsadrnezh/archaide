@@ -66,8 +66,8 @@ def create_manual(request):
             architecture.save()
 
             create_instances(quality_list, 'Quality_Attribute', owl_path)
-            # create_instances(business_list, 'Business_Need', owl_path)
-            # create_instances(risk_list, 'Risk_Mitigation', owl_path)
+            create_instances(business_list, 'Business_Need', owl_path)
+            create_instances(risk_list, 'Risk_Mitigation', owl_path)
 
             context = {'current_step': current_step + 1}
 
