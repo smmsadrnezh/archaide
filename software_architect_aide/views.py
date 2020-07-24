@@ -76,7 +76,7 @@ def create_manual(request):
             pattern_list = request.POST.getlist('pattern[]')
             tactic_list = request.POST.getlist('tactic[]')
 
-            owl_path = Architecture.objects.filter(owner=request.user)[-1].owl_file.path
+            owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
 
             create_instances(pattern_list, 'Pattern', owl_path)
             create_instances(tactic_list, 'Tactic', owl_path)

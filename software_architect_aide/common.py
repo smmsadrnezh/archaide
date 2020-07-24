@@ -64,12 +64,6 @@ def triple_count(rdf_path):
     return len(Graph().parse(rdf_path))
 
 
-def pars_concern_result(query_result, concern):
-    if concern == "Quality_Attribute":
-        for row in query_result:
-            print('1')
-            pass
-
 # def get_all_tactic_by_qa(quality_attributes, qa_t):
 #     for item in qa_t:
 #         pass
