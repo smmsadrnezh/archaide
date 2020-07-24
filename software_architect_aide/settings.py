@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+from ontospy.ontodocs.builder import ONTODOCS_VIZ_TEMPLATES
+
 try:
     from .local_settings import *
 except ImportError:
@@ -27,7 +29,7 @@ SECRET_KEY = 'cd#1+q1bkqnmo#c&ojqxjok6)h7c=#l7$c4%df%_)bg_u(1a4m'
 
 INSTALLED_APPS = ['django.contrib.admin', 'django.contrib.auth', 'django.contrib.contenttypes',
                   'django.contrib.sessions', 'django.contrib.messages', 'django.contrib.staticfiles',
-                  'software_architect_aide', 'accounts.apps.AccountsConfig', ]
+                  'software_architect_aide', 'accounts.apps.AccountsConfig', 'ontospy', ]
 
 MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.sessions.middleware.SessionMiddleware',
               'django.middleware.common.CommonMiddleware', 'django.middleware.csrf.CsrfViewMiddleware',
@@ -38,11 +40,28 @@ MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.s
 ROOT_URLCONF = 'software_architect_aide.urls'
 
 TEMPLATES = [
-    {'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': [os.path.join(BASE_DIR, 'templates')],
-     'APP_DIRS': True, 'OPTIONS': {
-        'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request',
-                               'django.contrib.auth.context_processors.auth',
-                               'django.contrib.messages.context_processors.messages', ], }, }, ]
+    {'BACKEND':
+         'django.template.backends.django.DjangoTemplates',
+     'DIRS': [os.path.join(BASE_DIR, 'templates'),
+              # Ontospy
+              ONTODOCS_VIZ_TEMPLATES + "html-single",
+              ONTODOCS_VIZ_TEMPLATES + "html-multi",
+              ONTODOCS_VIZ_TEMPLATES + "markdown",
+              ONTODOCS_VIZ_TEMPLATES + "d3",
+              ONTODOCS_VIZ_TEMPLATES + "misc"],
+     'APP_DIRS': True,
+     'OPTIONS': {
+         'context_processors':
+             ['django.template.context_processors.debug',
+              'django.template.context_processors.request',
+              'django.contrib.auth.context_processors.auth',
+              'django.contrib.messages.context_processors.messages',
+              # Ontospy
+              'django.template.context_processors.i18n',
+              'django.template.context_processors.media',
+              'django.template.context_processors.static',
+              'django.template.context_processors.tz',
+              ], }, }, ]
 
 WSGI_APPLICATION = 'software_architect_aide.wsgi.application'
 
@@ -78,4 +97,3 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = BASE_DIR + '/assets/'
 GOOGLE_RECAPTCHA_SECRET_KEY = RECAPTCHA_SECRET_KEY
-
