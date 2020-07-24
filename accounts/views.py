@@ -1,27 +1,46 @@
+import requests
+from django.conf import settings
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import redirect
 from django.shortcuts import render
-from django.core.exceptions import ObjectDoesNotExist
 
 
 def sign_in(request):
+    context = {}
     if request.method == "POST":
-        try:
-            user = authenticate(username=User.objects.get(email=request.POST.get('email', '')).username,
-                                password=request.POST.get('password', ''))
-        except ObjectDoesNotExist:
-            return render(request, 'sign_in.html', {'success': False})
-        if user is not None:
-            login(request, user)
-            return redirect('dashboard')
+        ''' Begin reCAPTCHA validation '''
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        data = {
+            'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+        result = r.json()
+        ''' End reCAPTCHA validation '''
+        if result['success']:
+            context['true_captcha'] = True
+            try:
+                user = authenticate(username=User.objects.get(email=request.POST.get('email', '')).username,
+                                    password=request.POST.get('password', ''))
+            except ObjectDoesNotExist:
+                context['success'] = False
+                return render(request, 'sign_in.html', context)
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')
+            else:
+                context['success'] = False
+                return render(request, 'sign_in.html', context)
         else:
-            return render(request, 'sign_in.html', {'success': False})
+            context['true_captcha'] = False
     else:
         if request.user.is_authenticated:
             return redirect('dashboard')
         else:
-            return render(request, 'sign_in.html', {'success': True})
+            context['success'] = True
+            return render(request, 'sign_in.html', context)
 
 
 def sign_out(request):
