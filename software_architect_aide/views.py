@@ -1,17 +1,20 @@
 import os
-
+from shutil import copyfile
+from django.conf import settings
+import ontospy
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from ontospy.ontodocs.viz.viz_d3tree import *
 
-from software_architect_aide.common import query, pars_query_all_attribute_tactics, create_instances
-from software_architect_aide.common import visualize, triple_count
-from software_architect_aide.models import Architecture
-from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTE_TACTIC
-from software_architect_aide.settings import MEDIA_ROOT
-from software_architect_aide.utils import get_random_string
-from shutil import copyfile
 from .common import MANUAL_ONTOLOGY_PATH
+from .common import query, pars_query_all_attribute_tactics, create_instances
+from .common import visualize, triple_count
+from .models import Architecture
+from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC
+
+from .utils import get_random_string
+
 
 
 @login_required(login_url='/')
@@ -27,7 +30,7 @@ def create_upload(request):
         architecture = Architecture(name=request.POST.get('name'), owner=request.user)
         architecture.owl_file = request.FILES.get('ontology')
         architecture.save()
-        image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
+        image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
         rdf_path = architecture.owl_file.path
         architecture.triple_count = triple_count(rdf_path)
         visualize(rdf_path, image_path)
@@ -58,7 +61,7 @@ def create_manual(request):
             risk_list = request.POST.getlist('risk[]')
 
             file_name = 'manual_{}.owl'.format(get_random_string())
-            owl_path = os.path.join(MEDIA_ROOT, 'owl', file_name)
+            owl_path = os.path.join(settings.MEDIA_ROOT, 'owl', file_name)
             copyfile(MANUAL_ONTOLOGY_PATH, owl_path)
 
             architecture = Architecture(owner=request.user)
@@ -87,11 +90,17 @@ def create_manual(request):
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             architecture.name = request.POST.get('name')
             rdf_path = architecture.owl_file.path
-            image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
+            image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
             architecture.triple_count = triple_count(rdf_path)
             visualize(rdf_path, image_path)
             architecture.save()
             context = {'success': True, 'current_step': 1}
+
+            #ontospy section ########
+            g = ontospy.Ontospy(architecture.owl_file.path)
+            v = Dataviz(g)  # => instantiate the visualization object
+            v.build()  # => render visualization. You can pass an 'output_path' parameter too
+            v.preview()  # => open in browser
 
     else:
         context = {'current_step': 1}
