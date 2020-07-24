@@ -19,17 +19,20 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 
-urlpatterns = [path('admin/', admin.site.urls), path('dashboard/', views.dashboard, name='dashboard'),
-               path('dashboard/architecture/create/upload/', views.create_upload, name='create_upload'),
-               path('dashboard/architecture/create/reference/', views.create_reference, name='create_reference'),
-               path('dashboard/architecture/create/manual/', views.create_manual, name='create_manual'),
-               path('dashboard/architecture/delete/<int:architecture_id>', views.architecture_delete,
-                    name='architecture_delete'),
-               path('dashboard/architecture/', views.architecture_edit, name='architecture_edit'),
-               path('dashboard/tradeoff/', views.tradeoff, name='tradeoff'),
-               path('dashboard/evolution/', views.evolution, name='evolution'),
-               path('', include('accounts.urls', namespace='accounts')),
-               ]
+urlpatterns = [
+    path('admin/', admin.site.urls), path('dashboard/', views.dashboard, name='dashboard'),
+    path('dashboard/architecture/create/upload/', views.create_upload, name='create_upload'),
+    path('dashboard/architecture/create/reference/', views.create_reference, name='create_reference'),
+    path('dashboard/architecture/create/manual/', views.create_manual, name='create_manual'),
+    path('dashboard/architecture/delete/<int:architecture_id>', views.architecture_delete,
+         name='architecture_delete'),
+    path('dashboard/architecture/', views.architecture_edit, name='architecture_edit'),
+    path('dashboard/tradeoff/', views.tradeoff, name='tradeoff'),
+    path('dashboard/evolution/', views.evolution, name='evolution'),
+    path('dashborad/ontospy_report', views.ontospy_report, name='ontospy_report'),
+    path('', include('accounts.urls', namespace='accounts')),
+
+]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 # if not settings.configured:
 #     settings.configure()

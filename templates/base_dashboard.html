@@ -49,6 +49,8 @@
                     تحلیل بده‌بستان‌های معماری</a>
                 <a class="{% if '/dashboard/evolution/' == request.path %}active {% endif %}item" href="{% url 'evolution' %}">
                     تکامل معماری</a>
+                <a class="{% if '/dashboard/ontospy_report/' == request.path %}active {% endif %}item" href="{% url 'ontospy_report' %}">
+                    گزارشات تحلیلی</a>
             </div>
         </div>
         {% block dashboard_content %}

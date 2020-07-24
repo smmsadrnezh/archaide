@@ -10,11 +10,11 @@ from ontospy.ontodocs.viz.viz_d3tree import *
 from .common import MANUAL_ONTOLOGY_PATH
 from .common import query, pars_query_all_attribute_tactics, create_instances
 from .common import visualize, triple_count
+from .local_settings import BASE_DIR
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC
 
 from .utils import get_random_string
-
 
 
 @login_required(login_url='/')
@@ -96,12 +96,6 @@ def create_manual(request):
             architecture.save()
             context = {'success': True, 'current_step': 1}
 
-            #ontospy section ########
-            g = ontospy.Ontospy(architecture.owl_file.path)
-            v = Dataviz(g)  # => instantiate the visualization object
-            v.build()  # => render visualization. You can pass an 'output_path' parameter too
-            v.preview()  # => open in browser
-
     else:
         context = {'current_step': 1}
     return render(request, 'dashboard_create_manual.html', context)
@@ -131,6 +125,7 @@ def evolution(request):
     context = {'': '', }
     return render(request, 'dashboard_evolution.html', context)
 
+
 # @login_required(login_url='/')
 # def get_reference_architecture(request):
 #     # quality_attributes = query(ALL_QUALITY_ATTRIBUTES)
@@ -146,3 +141,21 @@ def evolution(request):
 #         if key in result.keys():
 #             result[key].append(value)
 #     return render(request, 'dashboard_create_upload.html', context={'data': qa_t})
+
+@login_required(login_url='/')
+def ontospy_report(request):
+    context = {}
+
+    reference_path = BASE_DIR + '/data/owl/ontology.owl'
+    manual_path = BASE_DIR + '/data/owl/manual_ontology.owl'
+
+    reference_graph = ontospy.Ontospy(reference_path)
+    manual_graph = ontospy.Ontospy(manual_path)
+
+    context['reference_stats'] = reference_graph.stats()
+    context['manual_stats'] = manual_graph.stats()
+
+    # g.stats()
+    # v = Dataviz(g)  # => instantiate the visualization object
+    # v.build(output_path=BASE_DIR+'/data/ontospy/')  # => render visualization. You can pass an 'output_path' parameter too
+    # v.preview()  # => open in browser
