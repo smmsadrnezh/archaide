@@ -42,8 +42,8 @@
                                     </div>
                                     <div class="active step">
                                         <div class="content">
-                                            <div class="title">تایید و ثبت معماری</div>
-                                            <div class="description">اطلاعات معماری را تایید کنید.</div>
+                                            <div class="title">تأیید و ثبت معماری</div>
+                                            <div class="description">اطلاعات معماری را تأیید کنید.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <div class="field" id="need_input">
+                                <div class="field" id="business_input">
                                     <label><a><i class="small add icon"></i></a> نیازمندی‌های حرفه:</label>
                                     <div class="ui field action input">
                                         <input type="text" name="business[]" placeholder="نیازمندی حرفه">
@@ -100,15 +100,15 @@
                                     </div>
                                     <div class="active step">
                                         <div class="content">
-                                            <div class="title">راهکنش‌ها</div>
-                                            <div class="description">راهکنش‌های مورد استفاده را وارد کنید.
+                                            <div class="title">تصمیم‌ها</div>
+                                            <div class="description">تصمیم‌های معماری مورد استفاده را وارد کنید.
                                             </div>
                                         </div>
                                     </div>
                                     <div class="active step">
                                         <div class="content">
-                                            <div class="title">تایید و ثبت معماری</div>
-                                            <div class="description">اطلاعات معماری را تایید کنید.</div>
+                                            <div class="title">تأیید و ثبت معماری</div>
+                                            <div class="description">اطلاعات معماری را تأیید کنید.</div>
                                         </div>
                                     </div>
                                 </div>
@@ -116,12 +116,21 @@
                             <input type="hidden" name="step" value="2">
                             <div class="ui segment">
                                 <div class="ui dividing header">
-                                    راهکنش‌ها
+                                    تصمیم‌ها
                                 </div>
-                                <div class="field" id="quality_input">
+                                <div class="field" id="tactic_input">
                                     <label><a><i class="small add icon"></i></a> راهکنش‌ها:</label>
                                     <div class="ui field action input">
-                                        <input type="text" name="quality[]" placeholder="راهکنش">
+                                        <input type="text" name="tactic[]" placeholder="راهکنش">
+                                        <button class="ui red icon button">
+                                            <i class="trash icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="field" id="pattern_input">
+                                    <label><a><i class="small add icon"></i></a> الگوها:</label>
+                                    <div class="ui field action input">
+                                        <input type="text" name="pattern[]" placeholder="الگو">
                                         <button class="ui red icon button">
                                             <i class="trash icon"></i>
                                         </button>
@@ -132,7 +141,49 @@
                         <button class="ui button" type="submit" onclick="loading()">مرحلهٔ بعد</button>
                     </form>
                 </div>
+            {% elif current_step == 3 %}
+                <div class="center aligned row">
+                    <form class="ui form" method="post" action="{% url 'create_manual' %}">
+                        {% csrf_token %}
+                        <div class="ui secondary segments manual">
+                            <div class="ui center aligned segment">
+                                <div class="ui ordered steps">
+                                    <div class="completed step">
+                                        <div class="content">
+                                            <div class="title">دغدغه‌ها</div>
+                                            <div class="description">دغدغه‌ها را وارد کنید.</div>
+                                        </div>
+                                    </div>
+                                    <div class="completed step">
+                                        <div class="content">
+                                            <div class="title">تصمیم‌ها</div>
+                                            <div class="description">تصمیم‌های معماری مورد استفاده را وارد کنید.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="active step">
+                                        <div class="content">
+                                            <div class="title">تأیید و ثبت معماری</div>
+                                            <div class="description">اطلاعات معماری را تأیید کنید.</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="step" value="3">
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    تأیید و ثبت معماری
+                                </div>
+                                <div class="field">
+                                    <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
+                                </div>
+                            </div>
+                        </div>
+                        <button class="ui button" type="submit" onclick="loading()">ایجاد معماری</button>
+                    </form>
+                </div>
             {% endif %}
+
             <div class="ui hidden section divider"></div>
         </div>
     </div>
