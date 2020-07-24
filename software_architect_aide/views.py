@@ -1,10 +1,11 @@
 import os
+import uuid
 
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from software_architect_aide.common import query, pars_query_all_attribute_tactics
+from software_architect_aide.common import query, pars_query_all_attribute_tactics, create_instances
 from software_architect_aide.common import visualize, triple_count
 from software_architect_aide.models import Architecture
 from software_architect_aide.settings import MEDIA_ROOT
@@ -45,7 +46,34 @@ def create_reference(request):
 
 @login_required(login_url='/')
 def create_manual(request):
-    return render(request, 'dashboard_create_manual.html', {})
+    if request.method == 'POST':
+
+        current_step = int(request.POST.get('step'))
+        if current_step == 1:
+
+            quality_list = request.POST.getlist('quality[]')
+            business_list = request.POST.getlist('business[]')
+            risk_list = request.POST.getlist('risk[]')
+
+            random_string = 'hello'
+            owl_path = os.path.join(MEDIA_ROOT, 'owl', random_string + '.owl')
+            # TODO: Copy Core Ontology To owl_path and Give It To Model
+
+            architecture = Architecture(owl_file=owl_path, owner=request.user)
+            architecture.save()
+
+            create_instances(quality_list, 'Quality_Attribute', owl_path)
+            create_instances(business_list, 'Business_Need', owl_path)
+            create_instances(risk_list, 'Risk_Mitigation', owl_path)
+
+            context = {'current_step': current_step + 1}
+
+        elif current_step == 2:
+
+            context = {'current_step': current_step + 1}
+    else:
+        context = {'current_step': 1}
+    return render(request, 'dashboard_create_manual.html', context)
 
 
 @login_required(login_url='/')

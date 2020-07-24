@@ -6,6 +6,11 @@ from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
 from software_architect_aide.local_settings import BASE_DIR
 
 
+def create_instances(instances, class_name, owl_path):
+    # TODO
+    pass
+
+
 def visualize(rdf_path, image_path):
     rdf_graph = Graph().parse(rdf_path)
     G = rdflib_to_networkx_multidigraph(rdf_graph)

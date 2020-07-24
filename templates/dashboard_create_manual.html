@@ -20,73 +20,119 @@
                 </div>
             {% endif %}
 
-            <div class="center aligned row">
-                <form class="ui form" method="post" action="{% url 'create_upload' %}" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <div class="field">
-                        <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
-                    </div>
-                    <div class="ui secondary segments manual">
-                        <div class="ui center aligned segment">
-                            <div class="ui ordered steps">
-                                <div class="completed step">
-                                    <div class="content">
-                                        <div class="title">ویژگی‌های کیفی</div>
-                                        <div class="description">ویژگی‌های کیفی را از فهرست زیر انتخاب کنید.</div>
+            {% if current_step == 1 %}
+                <div class="center aligned row">
+                    <form class="ui form" method="post" action="{% url 'create_manual' %}">
+                        {% csrf_token %}
+                        <div class="ui secondary segments manual">
+                            <div class="ui center aligned segment">
+                                <div class="ui ordered steps">
+                                    <div class="active step">
+                                        <div class="content">
+                                            <div class="title">دغدغه‌ها</div>
+                                            <div class="description">دغدغه‌ها را وارد کنید.</div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="completed step">
-                                    <div class="content">
-                                        <div class="title">تاکتیک‌ها</div>
-                                        <div class="description">تاکتیک‌های مرتبط با ویژگی‌های کیفی را انتخاب کنید.
+                                    <div class="active step">
+                                        <div class="content">
+                                            <div class="title">راهکنش‌ها</div>
+                                            <div class="description">راهکنش‌های مورد استفاده را وارد کنید.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="active step">
+                                        <div class="content">
+                                            <div class="title">تایید و ثبت معماری</div>
+                                            <div class="description">اطلاعات معماری را تایید کنید.</div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="active step">
-                                    <div class="content">
-                                        <div class="title">تایید و ثبت معماری</div>
-                                        <div class="description">اطلاعات معماری را تایید کنید.</div>
+                            </div>
+                            <input type="hidden" name="step" value="1">
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    دغدغه‌ها
+                                </div>
+                                <div class="field" id="quality_input">
+                                    <label><a><i class="small add icon"></i></a> ویژگی‌های کیفی:</label>
+                                    <div class="ui field action input">
+                                        <input type="text" name="quality[]" placeholder="ویژگی کیفی">
+                                        <button class="ui red icon button">
+                                            <i class="trash icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="field" id="need_input">
+                                    <label><a><i class="small add icon"></i></a> نیازمندی‌های حرفه:</label>
+                                    <div class="ui field action input">
+                                        <input type="text" name="business[]" placeholder="نیازمندی حرفه">
+                                        <button class="ui red icon button">
+                                            <i class="trash icon"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="field" id="risk_input">
+                                    <label><a><i class="small add icon"></i></a> مخاطره‌ها:</label>
+                                    <div class="ui field action input">
+                                        <input type="text" name="risk[]" placeholder="مخاطره">
+                                        <button class="ui red icon button">
+                                            <i class="trash icon"></i>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="ui segment">
-                            <div class="ui dividing header">
-                                دغدغه‌ها
-                            </div>
-                            <div class="field" id="quality_input">
-                                <label><a><i class="small add icon"></i></a> ویژگی‌های کیفی:</label>
-                                <div class="ui field action input">
-                                    <input type="text" name="name" placeholder="ویژگی کیفی">
-                                    <button class="ui red right labeled icon button">
-                                        <i class="trash icon"></i> حذف
-                                    </button>
+                        <button class="ui button" type="submit" onclick="loading()">مرحلهٔ بعد</button>
+                    </form>
+                </div>
+            {% elif current_step == 2 %}
+                <div class="center aligned row">
+                    <form class="ui form" method="post" action="{% url 'create_manual' %}">
+                        {% csrf_token %}
+                        <div class="ui secondary segments manual">
+                            <div class="ui center aligned segment">
+                                <div class="ui ordered steps">
+                                    <div class="completed step">
+                                        <div class="content">
+                                            <div class="title">دغدغه‌ها</div>
+                                            <div class="description">دغدغه‌ها را وارد کنید.</div>
+                                        </div>
+                                    </div>
+                                    <div class="active step">
+                                        <div class="content">
+                                            <div class="title">راهکنش‌ها</div>
+                                            <div class="description">راهکنش‌های مورد استفاده را وارد کنید.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="active step">
+                                        <div class="content">
+                                            <div class="title">تایید و ثبت معماری</div>
+                                            <div class="description">اطلاعات معماری را تایید کنید.</div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="field" id="need_input">
-                                <label><a><i class="small add icon"></i></a> نیازمندی‌های حرفه:</label>
-                                <div class="ui field action input">
-                                    <input type="text" name="name" placeholder="نیازمندی حرفه">
-                                    <button class="ui red right labeled icon button">
-                                        <i class="trash icon"></i> حذف
-                                    </button>
+                            <input type="hidden" name="step" value="2">
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    راهکنش‌ها
                                 </div>
-                            </div>
-                            <div class="field" id="risk_input">
-                                <label><a><i class="small add icon"></i></a> مخاطره‌ها:</label>
-                                <div class="ui field action input">
-                                    <input type="text" name="name" placeholder="مخاطره">
-                                    <button class="ui red right labeled icon button">
-                                        <i class="trash icon"></i> حذف
-                                    </button>
+                                <div class="field" id="quality_input">
+                                    <label><a><i class="small add icon"></i></a> راهکنش‌ها:</label>
+                                    <div class="ui field action input">
+                                        <input type="text" name="quality[]" placeholder="راهکنش">
+                                        <button class="ui red icon button">
+                                            <i class="trash icon"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <button class="ui button" type="submit" onclick="loading()">ایجاد معماری</button>
-                </form>
-            </div>
-            <div class="center aligned row"></div>
+                        <button class="ui button" type="submit" onclick="loading()">مرحلهٔ بعد</button>
+                    </form>
+                </div>
+            {% endif %}
             <div class="ui hidden section divider"></div>
         </div>
     </div>

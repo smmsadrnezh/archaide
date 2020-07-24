@@ -185,23 +185,23 @@
         }
 
         $('#risk_input a').click(function () {
-            $('#risk_input').append('<div class="ui field action input"><input type="text" name="name" placeholder="مخاطره"><button class="ui red right labeled icon button"><i class="trash icon"></i> حذف</button></div>\r\n');
+            $('#risk_input').append('<div class="ui field action input"><input type="text" name="risk[]" placeholder="مخاطره"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
             remove_input()
             $('#risk_input a').preventDefault()
         });
         $('#quality_input a').click(function () {
-            $('#quality_input').append('<div class="ui field action input"><input type="text" name="name" placeholder="ویژگی کیفی"><button class="ui red right labeled icon button"><i class="trash icon"></i> حذف</button></div>\r\n');
+            $('#quality_input').append('<div class="ui field action input"><input type="text" name="quality[]" placeholder="ویژگی کیفی"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
             remove_input()
             $('#quality_input a').preventDefault()
         });
         $('#need_input a').click(function () {
-            $('#need_input').append('<div class="ui field action input"><input type="text" name="name" placeholder="نیازمندی حرفه"><button class="ui red right labeled icon button"><i class="trash icon"></i> حذف</button></div>\r\n');
+            $('#need_input').append('<div class="ui field action input"><input type="text" name="business[]" placeholder="نیازمندی حرفه"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
             remove_input()
             $('#need_input a').preventDefault()
         });
 
         function remove_input() {
-            $('.ui.red.right.labeled.icon.button').click(function (e) {
+            $('.ui.red.icon.button').click(function (e) {
                     e.currentTarget.parentNode.remove();
                     e.currentTarget.preventDefault();
                 }
