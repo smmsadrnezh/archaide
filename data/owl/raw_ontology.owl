@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#"
+     xml:base="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology"
+     xmlns:sa="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#sa:"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#sa:Is_Address_by -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#sa:Is_Address_by">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#comment"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#sa:isAddressBy -->
+
+    <owl:AnnotationProperty rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#sa:isAddressBy"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#achieves -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#achieves">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#isAchievedBy"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Concern"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Decision"/>
+        <rdfs:label>achieves</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#augments -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#augments">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#comprises"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Pattern"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#comprises -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#comprises">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Pattern"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#isAchievedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#isAchievedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Decision"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Concern"/>
+        <rdfs:label>isAchievedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Businness_Need -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Businness_Need">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Concern"/>
+        <rdfs:label>Businness Need</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Concern -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Concern">
+        <rdfs:label>Concern</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Decision -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Decision">
+        <rdfs:label>Decision</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Pattern -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Pattern">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Decision"/>
+        <rdfs:label>Pattern</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Quality_Attribute -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Quality_Attribute">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Concern"/>
+        <rdfs:label>Quality Attribute</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Risk_Mitigation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Risk_Mitigation">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Concern"/>
+        <rdfs:label>Risk Mitigation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Tactic">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#Decision"/>
+        <rdfs:label>Tactic</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+

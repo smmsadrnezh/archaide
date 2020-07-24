@@ -46,6 +46,7 @@ def create_reference(request):
 
 @login_required(login_url='/')
 def create_manual(request):
+    context = {}
     if request.method == 'POST':
 
         current_step = int(request.POST.get('step'))
