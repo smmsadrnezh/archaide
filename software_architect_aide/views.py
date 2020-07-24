@@ -50,7 +50,6 @@ def create_reference(request):
 def create_manual(request):
     context = {}
     if request.method == 'POST':
-
         current_step = int(request.POST.get('step'))
         if current_step == 1:
 
@@ -58,11 +57,12 @@ def create_manual(request):
             business_list = request.POST.getlist('business[]')
             risk_list = request.POST.getlist('risk[]')
 
-            random_string = 'manual_' + get_random_string()
-            owl_path = os.path.join(MEDIA_ROOT, 'owl', random_string + '.owl')
+            file_name = 'manual_{}.owl'.format(get_random_string())
+            owl_path = os.path.join(MEDIA_ROOT, 'owl', file_name)
             copyfile(MANUAL_ONTOLOGY_PATH, owl_path)
 
-            architecture = Architecture(owl_file=owl_path, owner=request.user)
+            architecture = Architecture(owner=request.user)
+            architecture.owl_file.name = os.path.join('owl', file_name)
             architecture.save()
 
             create_instances(quality_list, 'Quality_Attribute', owl_path)
@@ -86,7 +86,12 @@ def create_manual(request):
         elif current_step == 3:
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             architecture.name = request.POST.get('name')
-            HttpResponseRedirect('/dashboard')
+            rdf_path = architecture.owl_file.path
+            image_path = os.path.join(MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
+            architecture.triple_count = triple_count(rdf_path)
+            visualize(rdf_path, image_path)
+            architecture.save()
+            context = {'success': True, 'current_step': 1}
 
     else:
         context = {'current_step': 1}
