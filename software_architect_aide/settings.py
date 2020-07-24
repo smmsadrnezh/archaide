@@ -78,3 +78,4 @@ MEDIA_URL = '/media/'
 
 STATIC_ROOT = BASE_DIR + '/assets/'
 GOOGLE_RECAPTCHA_SECRET_KEY = RECAPTCHA_SECRET_KEY
+RAW_ONTOLOGY_PATH = BASE_DIR + '/data/owl/raw_ontology.owl'

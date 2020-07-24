@@ -6,10 +6,9 @@ from django.shortcuts import render
 
 from software_architect_aide.common import query, pars_query_all_attribute_tactics, create_instances
 from software_architect_aide.common import visualize, triple_count
-from software_architect_aide.local_settings import RAW_ONTOLOGY_PATH
 from software_architect_aide.models import Architecture
 from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTE_TACTIC
-from software_architect_aide.settings import MEDIA_ROOT
+from software_architect_aide.settings import MEDIA_ROOT, RAW_ONTOLOGY_PATH
 from software_architect_aide.utils import get_random_string
 from shutil import copyfile
 
