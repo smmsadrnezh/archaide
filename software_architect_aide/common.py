@@ -24,12 +24,12 @@ def create_instances(instances_name, class_name, owl_path):
             # result_query = query(QULITY_ATTRIBUTE_CLASS)
             # quality_class = pars_concern_result(result_query, 'Quality_Attribute')
 
-            # g.parse(owl_path, format='xml')
+            g.parse(owl_path, format='xml')
             g.bind("owl", OWL)
 
             g.add((instance, RDF.type, quality_attribute))
-
-            print(g.serialize(format="xml").decode("utf-8"))
+            owl_file = open(owl_path, 'w')
+            print(g.serialize(format="xml").decode("utf-8"), file=owl_file)
 
     elif class_name == 'Business_Need':
         pass
