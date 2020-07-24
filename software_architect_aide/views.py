@@ -8,9 +8,10 @@ from software_architect_aide.common import query, pars_query_all_attribute_tacti
 from software_architect_aide.common import visualize, triple_count
 from software_architect_aide.models import Architecture
 from software_architect_aide.queries import ALL_QUALITY_ATTRIBUTE_TACTIC
-from software_architect_aide.settings import MEDIA_ROOT, RAW_ONTOLOGY_PATH
+from software_architect_aide.settings import MEDIA_ROOT
 from software_architect_aide.utils import get_random_string
 from shutil import copyfile
+from .common import MANUAL_ONTOLOGY_PATH
 
 
 @login_required(login_url='/')
@@ -57,16 +58,16 @@ def create_manual(request):
             business_list = request.POST.getlist('business[]')
             risk_list = request.POST.getlist('risk[]')
 
-            random_string = 'ontology_' + get_random_string()
+            random_string = 'manual_' + get_random_string()
             owl_path = os.path.join(MEDIA_ROOT, 'owl', random_string + '.owl')
-            copyfile(RAW_ONTOLOGY_PATH, owl_path)
+            copyfile(MANUAL_ONTOLOGY_PATH, owl_path)
 
             architecture = Architecture(owl_file=owl_path, owner=request.user)
             architecture.save()
 
             create_instances(quality_list, 'Quality_Attribute', owl_path)
-            create_instances(business_list, 'Business_Need', owl_path)
-            create_instances(risk_list, 'Risk_Mitigation', owl_path)
+            # create_instances(business_list, 'Business_Need', owl_path)
+            # create_instances(risk_list, 'Risk_Mitigation', owl_path)
 
             context = {'current_step': current_step + 1}
 

@@ -2,13 +2,35 @@ import matplotlib.pyplot as plt
 import networkx as nx
 from rdflib import Graph
 from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
-
+from rdflib.namespace import OWL, RDF, RDFS
+from rdflib import URIRef
 from software_architect_aide.local_settings import BASE_DIR
+from software_architect_aide.queries import QULITY_ATTRIBUTE_CLASS
+from rdflib import BNode
+
+MANUAL_ONTOLOGY_PATH = BASE_DIR + '/data/owl/manual_ontology.owl'
+BASE_URI = "http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#"
 
 
-def create_instances(instances, class_name, owl_path):
+def create_instances(instances_name, class_name, owl_path):
     if class_name == 'Quality_Attribute':
-        pass
+        # Add URIRef
+        for instance_name in instances_name:
+            instance = URIRef(BASE_URI + instance_name)
+            quality_attribute = URIRef(BASE_URI + 'Quality_Attribute')
+            print(instance)
+
+            g = Graph()
+            # result_query = query(QULITY_ATTRIBUTE_CLASS)
+            # quality_class = pars_concern_result(result_query, 'Quality_Attribute')
+
+            # g.parse(owl_path, format='xml')
+            g.bind("owl", OWL)
+
+            g.add((instance, RDF.type, quality_attribute))
+
+            print(g.serialize(format="xml").decode("utf-8"))
+
     elif class_name == 'Business_Need':
         pass
     elif class_name == 'Risk_Mitigation':
@@ -56,6 +78,12 @@ def triple_count(rdf_path):
     return len(Graph().parse(rdf_path))
 
 
-def get_all_tactic_by_qa(quality_attributes, qa_t):
-    for item in qa_t:
-        pass
+def pars_concern_result(query_result, concern):
+    if concern == "Quality_Attribute":
+        for row in query_result:
+            print('1')
+            pass
+
+# def get_all_tactic_by_qa(quality_attributes, qa_t):
+#     for item in qa_t:
+#         pass

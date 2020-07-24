@@ -20,3 +20,8 @@ SELECT ?tactic_label ?qa_label
 	}
 ORDER BY ?qa_label ?tactic_label
 """
+
+QULITY_ATTRIBUTE_CLASS = """
+SELECT ?subject
+	WHERE { ?subject rdfs:subClassOf :Concern }
+"""
