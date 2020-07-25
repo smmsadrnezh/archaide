@@ -115,11 +115,45 @@
                             </div>
                         {% elif current_step == 3 %}
                             <div class="ui segment">
-                                <div class="ui dividing header">
-                                    روابط
+                                <div class="ui dividing header"><a><i class="small add icon"></i></a> روابط شامل
+                                    (comprises)
                                 </div>
-                                <div class="field" id="tactic_input">
-                                    مشخص کردن روابط
+                                <div class="two fields">
+                                    <div class="field">
+                                        <label> الگوها:</label> <select class="ui fluid search selection dropdown">
+                                        <option value="">نام الگو</option>
+                                        <option value="AL">نام الگوی اول</option>
+                                        <option value="AL">نام الگوی دوم</option>
+                                    </select>
+                                    </div>
+                                    <div class="ui bottom aligned centered grid">
+                                        <div class="column">
+                                            <label><a class="ui red right pointing label">شامل</a></label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label> راهکنش‌ها:</label>
+                                        <div class="ui fluid search selection dropdown">
+                                            <input type="hidden" name="country"> <i class="dropdown icon"></i>
+                                            <div class="default text">تاکتیک را انتخاب کنید.</div>
+                                            <div class="menu">
+                                                <div class="item" data-value="af">تاکتیک اول
+                                                </div>
+                                                <div class="item" data-value="ax">تاکتیک دوم
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="ui bottom aligned centered grid">
+                                        <div class="column">
+                                            <button class="ui red icon button">
+                                                <i class="trash icon"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui dividing header">
+                                    روابط isAchievedBy
                                 </div>
                             </div>
                         {% elif current_step == 4 %}

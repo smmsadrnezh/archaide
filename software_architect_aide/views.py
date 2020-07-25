@@ -73,9 +73,25 @@ def create_manual(request):
             create_instances(pattern_list, 'Pattern', owl_path)
             create_instances(tactic_list, 'Tactic', owl_path)
 
-            context = {'current_step': current_step + 1}
+            patterns = 0
+            tactics = 0
+            concerns = 0
+
+            instances = {'patterns': patterns, 'tactics': tactics, 'concerns': concerns}
+            context = {'instances': instances, 'current_step': current_step + 1}
 
         elif current_step == 3:
+
+            comprises_pattern_list = request.POST.getlist('comprises_pattern[]')
+            comprises_tactic_list = request.POST.getlist('comprises_tactic[]')
+
+            is_achieved_by_concern_list = request.POST.getlist('is_achieved_by_concern[]')
+            is_achieved_by_tactic_list = request.POST.getlist('is_achieved_by_tactic[]')
+
+            comprises = zip(comprises_pattern_list, comprises_tactic_list)
+            is_achieved_by = zip(is_achieved_by_concern_list, is_achieved_by_tactic_list)
+
+            create_instances('pattern_list', 'Pattern', 'owl_path')
 
             context = {'current_step': current_step + 1}
 
