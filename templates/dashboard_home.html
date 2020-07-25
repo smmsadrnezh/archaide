@@ -33,7 +33,7 @@
                             <td>{{ forloop.counter }}</td>
                             <td>{{ architecture.name }}</td>
                             <td>{{ architecture.triple_count }}</td>
-                            <td>{{ architecture.creation_method }}</td>
+                            <td>{{ architecture.get_creation_method_display }}</td>
                             <td>{{ architecture.date_added }}</td>
                             <td>
                                 <button class="ui icon button" onclick="open_modal({{ forloop.counter }}, 'visualize')">
