@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
-from ontospy.ontodocs.builder import ONTODOCS_VIZ_TEMPLATES
-
 try:
     from .local_settings import *
 except ImportError:
@@ -40,25 +38,12 @@ MIDDLEWARE = ['django.middleware.security.SecurityMiddleware', 'django.contrib.s
 ROOT_URLCONF = 'software_architect_aide.urls'
 
 TEMPLATES = [
-    {'BACKEND':
-         'django.template.backends.django.DjangoTemplates',
-     'DIRS': [os.path.join(BASE_DIR, 'templates'),
-              # Ontospy
-              ONTODOCS_VIZ_TEMPLATES + "html-single",
-              ONTODOCS_VIZ_TEMPLATES + "html-multi",
-              ONTODOCS_VIZ_TEMPLATES + "markdown",
-              ONTODOCS_VIZ_TEMPLATES + "d3",
-              ONTODOCS_VIZ_TEMPLATES + "misc"],
-     'APP_DIRS': True,
-     'OPTIONS': {
-         'context_processors':
-             ['django.template.context_processors.debug',
-              'django.template.context_processors.request',
-              'django.contrib.auth.context_processors.auth',
-              'django.contrib.messages.context_processors.messages',
-              # Ontospy
-              'django.template.context_processors.i18n',
-              'django.template.context_processors.media',
+    {'BACKEND': 'django.template.backends.django.DjangoTemplates', 'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
+     'APP_DIRS': True, 'OPTIONS': {
+        'context_processors': ['django.template.context_processors.debug', 'django.template.context_processors.request',
+                               'django.contrib.auth.context_processors.auth',
+                               'django.contrib.messages.context_processors.messages', # Ontospy
+                               'django.template.context_processors.i18n', 'django.template.context_processors.media',
               'django.template.context_processors.static',
               'django.template.context_processors.tz',
               ], }, }, ]
