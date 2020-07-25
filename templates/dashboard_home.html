@@ -16,7 +16,6 @@
                         <th>نام معماری</th>
                         <th>تعداد سه‌تایی‌ها</th>
                         <th>تاریخ ایجاد</th>
-                        <th>تاریخ به‌روزرسانی</th>
                         <th>فعالیت‌ها</th>
                     </tr>
                     </thead>
@@ -34,13 +33,9 @@
                             <td>{{ architecture.name }}</td>
                             <td>{{ architecture.triple_count }}</td>
                             <td>{{ architecture.date_added }}</td>
-                            <td>{{ architecture.last_modified }}</td>
                             <td>
                                 <button class="ui icon button" onclick="open_modal({{ forloop.counter }}, 'visualize')">
                                     <i class="eye icon"></i>
-                                </button>
-                                <button class="ui icon button">
-                                    <i class="edit icon"></i>
                                 </button>
                                 <button class="ui icon button delete_item" onclick="open_modal({{ forloop.counter }}, 'delete')">
                                     <i class="trash icon"></i>

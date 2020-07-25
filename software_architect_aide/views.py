@@ -110,8 +110,12 @@ def architecture_delete(request, architecture_id):
 
 
 @login_required(login_url='/')
-def architecture_edit(request):
-    return None
+def architecture_export(request, architecture_id):
+    if request.method == 'POST':
+        architecture = Architecture.objects.get(id=architecture_id)
+        if request.user == architecture.owner:
+            pass
+    return HttpResponseRedirect('/dashboard')
 
 
 @login_required(login_url='/')
