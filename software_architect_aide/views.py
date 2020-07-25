@@ -87,6 +87,10 @@ def create_manual(request):
             context = {'current_step': current_step + 1}
 
         elif current_step == 3:
+
+            context = {'current_step': current_step + 1}
+
+        elif current_step == 4:
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             architecture.name = request.POST.get('name')
             rdf_path = architecture.owl_file.path
