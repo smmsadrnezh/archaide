@@ -1,13 +1,14 @@
+import os
+from shutil import copyfile
+
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from ontospy.ontodocs.viz.viz_d3tree import *
 
 from .common import MANUAL_ONTOLOGY_PATH
 from .common import query, pars_query_all_attribute_tactics, create_instances
 from .common import visualize, triple_count
-from .local_settings import BASE_DIR
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC
 from .utils import get_random_string
@@ -152,14 +153,4 @@ def evolution(request):
 @login_required(login_url='/')
 def ontospy_report(request):
     context = {}
-
-    reference_path = BASE_DIR + '/data/owl/ontology.owl'
-    manual_path = BASE_DIR + '/data/owl/manual_ontology.owl'
-
-    reference_graph = ontospy_report.Ontospy(reference_path)
-    manual_graph = ontospy_report.Ontospy(manual_path)
-
-    context['reference_stats'] = reference_graph.stats()
-    context['manual_stats'] = manual_graph.stats()
-
     return render(request, 'dashboard_ontospy_report.html', context)
