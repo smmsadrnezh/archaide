@@ -9,7 +9,7 @@ from software_architect_aide.queries import QULITY_ATTRIBUTE_CLASS
 from rdflib import BNode
 
 MANUAL_ONTOLOGY_PATH = BASE_DIR + '/data/owl/manual_ontology.owl'
-BASE_URI = "http://www.semanticweb.org/milad/ontologies/2020/6/software_architecture_ontology#"
+BASE_URI = "http://www.archaide.ml/ontology/#"
 
 
 def create_instances(instances_name, class_name, owl_path):
