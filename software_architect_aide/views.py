@@ -23,7 +23,7 @@ def dashboard(request):
 def create_upload(request):
     if request.method == 'POST':
         request.POST.get('name')
-        architecture = Architecture(name=request.POST.get('name'), owner=request.user)
+        architecture = Architecture(name=request.POST.get('name'), owner=request.user, creation_method='upload')
         architecture.owl_file = request.FILES.get('ontology')
         architecture.save()
         image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
@@ -35,14 +35,6 @@ def create_upload(request):
         return render(request, 'dashboard_create_upload.html', context)
     else:
         return render(request, 'dashboard_create_upload.html')
-
-
-@login_required(login_url='/')
-def create_reference(request):
-    query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
-    qa_t = pars_query_all_attribute_tactics(query_result)
-    context = {'data': qa_t}
-    return render(request, 'dashboard_create_reference.html', context)
 
 
 @login_required(login_url='/')
@@ -60,7 +52,7 @@ def create_manual(request):
             owl_path = os.path.join(settings.MEDIA_ROOT, 'owl', file_name)
             copyfile(MANUAL_ONTOLOGY_PATH, owl_path)
 
-            architecture = Architecture(owner=request.user)
+            architecture = Architecture(owner=request.user, creation_method='manual')
             architecture.owl_file.name = os.path.join('owl', file_name)
             architecture.save()
 
@@ -99,6 +91,17 @@ def create_manual(request):
     else:
         context = {'current_step': 1}
     return render(request, 'dashboard_create_manual.html', context)
+
+
+@login_required(login_url='/')
+def create_reference(request):
+    if request.method == 'POST':
+        context = {}
+    else:
+        query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
+        qa_t = pars_query_all_attribute_tactics(query_result)
+        context = {'data': qa_t}
+    return render(request, 'dashboard_create_reference.html', context)
 
 
 @login_required(login_url='/')

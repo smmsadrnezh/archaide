@@ -15,6 +15,7 @@
                         <th>#</th>
                         <th>نام معماری</th>
                         <th>تعداد سه‌تایی‌ها</th>
+                        <th>نحوهٔ ساخت</th>
                         <th>تاریخ ایجاد</th>
                         <th>فعالیت‌ها</th>
                     </tr>
@@ -32,6 +33,7 @@
                             <td>{{ forloop.counter }}</td>
                             <td>{{ architecture.name }}</td>
                             <td>{{ architecture.triple_count }}</td>
+                            <td>{{ architecture.creation_method }}</td>
                             <td>{{ architecture.date_added }}</td>
                             <td>
                                 <button class="ui icon button" onclick="open_modal({{ forloop.counter }}, 'visualize')">
