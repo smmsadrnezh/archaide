@@ -1,0 +1,1298 @@
+
+
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+
+<title></title>
+
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+
+
+
+
+<style type="text/css" media="screen">
+
+
+
+	body {
+	    margin-left: 6em;
+	    margin-right: 12em;
+	    font-size: 14px;
+	    font-family: "Helvetica Neue", Helvetica;
+	}
+
+	h1, h2, h3, h4, h5, h6 { text-align: left }
+
+	h1, h2, h3, h4, h5 { color: #000000;}
+	h2 { font: 140% sans-serif }
+	h3 { font: 120% sans-serif }
+	h4 { font: bold 100% sans-serif }
+	h5 { font: italic 100% sans-serif }
+	h6 { font: small-caps 100% sans-serif }
+
+	.margintop {
+		 margin-top: 40px;
+	}
+
+
+
+	/* rect {
+	   fill: none;
+	   pointer-events: all;
+	 }*/
+
+	 rect {
+	   fill:black;
+	   stroke:none;
+	 }
+
+	 line {
+	   stroke: #000;
+	   stroke-width: 1.5px;
+	 }
+
+	 .string, .regexp {
+	   color: #f39;
+	 }
+
+
+	 a:link, a:visited {
+	   color: #666;
+	   text-decoration: none;
+	 }
+
+	 a:hover {
+	   color: #000
+	 }
+
+
+	/*extra css*/
+
+	.node circle {
+	  cursor: pointer;
+	  fill: #fff;
+	  stroke: steelblue;
+	  stroke-width: 1.5px;
+	}
+
+	.node text {
+	  font-size: 11px;
+	}
+
+	path.link {
+	  fill: none;
+	  stroke: #ccc;
+	  stroke-width: 1.5px;
+	}
+
+
+	.infoentity {
+	    stroke: white;
+	    stroke-width: 2.5px;
+	    opacity: 0.7;
+		background: linen;
+		line-height: 0.7em;
+	}
+
+
+	.smalldesc {
+		font-size: 20px;
+		margin-top: 0px;
+		color: black;
+	}
+
+
+	.hidden {
+		display: none;
+	}
+
+	kbd {
+		padding: 2px 4px;
+	    font-size: 90%;
+	    color: #fff;
+	    background-color: #333;
+	    border-radius: 3px;
+	    box-shadow: inset 0 -1px 0 rgba(0,0,0,.25);border-image-outset:
+	}
+
+	/*slider*/
+
+	.side-panel{
+		background-color: #E6E6E6;
+		padding: 10px;
+		/*word-wrap: break-word;*/
+	    overflow: auto;
+	}
+
+	.side-panel-left{
+		box-shadow: -5px 0 15px -6px #585858 inset;
+	}
+
+	.side-panel-right{
+		box-shadow: 5px 0 15px -6px #585858 inset;
+	}
+
+	a.class {
+		color: darkred;
+	}
+	a.prop {
+		color: darkblue;
+	}
+
+	.turtlesource {
+		font-size: 12px;
+	}
+
+	dt {
+		color: darkslategrey;
+	}
+
+	.text-muted {
+		color: grey;
+	}
+
+	hr {
+		margin-top: 20px;
+	    margin-bottom: 20px;
+	}
+
+    .credits {
+        color: gray;
+    }
+
+    a.greylink {
+        color: #666;
+        text-decoration: underline;
+    }
+
+    .section-title {
+
+        font-size: smaller;
+    }
+
+</style>
+
+
+</head>
+
+
+<body>
+
+	
+
+	
+
+	<h1 class="title">Ontology:&nbsp;<a href="javascript:showpanel('ontoinfo');">http://www.archaide.ml/ontology</a></h1>
+
+	<p>
+    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 25th July 2020 19:50 </small>
+  </p>
+
+	<hr>
+
+
+	
+		<div class="row">
+			<h3>Classes (7)</h3>
+			<div class="col-md-12" id="graph_classes">
+
+
+			</div>
+
+
+		</div>
+	
+
+	
+		<div class="row">
+			<h3>Properties (6)</h3>
+			<div class="col-md-12" id="graph_properties">
+
+
+			</div>
+
+
+		</div>
+	
+
+
+	
+
+
+
+
+	<hr>
+    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 25th July 2020 19:50 </small>
+
+
+
+
+	
+
+	
+
+
+
+<div class="hidden" id="ontoinfo">
+	<h2>Ontology: <a href="" target="_blank" class="class"  title="Try to open original URI"></a></h2>
+
+	<hr class="margintop">
+
+	
+		<em>No annotations available</em>
+	
+
+
+	
+
+</div>
+
+
+
+
+
+	
+<div class="hidden" id="2">
+
+	
+	<h2 class="entity-section">Class: <a href="http://www.archaide.ml/ontology#Businness_Need" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Businness_Need</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Businness Need</p>
+    
+    
+
+
+
+	
+		<hr>
+	
+	
+	
+	
+		<p><b class="section-title">Has Super Class (direct):</b> <a href="javascript:showpanel('3');" class="class">ontology:Concern</a>  </p>
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:Businness_Need a owl:Class ;
+    rdfs:label &quot;Businness Need&quot; ;
+    rdfs:subClassOf :Concern .
+
+</pre>
+
+</div>
+	
+	
+
+	
+<div class="hidden" id="3">
+
+	
+	<h2 class="entity-section">Class: <a href="http://www.archaide.ml/ontology#Concern" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Concern</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Concern</p>
+    
+    
+
+
+
+	
+		<hr>
+	
+	
+	
+	
+	
+	
+
+	
+		<p><b class="section-title">Has Sub Class (direct):</b> <a href="javascript:showpanel('2');" class="class">ontology:Businness_Need</a> | <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a> | <a href="javascript:showpanel('7');" class="class">ontology:Risk_Mitigation</a>  </p>
+	
+	
+	
+
+	
+		<p><b class="section-title">In Domain Of:</b> <a href="javascript:showpanel('11');"  class="prop">ontology:achieves</a>  </p>
+	
+	
+	
+		<p><b class="section-title">In Range Of:</b> <a href="javascript:showpanel('14');" class="prop">ontology:isAchievedBy</a>  </p>
+	
+
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:Concern a owl:Class ;
+    rdfs:label &quot;Concern&quot; .
+
+</pre>
+
+</div>
+	
+	
+
+	
+<div class="hidden" id="4">
+
+	
+	<h2 class="entity-section">Class: <a href="http://www.archaide.ml/ontology#Decision" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Decision</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Decision</p>
+    
+    
+
+
+
+	
+		<hr>
+	
+	
+	
+	
+	
+	
+
+	
+		<p><b class="section-title">Has Sub Class (direct):</b> <a href="javascript:showpanel('5');" class="class">ontology:Pattern</a> | <a href="javascript:showpanel('8');" class="class">ontology:Tactic</a>  </p>
+	
+	
+	
+
+	
+		<p><b class="section-title">In Domain Of:</b> <a href="javascript:showpanel('14');"  class="prop">ontology:isAchievedBy</a>  </p>
+	
+	
+	
+		<p><b class="section-title">In Range Of:</b> <a href="javascript:showpanel('11');" class="prop">ontology:achieves</a>  </p>
+	
+
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:Decision a owl:Class ;
+    rdfs:label &quot;Decision&quot; .
+
+</pre>
+
+</div>
+	
+	
+
+	
+<div class="hidden" id="5">
+
+	
+	<h2 class="entity-section">Class: <a href="http://www.archaide.ml/ontology#Pattern" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Pattern</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Pattern</p>
+    
+    
+
+
+
+	
+		<hr>
+	
+	
+	
+	
+		<p><b class="section-title">Has Super Class (direct):</b> <a href="javascript:showpanel('4');" class="class">ontology:Decision</a>  </p>
+	
+	
+	
+
+	
+	
+	
+
+	
+		<p><b class="section-title">In Domain Of:</b> <a href="javascript:showpanel('13');"  class="prop">ontology:comprises</a>  </p>
+	
+	
+	
+		<p><b class="section-title">In Range Of:</b> <a href="javascript:showpanel('12');" class="prop">ontology:augments</a>  </p>
+	
+
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:Pattern a owl:Class ;
+    rdfs:label &quot;Pattern&quot; ;
+    rdfs:subClassOf :Decision .
+
+</pre>
+
+</div>
+	
+	
+
+	
+<div class="hidden" id="6">
+
+	
+	<h2 class="entity-section">Class: <a href="http://www.archaide.ml/ontology#Quality_Attribute" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Quality_Attribute</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Quality Attribute</p>
+    
+    
+
+
+
+	
+		<hr>
+	
+	
+	
+	
+		<p><b class="section-title">Has Super Class (direct):</b> <a href="javascript:showpanel('3');" class="class">ontology:Concern</a>  </p>
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:Quality_Attribute a owl:Class ;
+    rdfs:label &quot;Quality Attribute&quot; ;
+    rdfs:subClassOf :Concern .
+
+</pre>
+
+</div>
+	
+	
+
+	
+<div class="hidden" id="7">
+
+	
+	<h2 class="entity-section">Class: <a href="http://www.archaide.ml/ontology#Risk_Mitigation" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Risk_Mitigation</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Risk Mitigation</p>
+    
+    
+
+
+
+	
+		<hr>
+	
+	
+	
+	
+		<p><b class="section-title">Has Super Class (direct):</b> <a href="javascript:showpanel('3');" class="class">ontology:Concern</a>  </p>
+	
+	
+	
+
+	
+	
+	
+
+	
+	
+	
+
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:Risk_Mitigation a owl:Class ;
+    rdfs:label &quot;Risk Mitigation&quot; ;
+    rdfs:subClassOf :Concern .
+
+</pre>
+
+</div>
+	
+	
+
+	
+<div class="hidden" id="8">
+
+	
+	<h2 class="entity-section">Class: <a href="http://www.archaide.ml/ontology#Tactic" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Tactic</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Tactic</p>
+    
+    
+
+
+
+	
+		<hr>
+	
+	
+	
+	
+		<p><b class="section-title">Has Super Class (direct):</b> <a href="javascript:showpanel('4');" class="class">ontology:Decision</a>  </p>
+	
+	
+	
+
+	
+	
+	
+
+	
+		<p><b class="section-title">In Domain Of:</b> <a href="javascript:showpanel('12');"  class="prop">ontology:augments</a>  </p>
+	
+	
+	
+		<p><b class="section-title">In Range Of:</b> <a href="javascript:showpanel('13');" class="prop">ontology:comprises</a>  </p>
+	
+
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:Tactic a owl:Class ;
+    rdfs:label &quot;Tactic&quot; ;
+    rdfs:subClassOf :Decision .
+
+</pre>
+
+</div>
+	
+	
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hidden" id="11">
+	
+	<h2 class="entity-section">Property: <a  href="http://www.archaide.ml/ontology#achieves" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:achieves</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Achieves</p>
+    
+    
+
+
+	
+		<hr>
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('3');" class="class">ontology:Concern</a>  </p>
+	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('4');" class="class">ontology:Decision</a>  </p>
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:achieves a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label &quot;achieves&quot; ;
+    rdfs:domain :Concern ;
+    rdfs:range :Decision ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:inverseOf :isAchievedBy .
+
+</pre>
+
+
+</div>
+
+
+
+<div class="hidden" id="12">
+	
+	<h2 class="entity-section">Property: <a  href="http://www.archaide.ml/ontology#augments" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:augments</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Augments</p>
+    
+    
+
+
+	
+		<hr>
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('8');" class="class">ontology:Tactic</a>  </p>
+	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('5');" class="class">ontology:Pattern</a>  </p>
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:augments a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain :Tactic ;
+    rdfs:range :Pattern ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
+    owl:inverseOf :comprises .
+
+</pre>
+
+
+</div>
+
+
+
+<div class="hidden" id="13">
+	
+	<h2 class="entity-section">Property: <a  href="http://www.archaide.ml/ontology#comprises" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:comprises</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Comprises</p>
+    
+    
+
+
+	
+		<hr>
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('5');" class="class">ontology:Pattern</a>  </p>
+	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('8');" class="class">ontology:Tactic</a>  </p>
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:comprises a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:domain :Pattern ;
+    rdfs:range :Tactic .
+
+</pre>
+
+
+</div>
+
+
+
+<div class="hidden" id="14">
+	
+	<h2 class="entity-section">Property: <a  href="http://www.archaide.ml/ontology#isAchievedBy" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:isAchievedBy</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>IsAchievedBy</p>
+    
+    
+
+
+	
+		<hr>
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('4');" class="class">ontology:Decision</a>  </p>
+	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('3');" class="class">ontology:Concern</a>  </p>
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://www.archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:isAchievedBy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label &quot;isAchievedBy&quot; ;
+    rdfs:domain :Decision ;
+    rdfs:range :Concern ;
+    rdfs:subPropertyOf owl:topObjectProperty .
+
+</pre>
+
+
+</div>
+
+
+
+<div class="hidden" id="9">
+	
+	<h2 class="entity-section">Property: <a  href="http://www.archaide.ml/ontology#sa:Is_Address_by" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:sa:Is_Address_by</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Sa:Is_Address_by</p>
+    
+    
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+@prefix sa: &lt;http://www.archaide.ml/ontology#sa:&gt; .
+
+sa:Is_Address_by a owl:AnnotationProperty ;
+    rdfs:subPropertyOf rdfs:comment .
+
+</pre>
+
+
+</div>
+
+
+
+<div class="hidden" id="10">
+	
+	<h2 class="entity-section">Property: <a  href="http://www.archaide.ml/ontology#sa:isAddressBy" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:sa:isAddressBy</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Sa:isAddressBy</p>
+    
+    
+
+
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix sa: &lt;http://www.archaide.ml/ontology#sa:&gt; .
+
+sa:isAddressBy a owl:AnnotationProperty .
+
+</pre>
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<div id='slider' class="side-panel side-panel-left">
+		<span class="text-muted">Press <kbd>ESC</kbd> to close</span>
+		<div id="slide_contents"></div>
+	</div>
+
+	
+
+
+
+
+
+
+
+
+
+	
+
+	
+
+		<script type="text/javascript" src="static/libs/d3-v2/d3.v2.min.js"></script>
+	    <script type="text/javascript" src="static/libs/d3-v2/d3.layout.tree.js"></script>
+
+	    <script type="text/javascript" src="static/libs/jquery/jquery-1.7.1.min.js"></script>
+	    <script type="text/javascript" src="static/libs/jquery/jquery.slidereveal.min.js"></script>
+
+
+	
+
+
+
+
+    <script type="text/javascript">
+
+		var slider = $("#slider").slideReveal({
+			  trigger: $("#trigger"),
+			  push: false,
+			  overlay: true,
+			  width: '50%',
+			  speed: 700 ,
+			});
+
+		function showpanel(argument) {
+			console.log("#"+argument);
+			if (argument != "None") {
+				$("#slide_contents").empty();
+				$("#slide_contents").html($("#"+argument).html());
+				slider.slideReveal("show");
+			}
+		}
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+
+//
+// CLASSES
+//
+
+
+
+	var json1 = {"children": [{"qname": "ontology:Concern", "name": "Concern", "objid": 3, "size": 8, "realsize": 3, "children": [{"qname": "ontology:Businness_Need", "name": "Businness Need", "objid": 2, "size": 1, "realsize": 0}, {"qname": "ontology:Quality_Attribute", "name": "Quality Attribute", "objid": 6, "size": 1, "realsize": 0}, {"qname": "ontology:Risk_Mitigation", "name": "Risk Mitigation", "objid": 7, "size": 1, "realsize": 0}]}, {"qname": "ontology:Decision", "name": "Decision", "objid": 4, "size": 7, "realsize": 2, "children": [{"qname": "ontology:Pattern", "name": "Pattern", "objid": 5, "size": 1, "realsize": 0}, {"qname": "ontology:Tactic", "name": "Tactic", "objid": 8, "size": 1, "realsize": 0}]}], "name": "owl:Thing", "id": "None"};
+
+	
+	var variable_height1 = 800;
+	
+
+	var m = [20, 120, 100, 120],
+	    w = 2600 - m[1] - m[3],
+	    h = variable_height1 - m[0] - m[2],
+	    i = 0,
+	    root_classes;
+
+	var tree1 = d3.layout.tree()
+	    .size([h, w]);
+
+	var diagonal1 = d3.svg.diagonal()
+	    .projection(function(d) { return [d.y, d.x]; });
+
+	var vis1 = d3.select("#graph_classes").append("svg:svg")
+	    .attr("width", w + m[1] + m[3])
+	    .attr("height", h + m[0] + m[2])
+	  	.append("svg:g")
+	    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+	// d3.json(JSON_FILE, function(json) {
+	root_classes = json1;
+	root_classes.x0 = h / 2;
+	root_classes.y0 = 0;
+
+
+	
+
+
+	update(vis1, tree1, diagonal1, root_classes, json1);
+
+
+
+
+
+
+//
+// PROPERTIES
+//
+
+
+
+
+
+	var json2 = {"children": [{"qname": "ontology:achieves", "name": "achieves", "objid": 11, "size": 1, "realsize": 0}, {"qname": "ontology:augments", "name": "augments", "objid": 12, "size": 1, "realsize": 0}, {"qname": "ontology:comprises", "name": "comprises", "objid": 13, "size": 1, "realsize": 0}, {"qname": "ontology:isAchievedBy", "name": "isAchievedBy", "objid": 14, "size": 1, "realsize": 0}, {"qname": "ontology:sa:Is_Address_by", "name": "sa:Is Address by", "objid": 9, "size": 1, "realsize": 0}, {"qname": "ontology:sa:isAddressBy", "name": "sa:isAddressBy", "objid": 10, "size": 1, "realsize": 0}], "name": "Properties", "id": "None"};
+
+
+	
+	var variable_height2 = 800;
+	
+
+	var m = [20, 120, 100, 120],
+	    w = 2600 - m[1] - m[3],
+	    h = variable_height2 - m[0] - m[2],
+	    i = 0,
+	    root_properties;
+
+	var tree2 = d3.layout.tree()
+	    .size([h, w]);
+
+	var diagonal2 = d3.svg.diagonal()
+	    .projection(function(d) { return [d.y, d.x]; });
+
+	var vis2 = d3.select("#graph_properties").append("svg:svg")
+	    .attr("width", w + m[1] + m[3])
+	    .attr("height", h + m[0] + m[2])
+	  	.append("svg:g")
+	    .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+	// d3.json(JSON_FILE, function(json) {
+	root_properties = json2;
+	root_properties.x0 = h / 2;
+	root_properties.y0 = 0;
+
+	
+
+
+	update(vis2, tree2, diagonal2, root_properties, json2);
+
+
+
+
+
+
+
+
+
+
+
+//
+//  SHARED FUNCTIONS
+//
+
+
+// mikele: added more args [vis, tree, diagonal, root] which originally were referenced as a Global var
+function update(vis, tree, diagonal, source, root) {
+
+  var duration = d3.event && d3.event.altKey ? 5000 : 500;
+
+  // Compute the new tree layout.
+  var nodes = tree.nodes(root).reverse();
+
+  // Normalize for fixed-depth.
+  nodes.forEach(function(d) { d.y = d.depth * 180; });
+
+  // Update the nodes…
+  var node = vis.selectAll("g.node")
+      .data(nodes, function(d) { return d.id || (d.id = ++i); });
+
+  // Enter any new nodes at the parent's previous position.
+  var nodeEnter = node.enter().append("svg:g")
+      .attr("class", "node")
+      .attr("transform", function(d) { return "translate(" + source.y0 + "," + source.x0 + ")"; });
+
+
+  nodeEnter.append("svg:circle")
+      .attr("r", 1e-6)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; })
+      .on("click", function(d) { toggle(d); update(vis, tree, diagonal, d, root); }); // note ref to <root>
+
+  nodeEnter.append("svg:text")
+      .attr("x", function(d) { return d.children || d._children ? -10 : 10; })
+      .attr("dy", ".35em")
+      .attr("text-anchor", function(d) { return d.children || d._children ? "end" : "start"; })
+      .text(function(d) { return d.name; })
+      .style("fill-opacity", 1e-6)
+      .on("click", function(d) { showpanel(d.objid); })
+	  .on("mouseover", function(d){
+			d3.select(this).attr("fill", "darkorange");
+			tooltip.text(d.qname);
+			tooltip.style("visibility", "visible"); }
+		)
+      .on("mousemove", function(d){return tooltip.style("top",
+		    (d3.event.pageY-100)+"px").style("left",(d3.event.pageX+50)+"px");})
+	  .on("mouseout", function(d){
+			d3.select(this).attr("fill", ""); // default = no stroke
+			return tooltip.style("visibility", "hidden");}
+			);
+	  // .on("mouseover", function(d, i) {
+	  // 		  label_name.text(d.name);
+	  // })
+	  // .on("mouseout", function(d, i) {
+	  // 		  label_name.text("");
+	  // });
+
+
+
+   // approach 1
+  var label_name = vis.append("text")
+      .attr("x", 20)
+      .attr("y", 200)
+	  // .attr("text-anchor", "middle")
+      .attr("opacity", "1")
+	  .style("font-size", "90px")
+	  .style("fill", "lightsteelblue")
+	  .text("");
+
+   // approach 2
+  var tooltip = d3.select("body")
+	    .append("div")
+	    .style("position", "absolute")
+	    .style("border-radius", "25px")
+	    .style("z-index", "100")
+	    .style("visibility", "hidden")
+	    .style("opacity", ".85")
+	    .style("color", "lightsteelblue")
+	    .style("background", "white")
+	    .style("font-size", "90px")
+	    .text("a simple tooltip");
+
+
+  // Transition nodes to their new position.
+  var nodeUpdate = node.transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + d.y + "," + d.x + ")"; });
+
+  nodeUpdate.select("circle")
+      .attr("r", 4.5)
+      .style("fill", function(d) { return d._children ? "lightsteelblue" : "#fff"; });
+
+  nodeUpdate.select("text")
+      .style("fill-opacity", 1);
+
+  // Transition exiting nodes to the parent's new position.
+  var nodeExit = node.exit().transition()
+      .duration(duration)
+      .attr("transform", function(d) { return "translate(" + source.y + "," + source.x + ")"; })
+      .remove();
+
+  nodeExit.select("circle")
+      .attr("r", 1e-6);
+
+  nodeExit.select("text")
+      .style("fill-opacity", 1e-6);
+
+  // Update the links…
+  var link = vis.selectAll("path.link")
+      .data(tree.links(nodes), function(d) { return d.target.id; });
+
+  // Enter any new links at the parent's previous position.
+  link.enter().insert("svg:path", "g")
+      .attr("class", "link")
+      .attr("d", function(d) {
+        var o = {x: source.x0, y: source.y0};
+        return diagonal({source: o, target: o});
+      })
+    .transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition links to their new position.
+  link.transition()
+      .duration(duration)
+      .attr("d", diagonal);
+
+  // Transition exiting nodes to the parent's new position.
+  link.exit().transition()
+      .duration(duration)
+      .attr("d", function(d) {
+        var o = {x: source.x, y: source.y};
+        return diagonal({source: o, target: o});
+      })
+      .remove();
+
+  // Stash the old positions for transition.
+  nodes.forEach(function(d) {
+    d.x0 = d.x;
+    d.y0 = d.y;
+  });
+
+
+}  // end of Update
+
+
+
+
+function toggleAll(d) {
+	if (d.children) {
+	  d.children.forEach(toggleAll);
+	  toggle(d);
+	}
+}
+
+
+
+// Toggle children.
+function toggle(d) {
+  if (d.children) {
+    d._children = d.children;
+    d.children = null;
+  } else {
+    d.children = d._children;
+    d._children = null;
+  }
+}
+
+
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>

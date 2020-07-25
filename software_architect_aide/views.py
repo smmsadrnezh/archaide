@@ -153,16 +153,10 @@ def ontospy_report(request):
     reference_path = BASE_DIR + '/data/owl/ontology.owl'
     manual_path = BASE_DIR + '/data/owl/manual_ontology.owl'
 
-    reference_graph = ontospy.Ontospy(reference_path)
-    manual_graph = ontospy.Ontospy(manual_path)
+    reference_graph = ontospy_report.Ontospy(reference_path)
+    manual_graph = ontospy_report.Ontospy(manual_path)
 
     context['reference_stats'] = reference_graph.stats()
     context['manual_stats'] = manual_graph.stats()
 
-    # context['reference_k'] = reference_graph
-
-    # g.stats()
-    # v = Dataviz(g)  # => instantiate the visualization object
-    # v.build(output_path=BASE_DIR+'/data/ontospy/')  # => render visualization. You can pass an 'output_path' parameter too
-    # v.preview()  # => open in browser
     return render(request, 'dashboard_ontospy_report.html', context)
