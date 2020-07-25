@@ -1,7 +1,4 @@
-import os
-from shutil import copyfile
 from django.conf import settings
-import ontospy
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
@@ -13,7 +10,6 @@ from .common import visualize, triple_count
 from .local_settings import BASE_DIR
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC
-
 from .utils import get_random_string
 
 
