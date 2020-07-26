@@ -23,9 +23,8 @@ def dashboard(request):
 @login_required(login_url='/')
 def create_upload(request):
     if request.method == 'POST':
-        request.POST.get('name')
-        architecture = Architecture(name=request.POST.get('name'), owner=request.user, creation_method='upload')
-        architecture.owl_file = request.FILES.get('ontology')
+        architecture = Architecture(name=request.POST.get('name'), owner=request.user, creation_method='upload',
+                                    owl_file=request.FILES.get('ontology'))
         architecture.save()
         image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
         rdf_path = architecture.owl_file.path
@@ -35,7 +34,7 @@ def create_upload(request):
         context = {'success': True}
         return render(request, 'dashboard_create_upload.html', context)
     else:
-        return render(request, 'dashboard_create_upload.html')
+        return render(request, 'dashboard_create_upload.html', {})
 
 
 @login_required(login_url='/')
@@ -82,26 +81,31 @@ def create_manual(request):
 
         elif current_step == 3:
 
-            comprises_pattern_list = request.POST.getlist('comprises_pattern[]')
-            comprises_tactic_list = request.POST.getlist('comprises_tactic[]')
+            comprises_pattern = request.POST.getlist('comprises_pattern[]')
+            comprises_tactic = request.POST.getlist('comprises_tactic[]')
 
-            is_achieved_by_concern_list = request.POST.getlist('is_achieved_by_concern[]')
-            is_achieved_by_tactic_list = request.POST.getlist('is_achieved_by_tactic[]')
+            is_achieved_by_concern = request.POST.getlist('is_achieved_by_concern[]')
+            is_achieved_by_tactic = request.POST.getlist('is_achieved_by_tactic[]')
 
-            comprises = zip(comprises_pattern_list, comprises_tactic_list)
-            is_achieved_by = zip(is_achieved_by_concern_list, is_achieved_by_tactic_list)
+            comprises = zip(comprises_pattern, comprises_tactic)
+            is_achieved_by = zip(is_achieved_by_concern, is_achieved_by_tactic)
 
-            create_instances('pattern_list', 'Pattern', 'owl_path')
+            # TODO: Create Instances
+            # create_instances('pattern_list', 'Pattern', 'owl_path')
+
+            architecture = Architecture.objects.filter(owner=request.user).latest('id')
+            rdf_path = architecture.owl_file.path
+            architecture.triple_count = triple_count(rdf_path)
+            architecture.save()
+
+            image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
+            visualize(rdf_path, image_path)
 
             context = {'current_step': current_step + 1}
 
         elif current_step == 4:
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             architecture.name = request.POST.get('name')
-            rdf_path = architecture.owl_file.path
-            image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
-            architecture.triple_count = triple_count(rdf_path)
-            visualize(rdf_path, image_path)
             architecture.save()
             context = {'success': True, 'current_step': 1}
 

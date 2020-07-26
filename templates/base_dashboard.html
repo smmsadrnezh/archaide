@@ -191,7 +191,6 @@
             $('#' + word[0] + '_input a').click(function () {
                 $('#' + word[0] + '_input').append('<div class="ui field action input"><input type="text" name="' + word[0] + '[]" placeholder="' + word[1] + '"><button class="ui red icon button"><i class="trash icon"></i></button></div>\r\n');
                 remove_input()
-                $('#risk_input a').preventDefault()
             });
         });
 
@@ -204,5 +203,24 @@
         }
 
         remove_input()
+
+        var words_new = [['comprises', 'مخاطره'], ['is_achieved_by', 'ویژگی کیفی']];
+        words_new.forEach(function (word) {
+            $('#' + word[0] + ' a').click(function () {
+                alert('#' + word[0]);
+                $('<div class="two fields"><div class="field"><label> دغدغه:</label><select name="is_achieved_by_concern[]" class="ui fluid search selection dropdown"><option value="">یک مخاطره، نیازمندی حرفه یا ویژگی کیفی را انتخاب کنید.</option><option value="C1">نام دغدغه اول</option><option value="C2">نام دغدغه دوم</option></select></div><div class="ui bottom aligned centered grid"><div class="column"><label><a class="ui red right pointing label">نائل می‌شود توسطِ</a></label></div></div><div class="field"><label> راهکنش:</label><select name="is_achieved_by_tactic[]" class="ui fluid search selection dropdown"><option value="">راهکنش را انتخاب کنید.</option><option value="TT1">تاکتیک اول</option><option value="TT2">تاکتیک دوم</option></select></div><div class="ui bottom aligned centered grid"><div class="column"><button class="ui red icon button"><i class="trash icon"></i></button></div></div></div>\r\n').insertAfter('#' + word[0]);
+                {#remove_input()#}
+            });
+        });
+
+        {#function remove_input() {#}
+        {#    $('div.ui.field.action.input .ui.red.icon.button').click(function (e) {#}
+        {#            e.currentTarget.parentNode.remove();#}
+        {#            e.currentTarget.preventDefault();#}
+        {#        }#}
+        {#    )#}
+        {#}#}
+            remove_input()
+
     </script>
 {% endblock %}
