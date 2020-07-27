@@ -63,30 +63,13 @@
                                 </div>
                                 <div class="field" id="quality_input">
                                     <label><a><i class="small add icon"></i></a> ویژگی‌های کیفی:</label>
-                                    <div class="ui field action input">
-                                        <input type="text" name="quality[]" placeholder="ویژگی کیفی">
-                                        <button class="ui red icon button">
-                                            <i class="trash icon"></i>
-                                        </button>
-                                    </div>
+                                    {% include 'dashboard_create_manual_field.html' with placeholder="ویژگی کیفی" name="quality" %}
                                 </div>
                                 <div class="field" id="business_input">
-                                    <label><a><i class="small add icon"></i></a> نیازمندی‌های حرفه:</label>
-                                    <div class="ui field action input">
-                                        <input type="text" name="business[]" placeholder="نیازمندی حرفه">
-                                        <button class="ui red icon button">
-                                            <i class="trash icon"></i>
-                                        </button>
-                                    </div>
+                                    <label><a><i class="small add icon"></i></a> نیازمندی‌های حرفه:</label> {% include 'dashboard_create_manual_field.html' with placeholder="نیازمندی حرفه" name="business" %}
                                 </div>
                                 <div class="field" id="risk_input">
-                                    <label><a><i class="small add icon"></i></a> مخاطره‌ها:</label>
-                                    <div class="ui field action input">
-                                        <input type="text" name="risk[]" placeholder="مخاطره">
-                                        <button class="ui red icon button">
-                                            <i class="trash icon"></i>
-                                        </button>
-                                    </div>
+                                    <label><a><i class="small add icon"></i></a> مخاطره‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="مخاطره" name="risk" %}
                                 </div>
                             </div>
                         {% elif current_step == 2 %}
@@ -95,22 +78,10 @@
                                     تصمیم‌ها
                                 </div>
                                 <div class="field" id="tactic_input">
-                                    <label><a><i class="small add icon"></i></a> راهکنش‌ها:</label>
-                                    <div class="ui field action input">
-                                        <input type="text" name="tactic[]" placeholder="راهکنش">
-                                        <button class="ui red icon button">
-                                            <i class="trash icon"></i>
-                                        </button>
-                                    </div>
+                                    <label><a><i class="small add icon"></i></a> راهکنش‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="راهکنش" name="tactic" %}
                                 </div>
                                 <div class="field" id="pattern_input">
-                                    <label><a><i class="small add icon"></i></a> الگوها:</label>
-                                    <div class="ui field action input">
-                                        <input type="text" name="pattern[]" placeholder="الگو">
-                                        <button class="ui red icon button">
-                                            <i class="trash icon"></i>
-                                        </button>
-                                    </div>
+                                    <label><a><i class="small add icon"></i></a> الگوها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="الگو" name="pattern" %}
                                 </div>
                             </div>
                         {% elif current_step == 3 %}
@@ -118,101 +89,11 @@
                                 <div class="ui dividing header" id="comprises"><a><i class="small add icon"></i></a>
                                     روابط دربرگیرندهٔ (comprises)
                                 </div>
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label> الگو:</label>
-                                        <select name="comprises_pattern[]" class="ui fluid search selection dropdown">
-                                            <option value="">الگو را انتخاب کنید.</option>
-                                            <option value="P1">نام الگوی اول</option>
-                                            <option value="P2">نام الگوی دوم</option>
-                                        </select>
-                                    </div>
-                                    <div class="ui bottom aligned centered grid">
-                                        <div class="column">
-                                            <label><a class="ui red right pointing label">دربرگیرندهٔ است</a></label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label> راهکنش:</label>
-                                        <select name="comprises_tactic[]" class="ui fluid search selection dropdown">
-                                            <option value="">راهکنش را انتخاب کنید.</option>
-                                            <option value="T1">تاکتیک اول</option>
-                                            <option value="T2">تاکتیک دوم</option>
-                                        </select>
-                                    </div>
-                                    <div class="ui bottom aligned centered grid">
-                                        <div class="column">
-                                            <button class="ui red icon button">
-                                                <i class="trash icon"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% include 'dashboard_create_manual_field_comprises.html' %}
                                 <div class="ui dividing header" id="is_achieved_by">
                                     <a><i class="small add icon"></i></a> روابط نائل می‌شود توسطِ (isAchievedBy)
                                 </div>
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label> دغدغه:</label>
-                                        <select name="is_achieved_by_concern[]" class="ui fluid search selection dropdown">
-                                            <option value="">یک مخاطره، نیازمندی حرفه یا ویژگی کیفی را انتخاب
-                                                کنید.</option>
-                                            <option value="C1">نام دغدغه اول</option>
-                                            <option value="C2">نام دغدغه دوم</option>
-                                        </select>
-                                    </div>
-                                    <div class="ui bottom aligned centered grid">
-                                        <div class="column">
-                                            <label><a class="ui red right pointing label">نائل می‌شود توسطِ</a></label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label> راهکنش:</label>
-                                        <select name="is_achieved_by_tactic[]" class="ui fluid search selection dropdown">
-                                            <option value="">راهکنش را انتخاب کنید.</option>
-                                            <option value="TT1">تاکتیک اول</option>
-                                            <option value="TT2">تاکتیک دوم</option>
-                                        </select>
-                                    </div>
-                                    <div class="ui bottom aligned centered grid">
-                                        <div class="column">
-                                            <button class="ui red icon button">
-                                                <i class="trash icon"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="two fields">
-                                    <div class="field">
-                                        <label> دغدغه:</label>
-                                        <select name="is_achieved_by_concern[]" class="ui fluid search selection dropdown">
-                                            <option value="">یک مخاطره، نیازمندی حرفه یا ویژگی کیفی را انتخاب
-                                                کنید.</option>
-                                            <option value="C1">نام دغدغه اول</option>
-                                            <option value="C2">نام دغدغه دوم</option>
-                                        </select>
-                                    </div>
-                                    <div class="ui bottom aligned centered grid">
-                                        <div class="column">
-                                            <label><a class="ui red right pointing label">نائل می‌شود توسطِ</a></label>
-                                        </div>
-                                    </div>
-                                    <div class="field">
-                                        <label> راهکنش:</label>
-                                        <select name="is_achieved_by_tactic[]" class="ui fluid search selection dropdown">
-                                            <option value="">راهکنش را انتخاب کنید.</option>
-                                            <option value="TT1">تاکتیک اول</option>
-                                            <option value="TT2">تاکتیک دوم</option>
-                                        </select>
-                                    </div>
-                                    <div class="ui bottom aligned centered grid">
-                                        <div class="column">
-                                            <button class="ui red icon button">
-                                                <i class="trash icon"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                                {% include 'dashboard_create_manual_field_is_achieved_by.html' %}
                             </div>
                         {% elif current_step == 4 %}
                             <div class="ui segment">

@@ -60,7 +60,7 @@ def create_manual(request):
             create_instances(business_list, 'Business_Need', owl_path)
             create_instances(risk_list, 'Risk_Mitigation', owl_path)
 
-            context = {'current_step': current_step + 1}
+            context = {'current_step': current_step + 1, 'fields': [['pattern', 'الگو'], ['tactic', 'راهکنش']]}
 
         elif current_step == 2:
 
@@ -72,11 +72,9 @@ def create_manual(request):
             create_instances(pattern_list, 'Pattern', owl_path)
             create_instances(tactic_list, 'Tactic', owl_path)
 
-            patterns = 0
-            tactics = 0
             concerns = 0
 
-            instances = {'patterns': patterns, 'tactics': tactics, 'concerns': concerns}
+            instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': concerns}
             context = {'instances': instances, 'current_step': current_step + 1}
 
         elif current_step == 3:
@@ -110,7 +108,8 @@ def create_manual(request):
             context = {'success': True, 'current_step': 1}
 
     else:
-        context = {'current_step': 1}
+        context = {'current_step': 1,
+                   'fields': [['risk', 'مخاطره'], ['quality', 'ویژگی کیفی'], ['business', 'نیازمندی حرفه']]}
     return render(request, 'dashboard_create_manual.html', context)
 
 
