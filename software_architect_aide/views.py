@@ -75,7 +75,7 @@ def create_manual(request):
             concerns = get_concerns(owl_path)
 
 
-            # instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': concerns}
+            instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': concerns}
             context = {'instances': "instances", 'current_step': current_step + 1}
 
         elif current_step == 3:

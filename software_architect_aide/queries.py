@@ -26,5 +26,7 @@ SELECT ?subject
 	WHERE { ?subject rdfs:subClassOf :Concern }
 """
 
-CONCERNS = """SELECT ?subject ?object
+CONCERNS = """
+PREFIX : <http://archaide.ml/ontology#>
+SELECT ?subject ?object
 	WHERE { {?subject rdf:type :Business_Need} Union  {?subject rdf:type :Quality_Attribute } union {?subject rdf:type :Risk_Mitigation }}"""

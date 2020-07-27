@@ -105,5 +105,9 @@ def get_concerns(owl_path):
 
 
 def pars_concerns_query(query_result):
+    result = list()
     for row in query_result:
-        print(row)
+        uri = str(row.asdict()["subject"])
+        result.append(uri[uri.index("#") + 1:])
+
+    return result
