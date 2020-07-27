@@ -198,7 +198,7 @@
             $('.ui.dropdown')
                 .dropdown()
             ;
-            {#remove_input()#}
+            remove_input()
         });
 
         $('#is_achieved_by a').click(function () {
@@ -206,7 +206,7 @@
             $('.ui.dropdown')
                 .dropdown()
             ;
-            {#remove_input()#}
+            remove_input()
         });
 
         function remove_input() {
@@ -216,7 +216,7 @@
                 }
             )
             $('.delete_field_two').click(function (e) {
-                    e.currentTarget.parentNode.parentNode.parentNode.remove();
+                e.currentTarget.parentNode.parentNode.parentNode.remove();
                     e.currentTarget.preventDefault();
                 }
             )
