@@ -64,6 +64,30 @@ def triple_count(rdf_path):
     return len(Graph().parse(rdf_path))
 
 
+def create_comprises(tuples, owl_path):
+    pairs = list(tuples)
+    for tuple in tuples:
+        pattern_instance = URIRef(BASE_URI + tuple[0])
+        tactic_instance = URIRef(BASE_URI + tuple[1])
+        comprises_rel = URIRef(BASE_URI + "comprises")
+        g = Graph()
+        g.parse(owl_path, format='application/rdf+xml', )
+        g.bind("owl", OWL)
+        g.add((pattern_instance, comprises_rel, tactic_instance))
+        g.serialize(destination=owl_path, format="application/rdf+xml")
+
+
+def create_is_achieved_by(tuples, owl_path):
+    for tuple in tuples:
+        concern_instance = URIRef(BASE_URI + tuple[0])
+        tactic_instance = URIRef(URIRef(BASE_URI + tuple[1]))
+        is_achieved_by_rel = URIRef(BASE_URI + "isAchievedBy")
+        g = Graph()
+        g.parse(owl_path, format='application/rdf+xml', )
+        g.bind("owl", OWL)
+        g.add((concern_instance, is_achieved_by_rel, tactic_instance))
+        g.serialize(destination=owl_path, format="application/rdf+xml")
+
 # def get_all_tactic_by_qa(quality_attributes, qa_t):
 #     for item in qa_t:
 #         pass

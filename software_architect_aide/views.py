@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .common import MANUAL_ONTOLOGY_PATH
+from .common import MANUAL_ONTOLOGY_PATH, create_comprises, create_is_achieved_by
 from .common import query, pars_query_all_attribute_tactics, create_instances
 from .common import visualize, triple_count
 from .models import Architecture
@@ -88,8 +88,10 @@ def create_manual(request):
             comprises = zip(comprises_pattern, comprises_tactic)
             is_achieved_by = zip(is_achieved_by_concern, is_achieved_by_tactic)
 
+            owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
             # TODO: Create Instances
-            # create_instances('pattern_list', 'Pattern', 'owl_path')
+            create_comprises(comprises, owl_path)
+            create_is_achieved_by(is_achieved_by, owl_path)
 
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             rdf_path = architecture.owl_file.path
