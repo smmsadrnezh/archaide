@@ -5,11 +5,11 @@ from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
 from rdflib.namespace import OWL, RDF, RDFS
 from rdflib import URIRef
 from software_architect_aide.local_settings import BASE_DIR
-from software_architect_aide.queries import QULITY_ATTRIBUTE_CLASS
+from software_architect_aide.queries import QULITY_ATTRIBUTE_CLASS, CONCERNS
 from rdflib import BNode
 
 MANUAL_ONTOLOGY_PATH = BASE_DIR + '/data/owl/manual_ontology.owl'
-BASE_URI = "http://www.archaide.ml/ontology/#"
+BASE_URI = "http://archaide.ml/ontology#"
 
 
 def create_instances(instances_name, class_name, owl_path):
@@ -43,6 +43,12 @@ def axiom_count(rdf_path):
 def query(query_string):
     g = Graph()
     g.parse(BASE_DIR + "/data/owl/ontology.owl", format='xml')
+    return g.query(query_string)
+
+
+def query_manual(query_string, owl_path):
+    g = Graph()
+    g.parse(owl_path, format='xml')
     return g.query(query_string)
 
 
@@ -88,6 +94,16 @@ def create_is_achieved_by(tuples, owl_path):
         g.add((concern_instance, is_achieved_by_rel, tactic_instance))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
-# def get_all_tactic_by_qa(quality_attributes, qa_t):
-#     for item in qa_t:
-#         pass
+
+def get_concerns(owl_path):
+    g = Graph()
+    g.parse(owl_path, format='application/rdf+xml', )
+    g.bind("owl", OWL)
+
+    query_result = query_manual(CONCERNS, owl_path)
+    return pars_concerns_query(query_result)
+
+
+def pars_concerns_query(query_result):
+    for row in query_result:
+        print(row)
