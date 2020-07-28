@@ -136,10 +136,10 @@ def create_reference(request):
             print(query_part1)
             query_result = query_reference(query_part1)
             quality_tactics = pars_query_two_label(query_result)
-            result = dict()
+            quality_tactics_dict = {quality_tactic[0]: [] for quality_tactic in quality_tactics}
             for quality_tactic in quality_tactics:
-                result[quality_tactic[0]].append(quality_tactic[1])
-            context = {'current_step': current_step + 1, 'quality_tactics': quality_tactics}
+                quality_tactics_dict[quality_tactic[0]].append(quality_tactic[1])
+            context = {'current_step': current_step + 1, 'quality_tactics_dict': quality_tactics_dict}
 
         elif current_step == 2:
             #         # quality_attributes = request.POST.get('quality_attributes')

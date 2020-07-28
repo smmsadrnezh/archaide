@@ -76,6 +76,17 @@
                                 <div class="ui dividing header">
                                     راهکنش‌ها
                                 </div>
+                                {% for quality, tactics in quality_tactics_dict.items %}
+                                    {{ quality }}
+                                    {% for tactic in tactics %}
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input name="quality[]" value="{{ tactic }}" type="checkbox">
+                                                <label>{{ tactic }}</label>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
                             </div>
                         {% elif current_step == 3 %}
                             <div class="ui segment">
