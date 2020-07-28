@@ -7,10 +7,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
-    export, pars_query_all_attributes
-from .common import query, create_instances
-    export, pars_query_all_attributes, query_reference
-from .common import pars_query_all_attribute_tactics, create_instances
+    query_reference
+from .common import create_instances
+from .common import export, pars_query_all_attributes
 from .common import visualize, triple_count
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTES
@@ -128,7 +127,7 @@ def create_reference(request):
             quality_attributes = ['Performance', 'Security']
             selected_qa = ""
             for quality_attribute in quality_attributes:
-                quality_attribute = f":{quality_attribute}"
+                quality_attribute = ":{}".format(quality_attribute)
             selected_qa = ' , '.join(quality_attributes)
             query_part1 = """
             SELECT ?subject ?object
@@ -143,7 +142,7 @@ def create_reference(request):
                 }
             ORDER BY ?object ?subject
             """
-            query_part2 = f"{selected_qa}" + """)
+            query_part2 = "{}".format(selected_qa) + """)
                 }
             ORDER BY ?object ?subject"""
             query = query_part1 + query_part2
