@@ -53,10 +53,7 @@ def query_manual(query_string, owl_path):
 
 
 def pars_query_all_attributes(query_result):
-    quality_attributes = list()
-    for row in query_result:
-        quality_attributes.append(row.asdict()['qalabel'].value)
-    return quality_attributes
+    return [row.asdict()['qalabel'].value for row in query_result]
 
 
 def pars_query_all_attribute_tactics(query_result):

@@ -5,7 +5,7 @@
     <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
         <div class="ui padded grid">
             <div class="row">
-                <h1 class="ui huge dividing header">ساخت براساس معماری مرجع</h1>
+                <h1 class="ui huge dividing header">ساخت دستی معماری</h1>
             </div>
             {% if success %}
                 <div class="ui positive icon small message">
@@ -20,46 +20,82 @@
                 </div>
             {% endif %}
 
+
             <div class="center aligned row">
-                <form class="ui form" method="post" action="{% url 'create_upload' %}" enctype="multipart/form-data">
+                <form class="ui form" method="post" action="{% url 'create_reference' %}">
                     {% csrf_token %}
-                    <div class="field">
-                        <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
-                    </div>
-                    <div class="ui secondary segments reference">
+                    <div class="ui secondary segments manual">
                         <div class="ui center aligned segment">
                             <div class="ui ordered steps">
-                                <div class="completed step">
+                                <div class="{% if current_step == 1 %}active{% else %}completed{% endif %} step">
                                     <div class="content">
                                         <div class="title">ویژگی‌های کیفی</div>
-                                        <div class="description">ویژگی‌های کیفی را از فهرست زیر انتخاب کنید.</div>
+                                        <div class="description">ویژگی‌های کیفی را انتخاب کنید.</div>
                                     </div>
                                 </div>
-                                <div class="completed step">
+                                <div class="{% if current_step == 1 or current_step == 2 %}active{% else %}completed{% endif %} step">
                                     <div class="content">
-                                        <div class="title">تاکتیک‌ها</div>
-                                        <div class="description">تاکتیک‌های مرتبط با ویژگی‌های کیفی را انتخاب کنید.
+                                        <div class="title">راهکنش‌ها</div>
+                                        <div class="description">راهکنش‌ها را انتخاب کنید.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="{% if current_step == 1 or current_step == 2 or current_step == 3 %}active{% else %}completed{% endif %} step">
+                                    <div class="content">
+                                        <div class="title">رابطهٔ الگوها و راهکنش‌ها</div>
+                                        <div class="description">الگوها را انتخاب کنید.
                                         </div>
                                     </div>
                                 </div>
                                 <div class="active step">
                                     <div class="content">
-                                        <div class="title">تایید و ثبت معماری</div>
-                                        <div class="description">اطلاعات معماری را تایید کنید.</div>
+                                        <div class="title">تأیید و ثبت معماری</div>
+                                        <div class="description">اطلاعات معماری را تأیید کنید.</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="ui segment">
-                            {% for item in data %}
-                                {{ item }}
+                        <input type="hidden" name="step" value="{{ current_step }}">
+                        {% if current_step == 1 %}
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    ویژگی‌های کیفی
+                                </div>
+                            </div>
+                            {% for quality in qualities %}
+                                <div class="ui checkbox">
+                                    <input name="quality[]" value="{{ quality }}" type="checkbox">
+                                    <label>{{ quality }}</label>
+                                </div>
                             {% endfor %}
-                        </div>
+                        {% elif current_step == 2 %}
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    راهکنش‌ها
+                                </div>
+                            </div>
+                        {% elif current_step == 3 %}
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    رابطهٔ الگوها و راهکنش‌ها
+                                </div>
+                            </div>
+                        {% elif current_step == 4 %}
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    تأیید و ثبت معماری
+                                </div>
+                                <div class="field">
+                                    <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
+                                </div>
+                            </div>
+                        {% endif %}
                     </div>
-                    <button class="ui button" type="submit" onclick="loading()">ایجاد معماری</button>
+                    <button class="ui positive button" type="submit" onclick="loading()">
+                        {% if current_step == 4 %}ایجاد
+                            معماری{% else %}مرحلهٔ بعد{% endif %}</button>
                 </form>
             </div>
-            <div class="center aligned row"></div>
             <div class="ui hidden section divider"></div>
         </div>
     </div>

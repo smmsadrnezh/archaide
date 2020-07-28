@@ -2,9 +2,6 @@
 
 
 {% block dashboard_content %}
-    {% if current_step == 4 %}
-        {% include 'dashboard_export_modal.html' with number='1' architecture=architecture %}
-    {% endif %}
     <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
         <div class="ui padded grid">
             <div class="row">
@@ -116,11 +113,6 @@
                     <button class="ui positive button" type="submit" onclick="loading()">
                         {% if current_step == 4 %}ایجاد
                             معماری{% else %}مرحلهٔ بعد{% endif %}</button>
-                    {% if current_step == 4 %}
-                        <div onclick="open_modal('1', 'export')" class="ui left labeled icon button">
-                            بارگیری <i class="download icon"></i>
-                        </div>
-                    {% endif %}
                 </form>
             </div>
             <div class="ui hidden section divider"></div>
