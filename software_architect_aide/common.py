@@ -40,7 +40,7 @@ def axiom_count(rdf_path):
     return len(rdf_graph)
 
 
-def query(query_string):
+def query_reference(query_string):
     g = Graph()
     g.parse(BASE_DIR + "/data/owl/ontology.owl", format='xml')
     return g.query(query_string)

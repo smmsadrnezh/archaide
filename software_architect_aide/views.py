@@ -7,8 +7,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
-    export, pars_query_all_attributes
-from .common import query, pars_query_all_attribute_tactics, create_instances
+    export, pars_query_all_attributes, query_reference
+from .common import pars_query_all_attribute_tactics, create_instances
 from .common import visualize, triple_count
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC, ALL_QUALITY_ATTRIBUTES
@@ -119,26 +119,45 @@ def create_reference(request):
     if request.method == 'POST':
         current_step = int(request.POST.get('step'))
         if current_step == 1:
-          pass
+            pass
 
         elif current_step == 2:
-           pass
+            # quality_attributes = request.POST.get('quality_attributes')
+            quality_attributes = ['Performance', 'Security']
+            selected_qa = ""
+            for quality_attribute in quality_attributes:
+                quality_attribute = f":{quality_attribute}"
+            selected_qa = ' , '.join(quality_attributes)
+            query_part1 = """
+            SELECT ?subject ?object
+                WHERE
+                { 
+                 ?subject a :Tactic.
+                ?object a :Quality_Attribute.
+                 ?subject rdfs:label ?tlabel.
+                ?object rdfs:label ?qalabel.
+                ?subject :achieves ?object
+                Filter (?object in (:Security , :Performance) )
+                }
+            ORDER BY ?object ?subject
+            """
+            query_part2 = f"{selected_qa}" + """)
+                }
+            ORDER BY ?object ?subject"""
+            query = query_part1 + query_part2
+            query_result = query_reference(query)
+            qa = pars_query_all_attributes(query_result)
+            context = {'qa': qa}
 
         elif current_step == 3:
             pass
+
         elif current_step == 4:
             pass
     else:
-        query_result = query(ALL_QUALITY_ATTRIBUTES)
+        query_result = query_reference(ALL_QUALITY_ATTRIBUTES)
         qa = pars_query_all_attributes(query_result)
         context = {'qa': qa}
-
-    # if request.method == 'POST':
-    #     context = {}
-    # else:
-    #     query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
-    #     qa_t = pars_query_all_attribute_tactics(query_result)
-    #     context = {'data': qa_t}
     return render(request, 'dashboard_create_reference.html', context)
 
 
