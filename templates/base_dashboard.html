@@ -186,6 +186,7 @@
                 .addClass("loading");
         }
 
+        {#Add Field Button#}
         {% for field in fields %}
             $('#' + '{{ field.0 }}' + '_input a').click(function () {
                 $('#' + '{{ field.0 }}' + '_input').append('{% spaceless %}{% include 'dashboard_create_manual_field.html' with placeholder=field.1 name=field.0 %}{% endspaceless %}');
@@ -209,6 +210,8 @@
             remove_input()
         });
 
+        {#Delete Field Button#}
+
         function remove_input() {
             $('.delete_field').click(function (e) {
                     e.currentTarget.parentNode.remove();
@@ -216,7 +219,7 @@
                 }
             )
             $('.delete_field_two').click(function (e) {
-                e.currentTarget.parentNode.parentNode.parentNode.remove();
+                    e.currentTarget.parentNode.parentNode.parentNode.remove();
                     e.currentTarget.preventDefault();
                 }
             )
