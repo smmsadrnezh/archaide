@@ -2,6 +2,9 @@
 
 
 {% block dashboard_content %}
+    {% if current_step == 4 %}
+        {% include 'dashboard_export_modal.html' with number='1' architecture=architecture %}
+    {% endif %}
     <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
         <div class="ui padded grid">
             <div class="row">
@@ -62,14 +65,16 @@
                                     دغدغه‌ها
                                 </div>
                                 <div class="field" id="quality_input">
-                                    <label><a><i class="small add icon"></i></a> ویژگی‌های کیفی:</label>
-                                    {% include 'dashboard_create_manual_field.html' with placeholder="ویژگی کیفی" name="quality" %}
+                                    <label><a><i class="small add icon"></i></a> ویژگی‌های
+                                        کیفی:</label> {% include 'dashboard_create_manual_field.html' with placeholder="ویژگی کیفی" name="quality" %}
                                 </div>
                                 <div class="field" id="business_input">
-                                    <label><a><i class="small add icon"></i></a> نیازمندی‌های حرفه:</label> {% include 'dashboard_create_manual_field.html' with placeholder="نیازمندی حرفه" name="business" %}
+                                    <label><a><i class="small add icon"></i></a> نیازمندی‌های
+                                        حرفه:</label> {% include 'dashboard_create_manual_field.html' with placeholder="نیازمندی حرفه" name="business" %}
                                 </div>
                                 <div class="field" id="risk_input">
-                                    <label><a><i class="small add icon"></i></a> مخاطره‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="مخاطره" name="risk" %}
+                                    <label><a><i class="small add icon"></i></a>
+                                        مخاطره‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="مخاطره" name="risk" %}
                                 </div>
                             </div>
                         {% elif current_step == 2 %}
@@ -78,10 +83,12 @@
                                     تصمیم‌ها
                                 </div>
                                 <div class="field" id="tactic_input">
-                                    <label><a><i class="small add icon"></i></a> راهکنش‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="راهکنش" name="tactic" %}
+                                    <label><a><i class="small add icon"></i></a>
+                                        راهکنش‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="راهکنش" name="tactic" %}
                                 </div>
                                 <div class="field" id="pattern_input">
-                                    <label><a><i class="small add icon"></i></a> الگوها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="الگو" name="pattern" %}
+                                    <label><a><i class="small add icon"></i></a>
+                                        الگوها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="الگو" name="pattern" %}
                                 </div>
                             </div>
                         {% elif current_step == 3 %}
@@ -103,18 +110,17 @@
                                 <div class="field">
                                     <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
                                 </div>
-                                <div class="field">
-                                    <div onclick="open_modal('1', 'export')" class="ui positive right labeled icon button">
-                                        بارگیری <i class="download icon"></i>
-                                    </div>
-                                </div>
-                            {% include 'dashboard_export_modal.html' with number=1 architecture=architecture %}
                             </div>
                         {% endif %}
                     </div>
-                    <button class="ui button" type="submit" onclick="loading()">
+                    <button class="ui positive button" type="submit" onclick="loading()">
                         {% if current_step == 4 %}ایجاد
                             معماری{% else %}مرحلهٔ بعد{% endif %}</button>
+                    {% if current_step == 4 %}
+                        <div onclick="open_modal('1', 'export')" class="ui left labeled icon button">
+                            بارگیری <i class="download icon"></i>
+                        </div>
+                    {% endif %}
                 </form>
             </div>
             <div class="ui hidden section divider"></div>

@@ -3,37 +3,38 @@
     <div class="header">
         گرفتن خروجی و بارگیری هستان‌شناسی {{ architecture.name }}
     </div>
-    <form method="GET" action="{% url 'architecture_export' architecture_id=architecture.id %}">
-        <div class="image content">
-            <div class="description">
-                <p>فرمت خروجی را انتخاب کنید.</p>
-                <div class="ui form">
-                    <div class="field">
-                        <label>سریالایزر</label>
-                        <div class="ui selection dropdown">
-                            <input type="hidden" name="serializer"> <i class="dropdown icon"></i>
-                            <div class="default text">XML</div>
-                            <div class="menu">
-                                <div class="item" data-value="xml">XML</div>
-                                <div class="item" data-value="n3">Notation3 (N3)</div>
-                                <div class="item" data-value="turtle">Turtle</div>
-                                <div class="item" data-value="nt">N-Triples</div>
-                                <div class="item" data-value="pretty-xml">Pretty XML</div>
-                                <div class="item" data-value="trix">TriX</div>
-                                <div class="item" data-value="trig">TriG</div>
-                            </div>
+    <div class="image content">
+        <div class="description">
+            <p>فرمت خروجی را انتخاب کنید.</p>
+            <div class="ui form">
+                <div class="field">
+                    <label>سریالایزر</label>
+                    <div class="ui selection dropdown">
+                        <form method="GET" action="{% url 'architecture_export' architecture_id=architecture.id %}">
+                            <input type="hidden" name="serializer"></form>
+                        <i class="dropdown icon"></i>
+
+                        <div class="default text">XML</div>
+                        <div class="menu">
+                            <div class="item" data-value="xml">XML</div>
+                            <div class="item" data-value="n3">Notation3 (N3)</div>
+                            <div class="item" data-value="turtle">Turtle</div>
+                            <div class="item" data-value="nt">N-Triples</div>
+                            <div class="item" data-value="pretty-xml">Pretty XML</div>
+                            <div class="item" data-value="trix">TriX</div>
+                            <div class="item" data-value="trig">TriG</div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="actions">
-            <div class="ui black deny button">
-                انصراف
-            </div>
-            <button class="ui positive right labeled icon button" type="submit">
-                بارگیری <i class="download icon"></i>
-            </button>
+    </div>
+    <div class="actions">
+        <div class="ui black deny button">
+            انصراف
         </div>
-    </form>
+        <button class="ui positive right labeled icon button" onclick="$('div.export_{{ number }} form').submit();">
+            بارگیری <i class="download icon"></i>
+        </button>
+    </div>
 </div>
