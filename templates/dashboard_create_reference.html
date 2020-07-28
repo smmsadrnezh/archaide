@@ -61,13 +61,16 @@
                                 <div class="ui dividing header">
                                     ویژگی‌های کیفی
                                 </div>
+                                {% for quality in qualities %}
+                                    <div class="field">
+                                        <div class="ui checkbox">
+                                            <input name="quality[]" value="{{ quality }}" type="checkbox">
+                                            <label>{{ quality }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
-                            {% for quality in qualities %}
-                                <div class="ui checkbox">
-                                    <input name="quality[]" value="{{ quality }}" type="checkbox">
-                                    <label>{{ quality }}</label>
-                                </div>
-                            {% endfor %}
+
                         {% elif current_step == 2 %}
                             <div class="ui segment">
                                 <div class="ui dividing header">

@@ -131,13 +131,11 @@ def create_reference(request):
                          ?subject rdfs:label ?tlabel .
                         ?object rdfs:label ?qalabel .
                         ?subject :achieves ?object .
-                        Filter (?object in (""" + selected_qa + """)}"""
-            print(query_part1)
-            query_result = query_reference(query_part1)
-            qa = pars_query_all_attributes(query_result)
-            context = {'qa': qa}
-
-            quality_tactics = 'tactic'
+                        Filter (?object in (""" + selected_qa + """)
+                        }"""
+            # query_result = query_reference(query_part1)
+            # qa = pars_query_all_attributes(query_result)
+            quality_tactics = {'Interoperability': ['Tactic 1', 'Tactic 2'], 'Maintainability': ['Tactic 3']}
             context = {'current_step': current_step + 1, 'quality_tactics': quality_tactics}
 
         elif current_step == 2:
