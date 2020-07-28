@@ -117,48 +117,69 @@ def create_manual(request):
 @login_required(login_url='/')
 def create_reference(request):
     context = {}
-    if request.method == 'POST':
-        current_step = int(request.POST.get('step'))
-        if current_step == 1:
-            pass
-
-        elif current_step == 2:
-            # quality_attributes = request.POST.get('quality_attributes')
-            quality_attributes = ['Performance', 'Security']
-            selected_qa = ""
-            for quality_attribute in quality_attributes:
-                quality_attribute = ":{}".format(quality_attribute)
-            selected_qa = ' , '.join(quality_attributes)
-            query_part1 = """
-            SELECT ?subject ?object
+    # quality_attributes = request.POST.get('quality_attributes')
+    quality_attributes = ['Performance', 'Security']
+    target_list = list()
+    selected_qa = ""
+    for quality_attribute in quality_attributes:
+        target_list.append(":{}".format(quality_attribute))
+    selected_qa = ' , '.join(target_list)
+    query_part1 = """SELECT ?subject ?object
                 WHERE
                 { 
-                 ?subject a :Tactic.
-                ?object a :Quality_Attribute.
-                 ?subject rdfs:label ?tlabel.
-                ?object rdfs:label ?qalabel.
-                ?subject :achieves ?object
-                Filter (?object in (:Security , :Performance) )
-                }
-            ORDER BY ?object ?subject
-            """
-            query_part2 = "{}".format(selected_qa) + """)
-                }
-            ORDER BY ?object ?subject"""
-            query = query_part1 + query_part2
-            query_result = query_reference(query)
-            qa = pars_query_all_attributes(query_result)
-            context = {'qa': qa}
+                 ?subject a :Tactic .
+                ?object a :Quality_Attribute .
+                 ?subject rdfs:label ?tlabel .
+                ?object rdfs:label ?qalabel .
+                ?subject :achieves ?object .
+                Filter (?object in ("""+selected_qa+""")}"""
+    print(query_part1)
 
-        elif current_step == 3:
-            pass
-
-        elif current_step == 4:
-            pass
-    else:
-        query_result = query_reference(ALL_QUALITY_ATTRIBUTES)
-        qa = pars_query_all_attributes(query_result)
-        context = {'qa': qa}
+    query_result = query_reference(query_part1)
+    qa = pars_query_all_attributes(query_result)
+    context = {'qa': qa}
+    # if request.method == 'POST':
+    #     current_step = int(request.POST.get('step'))
+    #     if current_step == 1:
+    #         pass
+    #
+    #     elif current_step == 2:
+    #         # quality_attributes = request.POST.get('quality_attributes')
+    #         quality_attributes = ['Performance', 'Security']
+    #         selected_qa = ""
+    #         for quality_attribute in quality_attributes:
+    #             quality_attribute = ":{}".format(quality_attribute)
+    #         selected_qa = ' , '.join(quality_attributes)
+    #         query_part1 = """
+    #         SELECT ?subject ?object
+    #             WHERE
+    #             {
+    #              ?subject a :Tactic.
+    #             ?object a :Quality_Attribute.
+    #              ?subject rdfs:label ?tlabel.
+    #             ?object rdfs:label ?qalabel.
+    #             ?subject :achieves ?object
+    #             Filter (?obj    ect in (:Security , :Performance) )
+    #             }
+    #         ORDER BY ?object ?subject
+    #         """
+    #         query_part2 = "{}".format(selected_qa) + """)
+    #             }
+    #         ORDER BY ?object ?subject"""
+    #         query = query_part1 + query_part2
+    #         query_result = query_reference(query)
+    #         qa = pars_query_all_attributes(query_result)
+    #         context = {'qa': qa}
+    #
+    #     elif current_step == 3:
+    #         pass
+    #
+    #     elif current_step == 4:
+    #         pass
+    # else:
+    #     query_result = query_reference(ALL_QUALITY_ATTRIBUTES)
+    #     qa = pars_query_all_attributes(query_result)
+    #     context = {'qa': qa}
     return render(request, 'dashboard_create_reference.html', context)
 
 
@@ -171,7 +192,7 @@ def architecture_delete(request, architecture_id):
 
 
 @login_required(login_url='/')
-def architecture_export(request, architecture_id):
+def architecture_export(request, architecture_id):  
     if request.method == 'GET':
         architecture = Architecture.objects.get(id=architecture_id)
         if request.user == architecture.owner:
