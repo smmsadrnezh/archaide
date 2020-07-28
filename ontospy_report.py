@@ -24,25 +24,67 @@ if __name__ == "__main__":
 
     v = HTMLVisualizer(manual_graph)
     v.build(output_path=BASE_DIR + '/templates/ontospy/html')
-    shutil.move("templates/ontospy/html/static", "software_architect_aide/static/html_static")
-    # v.preview()
 
     v = KompleteViz(manual_graph)
     v.build(output_path=BASE_DIR + '/templates/ontospy/html_multi')
-    shutil.move("templates/ontospy/html_multi/static", "software_architect_aide/static/html_multi_static")
-    # v.preview()
+    lines = list()
+    with open(BASE_DIR + "/templates/ontospy/html_multi/index.html", 'r') as file:
+        lines = file.readlines()
+
+    with open(BASE_DIR + "/templates/ontospy/html_multi/index.html", 'w') as file:
+        edited_lines = list()
+        for line in lines:
+            new_line = line.replace("static/", "/software_architect_aide/static/html_multi/")
+            edited_lines.append(new_line)
+        file.writelines(edited_lines)
 
     v = Dataviz(manual_graph)
     v.build(output_path=BASE_DIR + '/templates/ontospy/tree')
-    shutil.move("templates/ontospy/tree/static", "software_architect_aide/static/tree_static")
-    # v.preview()
+
+    lines = list()
+    with open(BASE_DIR + "/templates/ontospy/tree/index.html", 'r') as file:
+        lines = file.readlines()
+
+    with open(BASE_DIR + "/templates/ontospy/tree/index.html", 'w') as file:
+        edited_lines = list()
+        for line in lines:
+            new_line = line.replace("static/", "/static/tree/")
+            edited_lines.append(new_line)
+        file.writelines(edited_lines)
 
     v = Dataviz2(manual_graph)
     v.build(output_path=BASE_DIR + '/templates/ontospy/rotating_cluster')
-    shutil.move("templates/ontospy/rotating_cluster/static", "software_architect_aide/static/rotating_cluster_static")
-    # v.preview()
+    lines = list()
+    with open(BASE_DIR + "/templates/ontospy/rotating_cluster/index.html", 'r') as file:
+        lines = file.readlines()
+
+    with open(BASE_DIR + "/templates/ontospy/rotating_cluster/index.html", 'w') as file:
+        edited_lines = list()
+        for line in lines:
+            new_line = line.replace("static/", "/static/rotating_cluster/")
+            edited_lines.append(new_line)
+        file.writelines(edited_lines)
 
     v = Dataviz3(manual_graph)
     v.build(output_path=BASE_DIR + '/templates/ontospy/partition_table')
-    shutil.move("templates/ontospy/partition_table/static", "software_architect_aide/static/partition_table_static")
-    # v.preview()
+    lines = list()
+    with open(BASE_DIR + "/templates/ontospy/partition_table/index.html", 'r') as file:
+        lines = file.readlines()
+
+    with open(BASE_DIR + "/templates/ontospy/partition_table/index.html", 'w') as file:
+        edited_lines = list()
+        for line in lines:
+            new_line = line.replace("static/", "/static/partition_table/")
+            edited_lines.append(new_line)
+        file.writelines(edited_lines)
+
+    # move static files
+    try:
+        shutil.move("templates/ontospy/html/static/", "software_architect_aide/static/")
+        shutil.move("templates/ontospy/html_multi/static/", "software_architect_aide/static/html_multi/")
+        shutil.move("templates/ontospy/partition_table/static", "software_architect_aide/static/partition_table")
+        shutil.move("templates/ontospy/tree/static", "software_architect_aide/static/tree")
+        shutil.move("templates/ontospy/rotating_cluster/static",
+                    "software_architect_aide/static/rotating_cluster")
+    except:
+        pass

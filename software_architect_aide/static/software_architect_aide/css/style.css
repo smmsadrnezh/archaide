@@ -1,9 +1,11 @@
 @import url(fontiran.css);
+
 body {
     font-family: 'IRANSans', serif !important;
-	font-weight: 300;
-	direction: rtl;
+    font-weight: 300;
+    direction: rtl;
 }
-h1, h2, h3, h4, h5, h6,input, textarea, a, .button, .message, .item, .header, .title, .divider {
+
+h1, h2, h3, h4, h5, h6, input, textarea, a, .button, .message, .item, .header, .title, .divider {
     font-family: 'IRANSans', serif !important;
 }
