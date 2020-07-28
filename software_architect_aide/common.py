@@ -112,3 +112,11 @@ def pars_concerns_query(query_result):
         result.append(uri[uri.index("#") + 1:])
 
     return result
+
+
+def export(source_path, serializer, export_path):
+    g = Graph()
+    g.parse(source_path, format='application/rdf+xml', )
+    g.bind("owl", OWL)
+
+    g.serialize(destination=export_path, format=serializer)

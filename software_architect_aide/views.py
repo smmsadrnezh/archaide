@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .common import MANUAL_ONTOLOGY_PATH, create_comprises, create_is_achieved_by, get_concerns
+from .common import MANUAL_ONTOLOGY_PATH, create_comprises, create_is_achieved_by, get_concerns, export
 from .common import query, pars_query_all_attribute_tactics, create_instances
 from .common import visualize, triple_count
 from .models import Architecture
@@ -72,7 +72,6 @@ def create_manual(request):
             create_instances(pattern_list, 'Pattern', owl_path)
             create_instances(tactic_list, 'Tactic', owl_path)
 
-
             instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': get_concerns(owl_path)}
             context = {'instances': instances, 'current_step': current_step + 1}
 
@@ -134,10 +133,15 @@ def architecture_delete(request, architecture_id):
 
 @login_required(login_url='/')
 def architecture_export(request, architecture_id):
-    if request.method == 'POST':
+    if request.method == 'GET':
         architecture = Architecture.objects.get(id=architecture_id)
         if request.user == architecture.owner:
-            pass
+            source_path = architecture.owl_file.path
+            serializer = request.GET.get('serializer')
+            export_path = '{}.{}.owl'.format(source_path, serializer)
+            export(source_path, serializer, export_path)
+            export_url = '{}.{}.owl'.format(architecture.owl_file.url, serializer)
+            return HttpResponseRedirect(export_url)
     return HttpResponseRedirect('/dashboard')
 
 
