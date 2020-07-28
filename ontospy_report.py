@@ -4,7 +4,7 @@ from ontospy.ontodocs.viz.viz_d3rotatingCluster import Dataviz as Dataviz2
 from ontospy.ontodocs.viz.viz_d3tree import Dataviz
 from ontospy.ontodocs.viz.viz_html_multi import KompleteViz
 from ontospy.ontodocs.viz.viz_html_single import HTMLVisualizer
-
+import shutil
 from software_architect_aide.local_settings import BASE_DIR
 
 if __name__ == "__main__":
@@ -23,21 +23,26 @@ if __name__ == "__main__":
         file.write(str(r_stats))
 
     v = HTMLVisualizer(manual_graph)
-    v.build(output_path=BASE_DIR + '/data/ontospy/html')
-    v.preview()
+    v.build(output_path=BASE_DIR + '/templates/ontospy/html')
+    shutil.move("templates/ontospy/html/static", "software_architect_aide/static/html_static")
+    # v.preview()
 
     v = KompleteViz(manual_graph)
-    v.build(output_path=BASE_DIR + '/data/ontospy/html_multi')
-    v.preview()
+    v.build(output_path=BASE_DIR + '/templates/ontospy/html_multi')
+    shutil.move("templates/ontospy/html_multi/static", "software_architect_aide/static/html_multi_static")
+    # v.preview()
 
     v = Dataviz(manual_graph)
-    v.build(output_path=BASE_DIR + '/data/ontospy/tree')
-    v.preview()
+    v.build(output_path=BASE_DIR + '/templates/ontospy/tree')
+    shutil.move("templates/ontospy/tree/static", "software_architect_aide/static/tree_static")
+    # v.preview()
 
     v = Dataviz2(manual_graph)
-    v.build(output_path=BASE_DIR + '/data/ontospy/rotating_cluster')
-    v.preview()
+    v.build(output_path=BASE_DIR + '/templates/ontospy/rotating_cluster')
+    shutil.move("templates/ontospy/rotating_cluster/static", "software_architect_aide/static/rotating_cluster_static")
+    # v.preview()
 
     v = Dataviz3(manual_graph)
-    v.build(output_path=BASE_DIR + '/data/ontospy/partition_table')
-    v.preview()
+    v.build(output_path=BASE_DIR + '/templates/ontospy/partition_table')
+    shutil.move("templates/ontospy/partition_table/static", "software_architect_aide/static/partition_table_static")
+    # v.preview()

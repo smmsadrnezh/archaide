@@ -74,7 +74,6 @@ def create_manual(request):
 
             concerns = get_concerns(owl_path)
 
-
             instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': concerns}
             context = {'instances': "instances", 'current_step': current_step + 1}
 
@@ -176,3 +175,17 @@ def evolution(request):
 def ontospy_report(request):
     context = {}
     return render(request, 'dashboard_ontospy_report.html', context)
+
+
+@login_required(login_url='/')
+def report(request, file_name):
+    if file_name == "html":
+        return render(request, "ontospy/html/index.html")
+    if file_name == "html_multi":
+        return render(request, "ontospy/html_multi/index.html")
+    if file_name == "rotating_cluster":
+        return render(request, "ontospy/rotating_cluster/index.html")
+    if file_name == "tree":
+        return render(request, "ontospy/tree/index.html")
+    if file_name == "partition_table":
+        return render(request, "ontospy/partition_table/index.html")

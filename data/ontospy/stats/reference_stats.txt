@@ -1,1 +1,1 @@
-[('Ontologies', 1), ('Triples', 603), ('Classes', 7), ('Properties', 6), ('Annotation Properties', 2), ('Object Properties', 4), ('Datatype Properties', 0), ('Skos Concepts', 0), ('Data Shapes', 0), ('Data Sources', 1)]
+[('Ontologies', 1), ('Triples', 601), ('Classes', 7), ('Properties', 5), ('Annotation Properties', 1), ('Object Properties', 4), ('Datatype Properties', 0), ('Skos Concepts', 0), ('Data Shapes', 0), ('Data Sources', 1)]
