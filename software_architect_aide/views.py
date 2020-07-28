@@ -131,7 +131,7 @@ def create_reference(request):
                          ?subject rdfs:label ?tlabel .
                         ?object rdfs:label ?qalabel .
                         ?subject :achieves ?object .
-                        Filter (?object in (""" + selected_qa + """)}"""
+                        Filter (?object in (""" + selected_qa + """))}"""
             print(query_part1)
             query_result = query_reference(query_part1)
             qa = pars_query_all_attributes(query_result)
