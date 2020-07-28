@@ -120,7 +120,18 @@ def create_reference(request):
     if request.method == 'POST':
         current_step = int(request.POST.get('step'))
         if current_step == 1:
+
+            file_name = 'reference_{}.owl'.format(get_random_string())
+            owl_path = os.path.join(settings.MEDIA_ROOT, 'owl', file_name)
+            copyfile(MANUAL_ONTOLOGY_PATH, owl_path)
+
+            architecture = Architecture(owner=request.user, creation_method='reference')
+            architecture.owl_file.name = os.path.join('owl', 'file_name')
+            architecture.save()
+
             qualities = request.POST.getlist('quality[]')
+
+            # TODO: Instantiate Selected Qualities
 
             selected_qa = ' , '.join([":{}".format(quality) for quality in qualities])
             query_part1 = """SELECT ?tlabel ?qalabel
@@ -142,37 +153,32 @@ def create_reference(request):
             context = {'current_step': current_step + 1, 'quality_tactics_dict': quality_tactics_dict}
 
         elif current_step == 2:
-            #         # quality_attributes = request.POST.get('quality_attributes')
-            #         quality_attributes = ['Performance', 'Security']
-            #         selected_qa = ""
-            #         for quality_attribute in quality_attributes:
-            #             quality_attribute = ":{}".format(quality_attribute)
-            #         selected_qa = ' , '.join(quality_attributes)
-            #         query_part1 = """
-            #         SELECT ?subject ?object
-            #             WHERE
-            #             {
-            #              ?subject a :Tactic.
-            #             ?object a :Quality_Attribute.
-            #              ?subject rdfs:label ?tlabel.
-            #             ?object rdfs:label ?qalabel.
-            #             ?subject :achieves ?object
-            #             Filter (?obj    ect in (:Security , :Performance) )
-            #             }
-            #         ORDER BY ?object ?subject
-            #         """
-            #         query_part2 = "{}".format(selected_qa) + """)
-            #             }
-            #         ORDER BY ?object ?subject"""
-            #         query = query_part1 + query_part2
-            #         query_result = query_reference(query)
-            #         qa = pars_query_all_attributes(query_result)
+            tactics = request.POST.getlist('tactic[]')
+
+            # TODO: Instantiate Selected Tactics
+            # TODO: Instantiate Relations Between Tactics And Qualities
+            # TODO: Get Relations Between Patterns And Tactics
+
             context = {'current_step': current_step + 1, 'qa': 'qa'}
 
         elif current_step == 3:
+
+            # TODO: Instantiate Relation Between Patterns And Tactics
+
+            architecture = Architecture.objects.filter(owner=request.user).latest('id')
+            rdf_path = architecture.owl_file.path
+            architecture.triple_count = triple_count(rdf_path)
+            architecture.save()
+
+            image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
+            visualize(rdf_path, image_path)
+
             context = {'current_step': current_step + 1}
 
         elif current_step == 4:
+            architecture = Architecture.objects.filter(owner=request.user).latest('id')
+            architecture.name = request.POST.get('name')
+            architecture.save()
             context = {'success': True, 'current_step': 1}
     else:
         query_result = query_reference(ALL_QUALITY_ATTRIBUTES)

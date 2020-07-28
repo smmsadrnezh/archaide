@@ -9,6 +9,7 @@ from software_architect_aide.local_settings import BASE_DIR
 from software_architect_aide.queries import CONCERNS
 
 MANUAL_ONTOLOGY_PATH = BASE_DIR + '/data/owl/manual_ontology.owl'
+REFERENCE_ONTOLOGY_PATH = BASE_DIR + '/data/owl/ontology.owl'
 BASE_URI = "http://archaide.ml/ontology#"
 
 
