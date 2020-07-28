@@ -6,11 +6,12 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, export
+from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
+    export, pars_query_all_attributes
 from .common import query, pars_query_all_attribute_tactics, create_instances
 from .common import visualize, triple_count
 from .models import Architecture
-from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC
+from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC, ALL_QUALITY_ATTRIBUTES
 from .utils import get_random_string
 
 
@@ -114,12 +115,30 @@ def create_manual(request):
 
 @login_required(login_url='/')
 def create_reference(request):
+    context = {}
     if request.method == 'POST':
-        context = {}
+        current_step = int(request.POST.get('step'))
+        if current_step == 1:
+          pass
+
+        elif current_step == 2:
+           pass
+
+        elif current_step == 3:
+            pass
+        elif current_step == 4:
+            pass
     else:
-        query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
-        qa_t = pars_query_all_attribute_tactics(query_result)
-        context = {'data': qa_t}
+        query_result = query(ALL_QUALITY_ATTRIBUTES)
+        qa = pars_query_all_attributes(query_result)
+        context = {'qa': qa}
+
+    # if request.method == 'POST':
+    #     context = {}
+    # else:
+    #     query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
+    #     qa_t = pars_query_all_attribute_tactics(query_result)
+    #     context = {'data': qa_t}
     return render(request, 'dashboard_create_reference.html', context)
 
 
