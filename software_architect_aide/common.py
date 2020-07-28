@@ -70,29 +70,33 @@ def triple_count(rdf_path):
     return len(Graph().parse(rdf_path))
 
 
-def create_comprises(tuples, owl_path):
-    pairs = list(tuples)
+def create_comprises_augments(tuples, owl_path):
+    pairs = tuple(tuples)
     for pair in pairs:
         pattern_instance = URIRef(BASE_URI + pair[0])
         tactic_instance = URIRef(BASE_URI + pair[1])
         comprises_rel = URIRef(BASE_URI + "comprises")
+        augments_rel = URIRef(BASE_URI + "augments")
         g = Graph()
         g.parse(owl_path, format='application/rdf+xml', )
         g.bind("owl", OWL)
         g.add((pattern_instance, comprises_rel, tactic_instance))
+        g.add((tactic_instance, augments_rel, pattern_instance))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
 
-def create_is_achieved_by(tuples, owl_path):
-    pairs = list(tuples)
+def create_is_achieved_by_achieves(tuples, owl_path):
+    pairs = tuple(tuples)
     for pair in pairs:
         concern_instance = URIRef(BASE_URI + pair[0])
         tactic_instance = URIRef(URIRef(BASE_URI + pair[1]))
         is_achieved_by_rel = URIRef(BASE_URI + "isAchievedBy")
+        achieves_rel = URIRef(BASE_URI + "achieves")
         g = Graph()
         g.parse(owl_path, format='application/rdf+xml', )
         g.bind("owl", OWL)
         g.add((concern_instance, is_achieved_by_rel, tactic_instance))
+        g.add((tactic_instance, achieves_rel, concern_instance))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
 

@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from .common import MANUAL_ONTOLOGY_PATH, create_comprises, create_is_achieved_by, get_concerns, export
+from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, export
 from .common import query, pars_query_all_attribute_tactics, create_instances
 from .common import visualize, triple_count
 from .models import Architecture
@@ -81,14 +81,14 @@ def create_manual(request):
             comprises_tactic = request.POST.getlist('comprises_tactic[]')
 
             is_achieved_by_concern = request.POST.getlist('is_achieved_by_concern[]')
-            is_achieved_by_tactic = request.POST.getlist('is_a  chieved_by_tactic[]')
+            is_achieved_by_tactic = request.POST.getlist('is_achieved_by_tactic[]')
 
             comprises = zip(comprises_pattern, comprises_tactic)
             is_achieved_by = zip(is_achieved_by_concern, is_achieved_by_tactic)
 
             owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
-            create_comprises(comprises, owl_path)
-            create_is_achieved_by(is_achieved_by, owl_path)
+            create_comprises_augments(comprises, owl_path)
+            create_is_achieved_by_achieves(is_achieved_by, owl_path)
 
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             rdf_path = architecture.owl_file.path
