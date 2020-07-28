@@ -91,8 +91,8 @@ def create_manual(request):
 
             owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
             # TODO: Create Instances
-            # create_comprises(comprises, owl_path)
-            # create_is_achieved_by(is_achieved_by, owl_path)
+            create_comprises(comprises, owl_path)
+            create_is_achieved_by(is_achieved_by, owl_path)
 
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             rdf_path = architecture.owl_file.path

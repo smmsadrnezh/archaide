@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 import networkx as nx
 from rdflib import Graph
-from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
-from rdflib.namespace import OWL, RDF, RDFS
 from rdflib import URIRef
+from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
+from rdflib.namespace import OWL, RDF
+
 from software_architect_aide.local_settings import BASE_DIR
-from software_architect_aide.queries import QULITY_ATTRIBUTE_CLASS, CONCERNS
-from rdflib import BNode
+from software_architect_aide.queries import CONCERNS
 
 MANUAL_ONTOLOGY_PATH = BASE_DIR + '/data/owl/manual_ontology.owl'
 BASE_URI = "http://archaide.ml/ontology#"
@@ -72,9 +72,9 @@ def triple_count(rdf_path):
 
 def create_comprises(tuples, owl_path):
     pairs = list(tuples)
-    for tuple in tuples:
-        pattern_instance = URIRef(BASE_URI + tuple[0])
-        tactic_instance = URIRef(BASE_URI + tuple[1])
+    for pair in pairs:
+        pattern_instance = URIRef(BASE_URI + pair[0])
+        tactic_instance = URIRef(BASE_URI + pair[1])
         comprises_rel = URIRef(BASE_URI + "comprises")
         g = Graph()
         g.parse(owl_path, format='application/rdf+xml', )
@@ -84,9 +84,10 @@ def create_comprises(tuples, owl_path):
 
 
 def create_is_achieved_by(tuples, owl_path):
-    for tuple in tuples:
-        concern_instance = URIRef(BASE_URI + tuple[0])
-        tactic_instance = URIRef(URIRef(BASE_URI + tuple[1]))
+    pairs = list(tuples)
+    for pair in pairs:
+        concern_instance = URIRef(BASE_URI + pair[0])
+        tactic_instance = URIRef(URIRef(BASE_URI + pair[1]))
         is_achieved_by_rel = URIRef(BASE_URI + "isAchievedBy")
         g = Graph()
         g.parse(owl_path, format='application/rdf+xml', )
