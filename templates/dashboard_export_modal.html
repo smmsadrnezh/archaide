@@ -3,8 +3,7 @@
     <div class="header">
         گرفتن خروجی و بارگیری هستان‌شناسی {{ architecture.name }}
     </div>
-    <form method="GET" action="salam">
-        {% csrf_token %}
+    <form method="GET" action="{% url 'architecture_export' architecture_id=architecture.id %}">
         <div class="image content">
             <div class="description">
                 <p>فرمت خروجی را انتخاب کنید.</p>
