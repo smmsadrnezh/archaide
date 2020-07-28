@@ -108,39 +108,7 @@
                                         بارگیری <i class="download icon"></i>
                                     </div>
                                 </div>
-                                <div class="ui modal tiny export_1">
-                                    <i class="close icon"></i>
-                                    <div class="header">
-                                        گرفتن خروجی و بارگیری هستان‌شناسی
-                                    </div>
-                                    <div class="image content">
-                                        <div class="description">
-                                            <p>فرمت خروجی را انتخاب کنید.</p>
-                                            <div class="ui form">
-                                                <div class="field">
-                                                    <label>سریالایزر</label>
-                                                    <div class="ui selection dropdown">
-                                                        <input type="hidden" name="gender">
-                                                        <i class="dropdown icon"></i>
-                                                        <div class="default text">XML</div>
-                                                        <div class="menu">
-                                                            <div class="item" data-value="xml">XML</div>
-                                                            <div class="item" data-value="turtle">Turtle</div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="actions">
-                                        <div class="ui black deny button">
-                                            انصراف
-                                        </div>
-                                        <div class="ui positive right labeled icon button">
-                                            بارگیری <i class="download icon"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                            {% include 'dashboard_export_modal.html' with number=1 architecture=architecture %}
                             </div>
                         {% endif %}
                     </div>

@@ -8,10 +8,10 @@ from django.shortcuts import render
 
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
     export, pars_query_all_attributes
-from .common import query, pars_query_all_attribute_tactics, create_instances
+from .common import query, create_instances
 from .common import visualize, triple_count
 from .models import Architecture
-from .queries import ALL_QUALITY_ATTRIBUTE_TACTIC, ALL_QUALITY_ATTRIBUTES
+from .queries import ALL_QUALITY_ATTRIBUTES
 from .utils import get_random_string
 
 
@@ -99,7 +99,7 @@ def create_manual(request):
             image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
             visualize(rdf_path, image_path)
 
-            context = {'current_step': current_step + 1}
+            context = {'current_step': current_step + 1, 'architecture': architecture}
 
         elif current_step == 4:
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
