@@ -55,6 +55,10 @@ def query_manual(query_string, owl_path):
 def pars_query_all_attributes(query_result):
     return [row.asdict()['qalabel'].value for row in query_result]
 
+def pars_query_two_label(query_result):
+    return [(row.asdict()['qalabel'].value,row.asdict()['tlabel'].value) for row in query_result]
+
+
 
 def pars_query_all_attribute_tactics(query_result):
     qa_t = list()

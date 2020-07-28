@@ -9,7 +9,7 @@ from django.shortcuts import render
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
     query_reference
 from .common import create_instances
-from .common import export, pars_query_all_attributes
+from .common import export, pars_query_all_attributes, pars_query_two_label
 from .common import visualize, triple_count
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTES
@@ -123,21 +123,22 @@ def create_reference(request):
             qualities = request.POST.getlist('quality[]')
 
             selected_qa = ' , '.join([":{}".format(quality) for quality in qualities])
-            query_part1 = """SELECT ?subject ?object
+            query_part1 = """SELECT ?tlabel ?qalabel
                         WHERE
-                        {
-                         ?subject a :Tactic .
+                        {{
+                          ?subject a :Tactic .
                         ?object a :Quality_Attribute .
                          ?subject rdfs:label ?tlabel .
                         ?object rdfs:label ?qalabel .
                         ?subject :achieves ?object .
-                        Filter (?object in (""" + selected_qa + """))}"""
+                        Filter (?object in ({}))
+	}}""".format(selected_qa)
             print(query_part1)
             query_result = query_reference(query_part1)
-            qa = pars_query_all_attributes(query_result)
-            context = {'qa': qa}
-
-            quality_tactics = 'tactic'
+            quality_tactics = pars_query_two_label(query_result)
+            result = dict()
+            for quality_tactic in quality_tactics:
+                result[quality_tactic[0]].append(quality_tactic[1])
             context = {'current_step': current_step + 1, 'quality_tactics': quality_tactics}
 
         elif current_step == 2:

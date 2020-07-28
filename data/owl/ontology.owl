@@ -19,6 +19,7 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
+    
 
 
     <!-- http://archaide.ml/ontology#sa:isAddressBy -->
@@ -259,7 +260,7 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Transactions"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Voting"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Ping/Echo"/>
-        <rdfs:label>Availibility</rdfs:label>
+        <rdfs:label>Availability</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -571,7 +572,7 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Discover_Service"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Orchestrate"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Tailor_Interface"/>
-        <rdfs:label>Interoperibility</rdfs:label>
+        <rdfs:label>Interoperability</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -795,7 +796,7 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Restrict_Dependencies"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Split_Module"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Use_An_Intermediary"/>
-        <rdfs:label>Modifiablility</rdfs:label>
+        <rdfs:label>Modifiability</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1193,7 +1194,7 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Sanbox"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Specialized_Interfaces"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Record/Playback"/>
-        <rdfs:label>Testablility</rdfs:label>
+        <rdfs:label>Testability</rdfs:label>
     </owl:NamedIndividual>
     
 
