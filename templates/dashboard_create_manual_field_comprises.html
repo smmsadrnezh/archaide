@@ -2,8 +2,9 @@
     <div class="field">
         <label> الگو:</label> <select name="comprises_pattern[]" class="ui fluid search selection dropdown">
         <option value="">الگو را انتخاب کنید.</option>
-        <option value="P1">نام الگوی اول</option>
-        <option value="P2">نام الگوی دوم</option>
+        {% for pattern in instances.patterns %}
+            <option value="{{ pattern }}">{{ pattern }}</option>
+        {% endfor %}
     </select>
     </div>
     <div class="ui bottom aligned centered grid">
@@ -14,8 +15,9 @@
     <div class="field">
         <label> راهکنش:</label> <select name="comprises_tactic[]" class="ui fluid search selection dropdown">
         <option value="">راهکنش را انتخاب کنید.</option>
-        <option value="T1">تاکتیک اول</option>
-        <option value="T2">تاکتیک دوم</option>
+        {% for tactic in instances.tactics %}
+            <option value="{{ tactic }}">{{ tactic }}</option>
+        {% endfor %}
     </select>
     </div>
     <div class="ui bottom aligned centered grid">

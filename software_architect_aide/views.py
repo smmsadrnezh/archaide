@@ -72,11 +72,8 @@ def create_manual(request):
             create_instances(pattern_list, 'Pattern', owl_path)
             create_instances(tactic_list, 'Tactic', owl_path)
 
-            concerns = get_concerns(owl_path)
-
-
-            instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': concerns}
-            context = {'instances': "instances", 'current_step': current_step + 1}
+            instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': get_concerns(owl_path)}
+            context = {'instances': instances, 'current_step': current_step + 1}
 
         elif current_step == 3:
 
@@ -90,7 +87,6 @@ def create_manual(request):
             is_achieved_by = zip(is_achieved_by_concern, is_achieved_by_tactic)
 
             owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
-            # TODO: Create Instances
             create_comprises(comprises, owl_path)
             create_is_achieved_by(is_achieved_by, owl_path)
 
