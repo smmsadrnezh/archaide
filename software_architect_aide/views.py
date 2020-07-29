@@ -144,7 +144,7 @@ def create_reference(request):
                         ?object rdfs:label ?qalabel .
                         ?subject :achieves ?object .
                         Filter (?object in ({}))
-                    }}""".format(selected_qa)
+                    }} ORDER BY ?tlabel ?qalabel""".format(selected_qa)
             query_result = query_reference(query_part1)
             quality_tactics = pars_query_two_label(query_result)
 
@@ -177,7 +177,7 @@ def create_reference(request):
                         ?object rdfs:label ?tlabel .
                         ?subject :comprises ?object .
                         Filter (?object in ({}))
-                    }}""".format(selected_tactic)
+                    }} ORDER BY ?tlabel ?plabel""".format(selected_tactic)
             query_result = query_reference(query)
             pattern_tactics = pars_patterns_tactic_label(query_result)
 

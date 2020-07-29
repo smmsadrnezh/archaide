@@ -24,12 +24,13 @@ ORDER BY ?qa_label ?tactic_label
 QULITY_ATTRIBUTE_CLASS = """
 SELECT ?subject
 	WHERE { ?subject rdfs:subClassOf :Concern }
+	ORDER BY ?subject
 """
 
 CONCERNS = """
 PREFIX : <http://archaide.ml/ontology#>
 SELECT ?subject ?object
-	WHERE { {?subject rdf:type :Business_Need} Union  {?subject rdf:type :Quality_Attribute } union {?subject rdf:type :Risk_Mitigation }}"""
+	WHERE { {?subject rdf:type :Business_Need} Union  {?subject rdf:type :Quality_Attribute } union {?subject rdf:type :Risk_Mitigation }} ORDER BY ?subject ?object"""
 
 PATTERNS = """
 SELECT ?pattern_label
