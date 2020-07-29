@@ -59,6 +59,7 @@
 {% endblock %}
 
 {% block begin_css %}
+    <link href="{% static 'software_architect_aide/css/jquery.pan.css' %}" rel="stylesheet" type="text/css"/>
     <style type="text/css">
         body {
             -webkit-font-smoothing: antialiased;
@@ -170,8 +171,7 @@
 
         function open_modal(id, type) {
             $('.' + type + '_' + id)
-                .modal('show')
-            ;
+                .modal('show');
         }
 
         {#Open Dropdowns#}
@@ -180,9 +180,7 @@
         ;
 
         {#Radio Buttons#}
-        $('.ui.radio.checkbox')
-            .checkbox()
-        ;
+        $('.ui.radio.checkbox').checkbox();
 
         {#  Loading After Submission  #}
 
@@ -202,16 +200,14 @@
         $('#comprises a').click(function () {
             $('{% spaceless %}{% include 'dashboard_create_manual_field_comprises.html' %}{% endspaceless %}').insertAfter('#comprises');
             $('.ui.dropdown')
-                .dropdown()
-            ;
+                .dropdown();
             remove_input()
         });
 
         $('#is_achieved_by a').click(function () {
             $('{% spaceless %}{% include 'dashboard_create_manual_field_is_achieved_by.html' %}{% endspaceless %}').insertAfter('#is_achieved_by');
             $('.ui.dropdown')
-                .dropdown()
-            ;
+                .dropdown();
             remove_input()
         });
 
@@ -231,8 +227,16 @@
         }
 
         $('div.export_{{ number }} form').submit();
-
         remove_input()
+    </script>
 
+    {#  Image Resizer  #}
+    <script src="{% static 'software_architect_aide/js/jquery.pan.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".pan").pan();
+        })
     </script>
 {% endblock %}
+
+
