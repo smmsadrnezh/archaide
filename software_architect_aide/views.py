@@ -189,7 +189,8 @@ def create_reference(request):
         elif current_step == 3:
             owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
             tactic_patterns = list()
-            for counter in range(1, int(request.POST.get('tactic_counter')) + 1):
+            tactic_counter = request.POST.get('tactic_counter')
+            for counter in range(1, int(tactic_counter if tactic_counter else 0) + 1):
                 tactic_patterns += request.POST.getlist('pattern[{}]'.format(counter))
             tactic_patterns = [tactic_pattern.replace(' ', '_') for tactic_pattern in tactic_patterns]
             patterns = [tactic_pattern.split(',')[1] for tactic_pattern in tactic_patterns]

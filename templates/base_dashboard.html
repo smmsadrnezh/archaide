@@ -138,35 +138,6 @@
     </script>
 
     <script>
-
-        var tables_button = $("#tables_download_update")
-
-            .click(function () {
-                tables_button.children().addClass('loading');
-                $.ajax({
-                    url: "", success: function (result) {
-                        tables_button.contents()[2].data = 'به‌روزرسانی انجام شد';
-                        tables_button.children().removeClass('loading');
-                    },
-                    data: {"action": "update_tables_download"}
-                });
-            });
-
-        var images_button = $("#images_download_update")
-        images_button.click(function () {
-            images_button.children().addClass('loading');
-            $.ajax({
-                url: "", success: function (result) {
-                    images_button.contents()[2].data = 'به‌روزرسانی انجام شد';
-                    images_button.children().removeClass('loading');
-                },
-                data: {"action": "update_images_download"}
-            });
-        });
-
-    </script>
-
-    <script>
         {#Open Modals#}
 
         function open_modal(id, type) {
