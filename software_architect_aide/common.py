@@ -56,9 +56,9 @@ def query_manual(query_string, owl_path):
 def pars_query_all_attributes(query_result):
     return [row.asdict()['qalabel'].value for row in query_result]
 
-def pars_query_two_label(query_result):
-    return [(row.asdict()['qalabel'].value,row.asdict()['tlabel'].value) for row in query_result]
 
+def pars_query_two_label(query_result):
+    return [(row.asdict()['qalabel'].value, row.asdict()['tlabel'].value) for row in query_result]
 
 
 def pars_query_all_attribute_tactics(query_result):
@@ -68,9 +68,11 @@ def pars_query_all_attribute_tactics(query_result):
     return qa_t
 
 
+def pars_patterns_tactic_label(query_result):
+    return [(row.asdict()['tlabel'].value, row.asdict()['plabel'].value) for row in query_result]
+
 def triple_count(rdf_path):
     return len(Graph().parse(rdf_path))
-
 
 def create_comprises_augments(tuples, owl_path):
     pairs = tuple(tuples)
@@ -86,7 +88,6 @@ def create_comprises_augments(tuples, owl_path):
         g.add((tactic_instance, augments_rel, pattern_instance))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
-
 def create_is_achieved_by_achieves(tuples, owl_path):
     pairs = tuple(tuples)
     for pair in pairs:
@@ -101,7 +102,6 @@ def create_is_achieved_by_achieves(tuples, owl_path):
         g.add((tactic_instance, achieves_rel, concern_instance))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
-
 def get_concerns(owl_path):
     g = Graph()
     g.parse(owl_path, format='application/rdf+xml', )
@@ -110,7 +110,6 @@ def get_concerns(owl_path):
     query_result = query_manual(CONCERNS, owl_path)
     return pars_concerns_query(query_result)
 
-
 def pars_concerns_query(query_result):
     result = list()
     for row in query_result:
@@ -118,7 +117,6 @@ def pars_concerns_query(query_result):
         result.append(uri[uri.index("#") + 1:])
 
     return result
-
 
 def export(source_path, serializer, export_path):
     g = Graph()

@@ -30,3 +30,11 @@ CONCERNS = """
 PREFIX : <http://archaide.ml/ontology#>
 SELECT ?subject ?object
 	WHERE { {?subject rdf:type :Business_Need} Union  {?subject rdf:type :Quality_Attribute } union {?subject rdf:type :Risk_Mitigation }}"""
+
+PATTERNS = """
+SELECT ?pattern_label
+	WHERE { ?subject a  :Pattern .
+		?subject rdfs:label ?pattern_label.
+}
+ORDER BY ?pattern_label
+"""

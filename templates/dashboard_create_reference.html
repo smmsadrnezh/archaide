@@ -81,7 +81,8 @@
                                     {% for tactic in tactics %}
                                         <div class="field">
                                             <div class="ui checkbox">
-                                                <input name="tactic[]" value="{{ tactic }}" type="checkbox">
+                                                <input name="tactic[]" value="{{ quality }},{{ tactic }}"
+                                                       type="checkbox">
                                                 <label>{{ tactic }}</label>
                                             </div>
                                         </div>
@@ -93,6 +94,14 @@
                                 <div class="ui dividing header">
                                     رابطهٔ الگوها و راهکنش‌ها
                                 </div>
+                                {% for pattern in patterns %}
+                                    <div class="field">
+                                        <div class="ui checkbox">
+                                            <input name="pattern[]" value="{{ pattern }}" type="checkbox">
+                                            <label>{{ pattern }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
                             </div>
                         {% elif current_step == 4 %}
                             <div class="ui segment">

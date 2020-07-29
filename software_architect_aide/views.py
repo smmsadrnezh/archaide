@@ -7,7 +7,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
-    query_reference
+    query_reference, pars_patterns_tactic_label
 from .common import create_instances
 from .common import export, pars_query_all_attributes, pars_query_two_label
 from .common import visualize, triple_count
@@ -126,12 +126,12 @@ def create_reference(request):
             copyfile(MANUAL_ONTOLOGY_PATH, owl_path)
 
             architecture = Architecture(owner=request.user, creation_method='reference')
-            architecture.owl_file.name = os.path.join('owl', 'file_name')
+            architecture.owl_file.name = os.path.join('owl', file_name)
             architecture.save()
 
             qualities = request.POST.getlist('quality[]')
 
-            # TODO: Instantiate Selected Qualities
+            create_instances(qualities, "Quality_attribute", owl_path)
 
             selected_qa = ' , '.join([":{}".format(quality) for quality in qualities])
             query_part1 = """SELECT ?tlabel ?qalabel
@@ -144,18 +144,8 @@ def create_reference(request):
                         ?subject :achieves ?object .
                         Filter (?object in ({}))
 	}}""".format(selected_qa)
-            print(query_part1)
             query_result = query_reference(query_part1)
             quality_tactics = pars_query_two_label(query_result)
-            # result = dict()
-            # keys = set()
-            # for quality_tactic in quality_tactics:
-            #     keys.add(quality_tactic[0])
-            # for key in keys:
-            #     result[key] = []
-            # for quality_tactic in quality_tactics:
-            #     result[quality_tactic[0]].append(quality_tactic[1])
-            # context = {'current_step': current_step + 1, 'quality_tactics': result}
 
             quality_tactics_dict = {quality_tactic[0]: [] for quality_tactic in quality_tactics}
             for quality_tactic in quality_tactics:
@@ -164,16 +154,40 @@ def create_reference(request):
 
 
         elif current_step == 2:
-            tactics = request.POST.getlist('tactic[]')
-
-            # TODO: Instantiate Selected Tactics
-            # TODO: Instantiate Relations Between Tactics And Qualities
+            quality_tactics = request.POST.getlist('tactic[]')
             # TODO: Get Relations Between Patterns And Tactics
+            owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
+            parsed_quality_tactics = list()
+            for quality_tactic in quality_tactics:
+                temp = quality_tactic.split(',')
+                temp[1] = temp[1].replace(' ', '_')
+                parsed_quality_tactics.append((temp[0], temp[1]))
+            create_instances(quality_tactics, "Tactic", owl_path)
+            create_is_achieved_by_achieves(quality_tactics, owl_path)
+            # show related patterns
+            selected_tactic = ' , '.join([":{}".format(quality_tactic[1]) for quality_tactic in parsed_quality_tactics])
+            query1 = """SELECT ?tlabel ?plabel
+                        WHERE
+                        {{
+                          ?subject a :Pattern .
+                        ?object a :Tactic .
+                         ?subject rdfs:label ?plabel .
+                        ?object rdfs:label ?tlabel .
+                        ?subject :comprises ?object .
+                        Filter (?object in ({}))
+	}}""".format(selected_tactic)
+            query_result = query_reference(query1)
+            pattern_tactics = pars_patterns_tactic_label(query_result)
 
-            context = {'current_step': current_step + 1, 'qa': 'qa'}
+            pattern_tactics_dict = {pattern_tactic[0]: [] for pattern_tactic in pattern_tactics}
+            for pattern_tactic in pattern_tactics:
+                pattern_tactics_dict[pattern_tactic[0]].append(pattern_tactic[1])
+            context = {'current_step': current_step + 1, 'pattern_tactics_dict': pattern_tactics_dict}
 
         elif current_step == 3:
-
+            owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
+            patterns = request.POST.getlist('patterns[]')
+            create_instances(patterns, "Pattern", owl_path)
             # TODO: Instantiate Relation Between Patterns And Tactics
 
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
