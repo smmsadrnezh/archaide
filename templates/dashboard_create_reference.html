@@ -81,8 +81,7 @@
                                     {% for tactic in tactics %}
                                         <div class="field">
                                             <div class="ui checkbox">
-                                                <input name="tactic[]" value="{{ quality }},{{ tactic }}"
-                                                       type="checkbox">
+                                                <input name="tactic[]" value="{{ quality }},{{ tactic }}" type="checkbox">
                                                 <label>{{ tactic }}</label>
                                             </div>
                                         </div>
@@ -95,16 +94,18 @@
                                     رابطهٔ الگوها و راهکنش‌ها
                                 </div>
                                 {% for tactic, patterns in pattern_tactics_dict.items %}
-                                    {{ tactic }}
-                                    {% for pattern in patterns %}
-                                        <div class="field">
-                                            <div class="ui checkbox">
-                                                <input name="pattern[]" value="{{ tactic }},{{ pattern }}"
-                                                       type="checkbox">
-                                                <label>{{ pattern }}</label>
+                                    {% with forloop.counter as tactic_counter %}
+                                        {{ tactic }}
+                                        {% for pattern in patterns %}
+                                            <div class="field">
+                                                <div class="ui radio checkbox">
+                                                    <input name="pattern[{{ tactic_counter }}]" value="{{ tactic }},{{ pattern }}" type="radio">
+                                                    <label>{{ pattern }}</label>
+                                                </div>
                                             </div>
-                                        </div>
-                                    {% endfor %}
+                                        {% endfor %}
+                                        <input name="tactic_counter" type="hidden" value="{{ tactic_counter }}">
+                                    {% endwith %}
                                 {% endfor %}
                             </div>
                         {% elif current_step == 4 %}
