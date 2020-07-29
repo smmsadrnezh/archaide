@@ -120,3 +120,4 @@ def export(source_path, serializer, export_path):
     g.bind("owl", OWL)
 
     g.serialize(destination=export_path, format=serializer)
+

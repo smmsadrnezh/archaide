@@ -291,3 +291,9 @@ def report(request, file_name):
         return render(request, "ontospy/tree/index.html")
     if file_name == "partition_table":
         return render(request, "ontospy/partition_table/index.html")
+
+
+@login_required(login_url='/')
+def delete_all_architectures(request):
+    Architecture.objects.filter(owner=request.user).delete()
+    return render(request, "dashboard_home.html")
