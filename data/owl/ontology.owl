@@ -87,11 +87,11 @@
     
 
 
-    <!-- http://archaide.ml/ontology#Businness_Need -->
+    <!-- http://archaide.ml/ontology#Business_Need -->
 
-    <owl:Class rdf:about="http://archaide.ml/ontology#Businness_Need">
+    <owl:Class rdf:about="http://archaide.ml/ontology#Business_Need">
         <rdfs:subClassOf rdf:resource="http://archaide.ml/ontology#Concern"/>
-        <rdfs:label>Businness Need</rdfs:label>
+        <rdfs:label>Business Need</rdfs:label>
     </owl:Class>
     
 
