@@ -8,24 +8,6 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
     <owl:Ontology rdf:about="http://archaide.ml/ontology"/>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // Annotation properties
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    
-
-
-    <!-- http://archaide.ml/ontology#sa:isAddressBy -->
-
-    <owl:AnnotationProperty rdf:about="http://archaide.ml/ontology#sa:isAddressBy"/>
-    
 
 
     <!-- 
