@@ -162,11 +162,12 @@ def create_reference(request):
                 temp = quality_tactic.split(',')
                 temp[1] = temp[1].replace(' ', '_')
                 parsed_quality_tactics.append((temp[0], temp[1]))
-            create_instances(quality_tactics, "Tactic", owl_path)
-            create_is_achieved_by_achieves(quality_tactics, owl_path)
+            tactics = [parsed_quality_tactic[1] for parsed_quality_tactic in parsed_quality_tactics]
+            create_instances(tactics, "Tactic", owl_path)
+            create_is_achieved_by_achieves(parsed_quality_tactics, owl_path)
             # show related patterns
             selected_tactic = ' , '.join([":{}".format(quality_tactic[1]) for quality_tactic in parsed_quality_tactics])
-            query1 = """SELECT ?tlabel ?plabel
+            query = """SELECT ?tlabel ?plabel
                         WHERE
                         {{
                           ?subject a :Pattern .
@@ -176,7 +177,7 @@ def create_reference(request):
                         ?subject :comprises ?object .
                         Filter (?object in ({}))
 	}}""".format(selected_tactic)
-            query_result = query_reference(query1)
+            query_result = query_reference(query)
             pattern_tactics = pars_patterns_tactic_label(query_result)
 
             pattern_tactics_dict = {pattern_tactic[0]: [] for pattern_tactic in pattern_tactics}
@@ -186,10 +187,17 @@ def create_reference(request):
 
         elif current_step == 3:
             owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
-            patterns = request.POST.getlist('patterns[]')
+            tactic_patterns = request.POST.getlist('pattern[]')
+            tactic_patterns = [tactic_pattern.replace(' ', '_') for tactic_pattern in tactic_patterns]
+            patterns = [tactic_pattern.split(',')[1] for tactic_pattern in tactic_patterns]
             create_instances(patterns, "Pattern", owl_path)
             # TODO: Instantiate Relation Between Patterns And Tactics
+            tuples = list()
+            for tactic_pattern in tactic_patterns:
+                temp = tactic_pattern.split(',')
+                tuples.append((temp[0], temp[1]))
 
+            create_comprises_augments(tuples, owl_path)
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             rdf_path = architecture.owl_file.path
             architecture.triple_count = triple_count(rdf_path)

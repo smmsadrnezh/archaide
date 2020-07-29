@@ -94,13 +94,17 @@
                                 <div class="ui dividing header">
                                     رابطهٔ الگوها و راهکنش‌ها
                                 </div>
-                                {% for pattern in patterns %}
-                                    <div class="field">
-                                        <div class="ui checkbox">
-                                            <input name="pattern[]" value="{{ pattern }}" type="checkbox">
-                                            <label>{{ pattern }}</label>
+                                {% for tactic, patterns in pattern_tactics_dict.items %}
+                                    {{ tactic }}
+                                    {% for pattern in patterns %}
+                                        <div class="field">
+                                            <div class="ui checkbox">
+                                                <input name="pattern[]" value="{{ tactic }},{{ pattern }}"
+                                                       type="checkbox">
+                                                <label>{{ pattern }}</label>
+                                            </div>
                                         </div>
-                                    </div>
+                                    {% endfor %}
                                 {% endfor %}
                             </div>
                         {% elif current_step == 4 %}
