@@ -134,16 +134,17 @@ def create_reference(request):
             create_instances(qualities, "Quality_attribute", owl_path)
 
             selected_qa = ' , '.join([":{}".format(quality) for quality in qualities])
-            query_part1 = """SELECT ?tlabel ?qalabel
-                        WHERE
-                        {{
-                          ?subject a :Tactic .
+            query_part1 = """
+            SELECT ?tlabel ?qalabel
+                WHERE
+                    {{
+                        ?subject a :Tactic .
                         ?object a :Quality_Attribute .
-                         ?subject rdfs:label ?tlabel .
+                        ?subject rdfs:label ?tlabel .
                         ?object rdfs:label ?qalabel .
                         ?subject :achieves ?object .
                         Filter (?object in ({}))
-	}}""".format(selected_qa)
+                    }}""".format(selected_qa)
             query_result = query_reference(query_part1)
             quality_tactics = pars_query_two_label(query_result)
 
@@ -152,10 +153,8 @@ def create_reference(request):
                 quality_tactics_dict[quality_tactic[0]].append(quality_tactic[1])
             context = {'current_step': current_step + 1, 'quality_tactics_dict': quality_tactics_dict}
 
-
         elif current_step == 2:
             quality_tactics = request.POST.getlist('tactic[]')
-            # TODO: Get Relations Between Patterns And Tactics
             owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
             parsed_quality_tactics = list()
             for quality_tactic in quality_tactics:
@@ -165,18 +164,20 @@ def create_reference(request):
             tactics = [parsed_quality_tactic[1] for parsed_quality_tactic in parsed_quality_tactics]
             create_instances(tactics, "Tactic", owl_path)
             create_is_achieved_by_achieves(parsed_quality_tactics, owl_path)
-            # show related patterns
+
+            # Show related patterns
             selected_tactic = ' , '.join([":{}".format(quality_tactic[1]) for quality_tactic in parsed_quality_tactics])
-            query = """SELECT ?tlabel ?plabel
-                        WHERE
-                        {{
-                          ?subject a :Pattern .
+            query = """
+            SELECT ?tlabel ?plabel
+                WHERE
+                    {{
+                        ?subject a :Pattern .
                         ?object a :Tactic .
-                         ?subject rdfs:label ?plabel .
+                        ?subject rdfs:label ?plabel .
                         ?object rdfs:label ?tlabel .
                         ?subject :comprises ?object .
                         Filter (?object in ({}))
-	}}""".format(selected_tactic)
+                    }}""".format(selected_tactic)
             query_result = query_reference(query)
             pattern_tactics = pars_patterns_tactic_label(query_result)
 
@@ -187,7 +188,9 @@ def create_reference(request):
 
         elif current_step == 3:
             owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
-            tactic_patterns = request.POST.getlist('pattern[]')
+            tactic_patterns = list()
+            for counter in range(1, int(request.POST.get('tactic_counter')) + 1):
+                tactic_patterns += request.POST.getlist('pattern[{}]'.format(counter))
             tactic_patterns = [tactic_pattern.replace(' ', '_') for tactic_pattern in tactic_patterns]
             patterns = [tactic_pattern.split(',')[1] for tactic_pattern in tactic_patterns]
             create_instances(patterns, "Pattern", owl_path)
