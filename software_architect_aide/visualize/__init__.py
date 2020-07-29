@@ -5,7 +5,7 @@ from software_architect_aide.visualize.utils import Config
 
 
 def main(rdf_path, dot_path):
-    args = argparse.Namespace(config=None, files=[rdf_path], format='xml', out=dot_path, ontology=None)
+    args = argparse.Namespace(config='config.json', files=[rdf_path], format='xml', out=dot_path, ontology=None)
     config = Config(args.config)
     og = OntologyGraph(args.files, config, args.format, ontology=args.ontology)
     og.write_file(args.out)

@@ -1,3 +1,5 @@
+import subprocess
+
 from rdflib import Graph
 from rdflib import URIRef
 from rdflib.namespace import OWL, RDF
@@ -26,7 +28,6 @@ def visualize(rdf_path, image_path):
     dot_path = image_path.replace('.png', '.dot')
     software_architect_aide.visualize.main(rdf_path, dot_path)
     bash_command = "dot -Tpng -o {} {}".format(image_path, dot_path)
-    import subprocess
     process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
     process.communicate()
 
