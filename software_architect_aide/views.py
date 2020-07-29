@@ -191,7 +191,6 @@ def create_reference(request):
             tactic_patterns = [tactic_pattern.replace(' ', '_') for tactic_pattern in tactic_patterns]
             patterns = [tactic_pattern.split(',')[1] for tactic_pattern in tactic_patterns]
             create_instances(patterns, "Pattern", owl_path)
-            # TODO: Instantiate Relation Between Patterns And Tactics
             tuples = list()
             for tactic_pattern in tactic_patterns:
                 temp = tactic_pattern.split(',')
