@@ -1,10 +1,8 @@
-import matplotlib.pyplot as plt
-import networkx as nx
 from rdflib import Graph
 from rdflib import URIRef
-from rdflib.extras.external_graph_libs import rdflib_to_networkx_multidigraph
 from rdflib.namespace import OWL, RDF
 
+import software_architect_aide.visualize
 from software_architect_aide.local_settings import BASE_DIR
 from software_architect_aide.queries import CONCERNS
 
@@ -25,15 +23,12 @@ def create_instances(instances_name, class_name, owl_path):
 
 
 def visualize(rdf_path, image_path):
-    rdf_graph = Graph().parse(rdf_path)
-    G = rdflib_to_networkx_multidigraph(rdf_graph)
-
-    # Plot Networkx instance of RDF Graph
-    pos = nx.spring_layout(G, scale=2)
-    edge_labels = nx.get_edge_attributes(G, 'r')
-    nx.draw_networkx_edge_labels(G, pos, labels=edge_labels)
-    nx.draw(G, with_labels=True)
-    plt.savefig(image_path)
+    dot_path = image_path.replace('.png', '.dot')
+    software_architect_aide.visualize.main(rdf_path, dot_path)
+    bash_command = "dot -Tpng -o {} {}".format(image_path, dot_path)
+    import subprocess
+    process = subprocess.Popen(bash_command.split(), stdout=subprocess.PIPE)
+    process.communicate()
 
 
 def axiom_count(rdf_path):
