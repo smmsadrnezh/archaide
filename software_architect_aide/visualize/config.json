@@ -5,7 +5,8 @@
     "http://www.w3.org/2004/02/skos/core#example",
     "http://www.w3.org/2004/02/skos/core#note",
     "http://www.w3.org/2000/01/rdf-schema#label",
-    "http://dig.isi.edu/ontologies/dig-annotation/crm_equivalent"
+    "http://dig.isi.edu/ontologies/dig-annotation/crm_equivalent",
+    "http://www.w3.org/2002/07/owl#Ontology"
   ],
   "class_inference_in_object": [
     "http://schema.org/domainIncludes",
@@ -20,6 +21,6 @@
     "class": "#1f77b4",
     "literal": "#ff7f0e",
     "instance": "#e377c2",
-    "filled": false
+    "filled": true
   }
 }
