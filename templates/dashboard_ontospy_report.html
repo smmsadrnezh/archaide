@@ -3,13 +3,26 @@
 
 {% block dashboard_content %}
     <div class="sixteen wide mobile thirteen wide tablet thirteen wide computer right floated column" id="content">
-        <ul>
-            <li><a href="/dashboard/report/tree/">نمودار درختی</a></li>
-            <li><a href="/dashboard/report/html/">اطلاعات کلی</a></li>
-            <li><a href="/dashboard/report/html_multi/">اطلاعات جامع</a></li>
-            <li><a href="/dashboard/report/rotating_cluster/">نمودار خوشه ها</a></li>
-            <li><a href="/dashboard/report/partition_table/">نمودار افزار</a></li>
-        </ul>
+        <h2>نمودار درختی</h2>
+        <iframe src="/dashboard/report/tree/" title="نمودار درختی"
+                style="height:2000px;width:100%;"></iframe>
+
+        <h2>اطلاعات کلی</h2>
+        <iframe src="/dashboard/report/html/" title="اطلاعات کلی " style="height:100%;width:100%;"></iframe>
+
+        <h2 >اطلاعات جامع</h2>
+        <iframe src="/dashboard/report/html_multi/" title="اطلاعات جامع "
+                style="height:100%;width:100%;"></iframe>
+
+        <h2>نمودار خوشه ها</h2>
+        <iframe src="/dashboard/report/rotating_cluster/" title="نمودار خوشه ها "
+                style="height:100%;width:100%;"></iframe>
+
+        <h2 >نمودار افزار</h2>
+        <iframe src="/dashboard/report/partition_table/" title="نمودار افزار"
+                style="height:100%;width:100%;"></iframe>
+
+
         <p>{{ reference_stats }}</p>
         <p>{{ manual_stats }}</p>
     </div>
