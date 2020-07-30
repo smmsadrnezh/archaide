@@ -282,16 +282,14 @@ def ontospy_report(request):
 
 
 @login_required(login_url='/')
-def report(request, file_name):
-    if file_name == "html":
+def report(request, report_name):
+    if report_name == "html":
         return render(request, "ontospy/html/index.html")
-    if file_name == "html_multi":
-        return render(request, "ontospy/html_multi/index.html")
-    if file_name == "rotating_cluster":
+    elif report_name == "rotating_cluster":
         return render(request, "ontospy/rotating_cluster/index.html")
-    if file_name == "tree":
+    elif report_name == "tree":
         return render(request, "ontospy/tree/index.html")
-    if file_name == "partition_table":
+    elif report_name == "partition_table":
         return render(request, "ontospy/partition_table/index.html")
 
 
@@ -328,3 +326,14 @@ def analysis_architecture(request):
                 context['relations'] += [[quality, quality2] + relations]
 
     return render(request, "dashboard_home.html", context)
+
+
+@login_required(login_url='/')
+def report_multi_index(request):
+    return render(request, "ontospy/html_multi/index.html")
+
+
+@login_required(login_url='/')
+def report_multi(request, file_name):
+    template = "ontospy/html_multi/{}".format(file_name)
+    return render(request, template)

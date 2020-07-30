@@ -233,7 +233,7 @@
 	<h1 class="title">Graph:&nbsp;<a href="" target="_blank">http://archaide.ml/ontology</a></h1>
 	<h3></h3>
 
-	<p><small>created at:  28th July 2020 17:25</small></p>
+	<p><small>created at:  30th July 2020 18:55</small></p>
 
 
 
@@ -250,7 +250,7 @@
 		<li><a href="#classes">Classes</a></li>
 		<li><a href="#objproperties">Object Properties</a></li>
 		
-		<li><a href="#annotationproperties">Annotation properties</a></li>
+		
 		
 
 		
@@ -298,24 +298,21 @@
 
 	
 
-	<fieldset> <legend>Object Properties (4)</legend>
+	<fieldset> <legend>Object Properties (8)</legend>
 		&nbsp;<a href="#ontology:achieves">ontology:achieves</a>
 		|  <a href="#ontology:augments">ontology:augments</a>
 		|  <a href="#ontology:comprises">ontology:comprises</a>
+		|  <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a>
 		|  <a href="#ontology:isAchievedBy">ontology:isAchievedBy</a>
+		|  <a href="#ontology:strengthen">ontology:strengthen</a>
+		|  <a href="#ontology:weaken">ontology:weaken</a>
+		|  <a href="#owl:topObjectProperty">owl:topObjectProperty</a>
 		  
 	</fieldset>
 
 	
 
 	
-
-	
-
-		<fieldset> <legend>Annotation Properties (1)</legend>
-			&nbsp;<a href="#ontology:sa:isAddressBy">ontology:sa:isAddressBy</a>
-			  
-		</fieldset>
 
 	
 
@@ -910,7 +907,10 @@
                 </p>
 
                 
-
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
 				
 
 
@@ -963,7 +963,10 @@
                 </p>
 
                 
-
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
 				
 
 
@@ -989,7 +992,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:augments a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:domain :Tactic ;<br>    rdfs:range :Pattern ;<br>    rdfs:subPropertyOf owl:topObjectProperty ;<br>    owl:inverseOf :comprises .</p>
+<p>:augments a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:label &quot;augments&quot; ;<br>    rdfs:domain :Tactic ;<br>    rdfs:range :Pattern ;<br>    rdfs:subPropertyOf owl:topObjectProperty ;<br>    owl:inverseOf :comprises .</p>
 
 <p></p></code>
 				</div>
@@ -1042,7 +1045,55 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:comprises a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:domain :Pattern ;<br>    rdfs:range :Tactic .</p>
+<p>:comprises a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:label &quot;comprises&quot; ;<br>    rdfs:domain :Pattern ;<br>    rdfs:range :Tactic .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:hasNoEffectOn" href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:hasNoEffectOn is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
+				
+
+
+
+				
+
+				
+
+				
+
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:hasNoEffectOn a owl:ObjectProperty ;<br>    rdfs:label &quot;hasNoEffectOn&quot; ;<br>    rdfs:subPropertyOf owl:topObjectProperty .</p>
 
 <p></p></code>
 				</div>
@@ -1069,7 +1120,10 @@
                 </p>
 
                 
-
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
 				
 
 
@@ -1104,43 +1158,16 @@
 
 			
 
-	
-
-
-
-
-
-
-
-	
-
-	
-
-
-
-
-
-
-
-	
-
-	
-
-		<hr class="margintop">
-		<h1 class="margintop"><a name="annotationproperties">&nbsp;</a>Annotation Properties</h1>
-
-			
-
 			<div class="entity-div">
 
-				<h3 class="entity-section">Annotation Property: <a name="ontology:sa:isAddressBy" href="#ontology:sa:isAddressBy">ontology:sa:isAddressBy</a>
+				<h3 class="entity-section">Object Property: <a name="ontology:strengthen" href="#ontology:strengthen">ontology:strengthen</a>
 					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
 				</h3>
 				<hr>
 
                 
                 <p class="section-desc">
-                    <small>NOTE</small> ontology:sa:isAddressBy is a leaf node.</p>
+                    <small>NOTE</small> ontology:strengthen is a leaf node.</p>
                 
 
 				<p class="section-desc"><b>Description</b>
@@ -1165,16 +1192,128 @@
 
                 <small class="implementation_title">Implementation:</small>
 				<div class="implementation">
-					<code><p>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix sa: &lt;http://archaide.ml/ontology#sa:&gt; .</p>
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>sa:isAddressBy a owl:AnnotationProperty .</p>
+<p>:strengthen a owl:ObjectProperty ;<br>    rdfs:label &quot;strengthen&quot; ;<br>    owl:inverseOf :weaken .</p>
 
 <p></p></code>
 				</div>
 
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:weaken" href="#ontology:weaken">ontology:weaken</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:weaken is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+
+				
+
+				
+
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:weaken a owl:ObjectProperty ;<br>    rdfs:label &quot;weaken&quot; .</p>
+
+<p></p></code>
+				</div>
 
 			</div>
+
 			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="owl:topObjectProperty" href="#owl:topObjectProperty">owl:topObjectProperty</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+					<p class="section-desc"><b>Has sub-property <small>(direct)</small>:</b>
+                        <br />
+                        <a href="#ontology:achieves">ontology:achieves</a> | <a href="#ontology:augments">ontology:augments</a> | <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a> | <a href="#ontology:isAchievedBy">ontology:isAchievedBy</a>  
+                    </p>
+				
+
+				
+
+				
+
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .</p>
+
+<p>owl:topObjectProperty a owl:ObjectProperty,<br>        owl:SymmetricProperty .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+	
+
+
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+	
 
 	
 
@@ -1192,7 +1331,7 @@
 
 
 	<hr>
-	<small>Ontology documentation automatically generated by <a class="greylink"  href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 28th July 2020 17:25</small>
+	<small>Ontology documentation automatically generated by <a class="greylink"  href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 30th July 2020 18:55</small>
 
 
 </body>
@@ -1432,7 +1571,7 @@
 	<h1 class="title">Graph:&nbsp;<a href="" target="_blank">http://archaide.ml/ontology</a></h1>
 	<h3></h3>
 
-	<p><small>Ontology documentation automatically generated by <a class="greylink" href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 28th July 2020 17:25</small></p>
+	<p><small>Ontology documentation automatically generated by <a class="greylink" href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 30th July 2020 18:55</small></p>
 
 
 
@@ -1449,7 +1588,7 @@
 		<li><a href="#classes">Classes</a></li>
 		<li><a href="#objproperties">Object Properties</a></li>
 		
-		<li><a href="#annotationproperties">Annotation properties</a></li>
+		
 		
 
 		
@@ -1497,24 +1636,21 @@
 
 	
 
-	<fieldset> <legend>Object Properties (4)</legend>
+	<fieldset> <legend>Object Properties (8)</legend>
 		&nbsp;<a href="#ontology:achieves">ontology:achieves</a>
 		|  <a href="#ontology:augments">ontology:augments</a>
 		|  <a href="#ontology:comprises">ontology:comprises</a>
+		|  <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a>
 		|  <a href="#ontology:isAchievedBy">ontology:isAchievedBy</a>
+		|  <a href="#ontology:strengthen">ontology:strengthen</a>
+		|  <a href="#ontology:weaken">ontology:weaken</a>
+		|  <a href="#owl:topObjectProperty">owl:topObjectProperty</a>
 		  
 	</fieldset>
 
 	
 
 	
-
-	
-
-		<fieldset> <legend>Annotation Properties (1)</legend>
-			&nbsp;<a href="#ontology:sa:isAddressBy">ontology:sa:isAddressBy</a>
-			  
-		</fieldset>
 
 	
 
@@ -2109,7 +2245,10 @@
                 </p>
 
                 
-
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
 				
 
 
@@ -2162,7 +2301,10 @@
                 </p>
 
                 
-
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
 				
 
 
@@ -2188,7 +2330,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:augments a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:domain :Tactic ;<br>    rdfs:range :Pattern ;<br>    rdfs:subPropertyOf owl:topObjectProperty ;<br>    owl:inverseOf :comprises .</p>
+<p>:augments a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:label &quot;augments&quot; ;<br>    rdfs:domain :Tactic ;<br>    rdfs:range :Pattern ;<br>    rdfs:subPropertyOf owl:topObjectProperty ;<br>    owl:inverseOf :comprises .</p>
 
 <p></p></code>
 				</div>
@@ -2241,7 +2383,55 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:comprises a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:domain :Pattern ;<br>    rdfs:range :Tactic .</p>
+<p>:comprises a owl:ObjectProperty,<br>        owl:TransitiveProperty ;<br>    rdfs:label &quot;comprises&quot; ;<br>    rdfs:domain :Pattern ;<br>    rdfs:range :Tactic .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:hasNoEffectOn" href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:hasNoEffectOn is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
+				
+
+
+
+				
+
+				
+
+				
+
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:hasNoEffectOn a owl:ObjectProperty ;<br>    rdfs:label &quot;hasNoEffectOn&quot; ;<br>    rdfs:subPropertyOf owl:topObjectProperty .</p>
 
 <p></p></code>
 				</div>
@@ -2268,7 +2458,10 @@
                 </p>
 
                 
-
+					<p class="section-desc"><b>Inherits from <small>(1)</small>:</b>
+                        <br />
+                        <a href="#owl:topObjectProperty">owl:topObjectProperty</a>  
+                    </p>
 				
 
 
@@ -2303,43 +2496,16 @@
 
 			
 
-	
-
-
-
-
-
-
-
-	
-
-	
-
-
-
-
-
-
-
-	
-
-	
-
-		<hr class="margintop">
-		<h1 class="margintop"><a name="annotationproperties">&nbsp;</a>Annotation Properties</h1>
-
-			
-
 			<div class="entity-div">
 
-				<h3 class="entity-section">Annotation Property: <a name="ontology:sa:isAddressBy" href="#ontology:sa:isAddressBy">ontology:sa:isAddressBy</a>
+				<h3 class="entity-section">Object Property: <a name="ontology:strengthen" href="#ontology:strengthen">ontology:strengthen</a>
 					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
 				</h3>
 				<hr>
 
                 
                 <p class="section-desc">
-                    <small>NOTE</small> ontology:sa:isAddressBy is a leaf node.</p>
+                    <small>NOTE</small> ontology:strengthen is a leaf node.</p>
                 
 
 				<p class="section-desc"><b>Description</b>
@@ -2364,16 +2530,128 @@
 
                 <small class="implementation_title">Implementation:</small>
 				<div class="implementation">
-					<code><p>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix sa: &lt;http://archaide.ml/ontology#sa:&gt; .</p>
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>sa:isAddressBy a owl:AnnotationProperty .</p>
+<p>:strengthen a owl:ObjectProperty ;<br>    rdfs:label &quot;strengthen&quot; ;<br>    owl:inverseOf :weaken .</p>
 
 <p></p></code>
 				</div>
 
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:weaken" href="#ontology:weaken">ontology:weaken</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:weaken is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+
+				
+
+				
+
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:weaken a owl:ObjectProperty ;<br>    rdfs:label &quot;weaken&quot; .</p>
+
+<p></p></code>
+				</div>
 
 			</div>
+
 			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="owl:topObjectProperty" href="#owl:topObjectProperty">owl:topObjectProperty</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+					<p class="section-desc"><b>Has sub-property <small>(direct)</small>:</b>
+                        <br />
+                        <a href="#ontology:achieves">ontology:achieves</a> | <a href="#ontology:augments">ontology:augments</a> | <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a> | <a href="#ontology:isAchievedBy">ontology:isAchievedBy</a>  
+                    </p>
+				
+
+				
+
+				
+
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .</p>
+
+<p>owl:topObjectProperty a owl:ObjectProperty,<br>        owl:SymmetricProperty .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+	
+
+
+
+
+
+
+
+	
+
+	
+
+
+
+
+
+
+
+	
 
 	
 
@@ -2391,7 +2669,7 @@
 
 
 	<hr>
-	<small>created at:  28th July 2020 17:25</small>
+	<small>created at:  30th July 2020 18:55</small>
 
 
 </body>
