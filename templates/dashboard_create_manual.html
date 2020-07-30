@@ -20,7 +20,6 @@
                 </div>
             {% endif %}
 
-
             <div class="center aligned row">
                 <form class="ui form" method="post" action="{% url 'create_manual' %}">
                     {% csrf_token %}
@@ -56,6 +55,17 @@
                             </div>
                         </div>
                         <input type="hidden" name="step" value="{{ current_step }}">
+                        <div class="ui segment">
+                            <div class="sixteen column">
+                                <div class="ui yellow small message">
+                                    <i class="close icon"></i>
+                                    <div class="header">
+                                        اطلاعات حتما باید با زبان انگلیسی وارد شود!
+                                    </div>
+                                    لطفا اطلاعات خواسته شده در فرم‌ها را با صفحهٔ کلید انگلیسی وارد کنید.
+                                </div>
+                            </div>
+                        </div>
                         {% if current_step == 1 %}
                             <div class="ui segment">
                                 <div class="ui dividing header">
