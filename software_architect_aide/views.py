@@ -166,7 +166,9 @@ def create_reference(request):
             create_is_achieved_by_achieves(parsed_quality_tactics, owl_path)
 
             # Show related patterns
-            selected_tactic = ' , '.join([":{}".format(quality_tactic[1]) for quality_tactic in parsed_quality_tactics])
+            selected_tactic = ' , '.join(
+                [":{}".format(quality_tactic[1]) for quality_tactic in parsed_quality_tactics])
+
             query = """
             SELECT ?tlabel ?plabel
                 WHERE
