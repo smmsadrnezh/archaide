@@ -63,6 +63,8 @@
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#hasNoEffectOn">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
+        <rdfs:range rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:label>hasNoEffectOn</rdfs:label>
     </owl:ObjectProperty>
     
@@ -80,10 +82,31 @@
     
 
 
+    <!-- http://archaide.ml/ontology#isStrengthenedBy -->
+
+    <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#isStrengthenedBy">
+        <owl:inverseOf rdf:resource="http://archaide.ml/ontology#strengthen"/>
+        <rdfs:label>isStrengthenedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://archaide.ml/ontology#isWeakenedBy -->
+
+    <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#isWeakenedBy">
+        <owl:inverseOf rdf:resource="http://archaide.ml/ontology#weaken"/>
+        <rdfs:domain rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
+        <rdfs:range rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
+        <rdfs:label>isWeakenedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
     <!-- http://archaide.ml/ontology#strengthen -->
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#strengthen">
-        <owl:inverseOf rdf:resource="http://archaide.ml/ontology#weaken"/>
+        <rdfs:domain rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
+        <rdfs:range rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:label>strengthen</rdfs:label>
     </owl:ObjectProperty>
     
@@ -92,6 +115,8 @@
     <!-- http://archaide.ml/ontology#weaken -->
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#weaken">
+        <rdfs:domain rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
+        <rdfs:range rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:label>weaken</rdfs:label>
     </owl:ObjectProperty>
     
@@ -285,6 +310,12 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Transactions"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Voting"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Ping/Echo"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Modifiability"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Testability"/>
+        <weaken rdf:resource="http://archaide.ml/ontology#Modifiability"/>
+        <weaken rdf:resource="http://archaide.ml/ontology#Security"/>
+        <weaken rdf:resource="http://archaide.ml/ontology#Testability"/>
         <rdfs:label>Availability</rdfs:label>
     </owl:NamedIndividual>
     
@@ -594,11 +625,13 @@
 
     <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Interoperability">
         <rdf:type rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
+        <hasNoEffectOn rdf:resource="http://archaide.ml/ontology#Availability"/>
         <hasNoEffectOn rdf:resource="http://archaide.ml/ontology#Testability"/>
         <hasNoEffectOn rdf:resource="http://archaide.ml/ontology#Usability"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Discover_Service"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Orchestrate"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Tailor_Interface"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Modifiability"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Performance"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Security"/>
@@ -828,6 +861,7 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Restrict_Dependencies"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Split_Module"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Use_An_Intermediary"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Testability"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Availability"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Security"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Testability"/>
@@ -897,6 +931,10 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Prioritize_Events"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Reduce_Overhead"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Schedule_Resources"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Modifiability"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Testability"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Usability"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Security"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Usability"/>
         <rdfs:label>Performance</rdfs:label>
@@ -1130,9 +1168,15 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Revoke_Access"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Separate_Entities"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Verify_Message_Integrity"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Modifiability"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Performance"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Testability"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Usability"/>
+        <strengthen rdf:resource="http://archaide.ml/ontology#Availability"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Interoperability"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Performance"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Testability"/>
+        <weaken rdf:resource="http://archaide.ml/ontology#Usability"/>
         <rdfs:label>Security</rdfs:label>
     </owl:NamedIndividual>
     
@@ -1241,6 +1285,8 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Sanbox"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Specialized_Interfaces"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Record/Playback"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Usability"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Availability"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Modifiability"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Usability"/>
@@ -1285,6 +1331,7 @@
 
     <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Usability">
         <rdf:type rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
+        <hasNoEffectOn rdf:resource="http://archaide.ml/ontology#Availability"/>
         <hasNoEffectOn rdf:resource="http://archaide.ml/ontology#Interoperability"/>
         <hasNoEffectOn rdf:resource="http://archaide.ml/ontology#Modifiability"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Aggregate"/>
@@ -1294,6 +1341,9 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Maintain_User_Model"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Undo"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Pause/Resume"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Performance"/>
+        <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Testability"/>
+        <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Performance"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Security"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Testability"/>
@@ -1416,6 +1466,31 @@
         <achieves rdf:resource="http://archaide.ml/ontology#Testability"/>
         <rdfs:label>Record/Playback</rdfs:label>
     </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://archaide.ml/ontology#achieves"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#augments"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#comprises"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#hasNoEffectOn"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#isAchievedBy"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#isStrengthenedBy"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#isWeakenedBy"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#strengthen"/>
+            <rdf:Description rdf:about="http://archaide.ml/ontology#weaken"/>
+        </owl:members>
+    </rdf:Description>
 </rdf:RDF>
 
 
