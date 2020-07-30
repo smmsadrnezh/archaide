@@ -45,10 +45,11 @@
                                 <button class="ui icon button" onclick="open_modal({{ forloop.counter }}, 'export')">
                                     <i class="download icon"></i>
                                 </button>
-                                # onclick = > call analysis url with architecture id param
-                                <button class="ui icon button" onclick="open_modal({{ forloop.counter }}, 'export')">
-                                    <i class="download icon"></i>
-                                </button>
+                                <a href="{% url 'tradeoff' %}?architecture_id={{ architecture.id }}">
+                                    <button class="ui icon button">
+                                        <i class="balance scale icon"></i>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
 
@@ -99,7 +100,7 @@
                     <tr>
                         <th colspan="7">
                             <form method="GET" action="{% url 'delete_all_architectures' %}">
-                                <button id="tables_download_update" class="ui small red labeled icon button" type="submit">
+                                <button class="ui small red labeled icon button" type="submit">
                                     <i class="trash icon"></i> حذف همه
                                 </button>
                             </form>

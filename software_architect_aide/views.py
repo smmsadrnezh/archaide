@@ -166,8 +166,7 @@ def create_reference(request):
             create_is_achieved_by_achieves(parsed_quality_tactics, owl_path)
 
             # Show related patterns
-            selected_tactic = ' , '.join(
-                [":{}".format(quality_tactic[1]) for quality_tactic in parsed_quality_tactics])
+            selected_tactic = ' , '.join([":{}".format(quality_tactic[1]) for quality_tactic in parsed_quality_tactics])
 
             query = """
             SELECT ?tlabel ?plabel
@@ -254,26 +253,41 @@ def tradeoff(request):
 
 
 @login_required(login_url='/')
+def tradeoff(request):
+    architecture_id = request.GET.get("architecture_id")
+    if architecture_id:
+        architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
+        owl_path = architecture.owl_file
+
+        query_result = query_manual(SELECTED_QUALITY_ATTRIBUTES, owl_path)
+        qualities = pars_concerns_query(query_result)
+        context = {'architecture': architecture, 'quality_relations': {}}
+
+        for quality in qualities:
+            for quality2 in qualities:
+                if quality != quality2:
+                    query = """
+                    SELECT ?relation_label WHERE
+                    {{ 
+                        :{} ?rel :{}.
+                        ?rel rdfs:label ?relation_label.
+                    }}
+                    ORDER BY ?relation
+                    """.format(quality, quality2)
+                    query_result = query_reference(query)
+                    relations = pars_relation_label(query_result)
+                    context['quality_relations'][(quality, quality2)] = relations
+
+        return render(request, "dashboard_tradeoff.html", context)
+    else:
+        return HttpResponseRedirect('/dashboard')
+
+
+@login_required(login_url='/')
 def evolution(request):
     context = {'': '', }
     return render(request, 'dashboard_evolution.html', context)
 
-
-# @login_required(login_url='/')
-# def get_reference_architecture(request):
-#     # quality_attributes = query(ALL_QUALITY_ATTRIBUTES)
-#     query_result = query(ALL_QUALITY_ATTRIBUTE_TACTIC)
-#     qa_t = pars_query_all_attribute_tactics(query_result)
-#     qa_list = ['Security', 'Performance']
-#     result = dict()
-#     for qa in qa_list:
-#         result.update({qa: []})
-#     for item in qa_t:
-#         key = list(item.keys())[0]
-#         value = list(item.values())[0]
-#         if key in result.keys():
-#             result[key].append(value)
-#     return render(request, 'dashboard_create_upload.html', context={'data': qa_t})
 
 @login_required(login_url='/')
 def ontospy_report(request):
@@ -297,35 +311,6 @@ def report(request, report_name):
 def delete_all_architectures(request):
     Architecture.objects.filter(owner=request.user).delete()
     return render(request, "dashboard_home.html")
-
-
-@login_required(login_url='/')
-def analysis_architecture(request):
-    context = {}
-    # architecture_id = request.GET.get("architecture_id")
-    architecture_id = 44
-    architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
-    owl_path = architecture.owl_file
-
-    # get all objects that's type is quality attribute
-    query_result = query_manual(SELECTED_QUALITY_ATTRIBUTES, owl_path)
-    result = pars_concerns_query(query_result)
-    context['relations'] = []
-    # search relations in reference architecture
-    for quality in result:
-        for quality2 in result:
-            if quality != quality2:
-                query = """SELECT ?relation_label
-                WHERE {{ 
-                :{} ?rel :{} .
-                 ?rel rdfs:label ?relation_label.
-                }}
-                ORDER BY ?relation""".format(quality, quality2)
-                query_result = query_reference(query)
-                relations = pars_relation_label(query_result)
-                context['relations'] += [[quality, quality2] + relations]
-
-    return render(request, "dashboard_home.html", context)
 
 
 @login_required(login_url='/')

@@ -170,6 +170,10 @@
             })
         ;
 
+        $('.blurring.dimmable.image').dimmer({
+            on: 'hover'
+        });
+
         {#Add Field Button#}
         {% for field in fields %}
             $('#' + '{{ field.0 }}' + '_input a').click(function () {

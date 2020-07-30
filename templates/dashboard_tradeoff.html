@@ -7,9 +7,63 @@
             <div class="row">
                 <h1 class="ui huge dividing header">تحلیل بده‌بستان‌های معماری</h1>
             </div>
-            <div class="center aligned row">
+            <div class="blurring dimmable image">
+                <div class="ui dimmer">
+                    <div class="content">
+                        <div class="center">
+                            <div class="ui icon header">
+                                مشخصات هستان‌شناسی
+                            </div>
+                            <div class="ui list">
+                                <div class="item">
+                                    <div class="header">نام معماری</div>
+                                    {{ architecture.name }}
+                                </div>
+                                <div class="item">
+                                    <div class="header">تعداد سه‌تایی‌ها</div>
+                                    {{ architecture.triple_count }}
+                                </div>
+                                <div class="item">
+                                    <div class="header">نحوهٔ ساخت</div>
+                                    {{ architecture.get_creation_method_display }}
+                                </div>
+                                <div class="item">
+                                    <div class="header">تاریخ ایجاد</div>
+                                    {{ architecture.date_added }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <img style="width: 100%;" src="/media/visual/owl/manual_XkBJgdo.owl.png">
             </div>
             <div class="ui hidden section divider"></div>
+            <table class="ui celled padded selectable table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>ویژگی کیفی اول</th>
+                    <th>ویژگی کیفی دوم</th>
+                    <th>روابط</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for qualities, relations in quality_relations.items %}
+                    <tr>
+                        {% for quality in qualities %}
+                            <td>
+                                {{ quality }}
+                            </td>
+                        {% endfor %}
+                        <td>
+                            {{ relations }}
+                        </td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
         </div>
     </div>
 {% endblock %}
