@@ -11,9 +11,6 @@
                 <div class="ui dimmer">
                     <div class="content">
                         <div class="center">
-                            <div class="ui icon header">
-                                مشخصات هستان‌شناسی
-                            </div>
                             <div class="ui list">
                                 <div class="item">
                                     <div class="header">نام معماری</div>
@@ -35,7 +32,7 @@
                         </div>
                     </div>
                 </div>
-                <img style="width: 100%;" src="/media/visual/owl/manual_XkBJgdo.owl.png">
+                <img style="width: 100%;" src="/media/visual/{{ architecture.owl_file }}.png">
             </div>
             <div class="ui hidden section divider"></div>
             <table class="ui celled padded selectable table">
@@ -49,15 +46,30 @@
                 </thead>
                 <tbody>
 
+                {% if not quality_relations %}
+                    <tr>
+                        <th colspan="4">
+                            معماری انتخاب شده فاقد ویژگی کیفی است.
+                        </th>
+                    </tr>
+                {% endif %}
+
                 {% for qualities, relations in quality_relations.items %}
                     <tr>
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
                         {% for quality in qualities %}
                             <td>
                                 {{ quality }}
                             </td>
                         {% endfor %}
                         <td>
-                            {{ relations }}
+                            {% for relation in relations %}
+                                <div class="ui {{ relation.1 }} label">
+                                    {{ relation.0 }}
+                                </div>
+                            {% endfor %}
                         </td>
                     </tr>
                 {% endfor %}

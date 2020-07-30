@@ -263,6 +263,8 @@ def tradeoff(request):
         qualities = pars_concerns_query(query_result)
         context = {'architecture': architecture, 'quality_relations': {}}
 
+        relation_color = {'hasNoEffectOn': 'yellow', 'isWeakenedBy': 'red', 'strengthen': 'green', 'weaken': 'red',
+                          'isStrengthenedBy': 'green'}
         for quality in qualities:
             for quality2 in qualities:
                 if quality != quality2:
@@ -275,7 +277,7 @@ def tradeoff(request):
                     ORDER BY ?relation
                     """.format(quality, quality2)
                     query_result = query_reference(query)
-                    relations = pars_relation_label(query_result)
+                    relations = [(relation, relation_color[relation]) for relation in pars_relation_label(query_result)]
                     context['quality_relations'][(quality, quality2)] = relations
 
         return render(request, "dashboard_tradeoff.html", context)
