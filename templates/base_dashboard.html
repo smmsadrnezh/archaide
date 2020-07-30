@@ -160,6 +160,16 @@
                 .addClass("loading");
         }
 
+        {#Close Icon For Messages#}
+        $('.message .close')
+            .on('click', function () {
+                $(this)
+                    .closest('.message')
+                    .transition('fade')
+                ;
+            })
+        ;
+
         {#Add Field Button#}
         {% for field in fields %}
             $('#' + '{{ field.0 }}' + '_input a').click(function () {
