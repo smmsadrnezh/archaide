@@ -303,14 +303,14 @@ def delete_all_architectures(request):
 def analysis_architecture(request):
     context = {}
     # architecture_id = request.GET.get("architecture_id")
-    architecture_id = 42
+    architecture_id = 44
     architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
     owl_path = architecture.owl_file
 
     # get all objects that's type is quality attribute
     query_result = query_manual(SELECTED_QUALITY_ATTRIBUTES, owl_path)
     result = pars_concerns_query(query_result)
-
+    context['relations'] = []
     # search relations in reference architecture
     for quality in result:
         for quality2 in result:
@@ -323,6 +323,6 @@ def analysis_architecture(request):
                 ORDER BY ?relation""".format(quality, quality2)
                 query_result = query_reference(query)
                 relations = pars_relation_label(query_result)
-                context[quality] = [quality2, ] + relations
+                context['relations'] += [[quality, quality2] + relations]
 
     return render(request, "dashboard_home.html", context)
