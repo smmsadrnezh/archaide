@@ -33,6 +33,7 @@ urlpatterns = [path('admin/', admin.site.urls), path('dashboard/', views.dashboa
                path('dashboard/ontospy_report/', views.ontospy_report, name='ontospy_report'),
                path('dashboard/report/<str:file_name>/', views.report, name='report'),
                path('dashboard/delete_all_architectures/', views.delete_all_architectures, name='delete_all_architectures'),
+               path('dashboard/analysis_architecture/', views.analysis_architecture, name='analysis_architecture'),
                path('', include('accounts.urls', namespace='accounts')),
                ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -4,15 +4,15 @@ from shutil import copyfile
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
-    query_reference, pars_patterns_tactic_label
+    query_reference, pars_patterns_tactic_label, query_manual, pars_concerns_query, pars_relation_label
 from .common import create_instances
 from .common import export, pars_query_all_attributes, pars_query_two_label
 from .common import visualize, triple_count
 from .models import Architecture
-from .queries import ALL_QUALITY_ATTRIBUTES
+from .queries import ALL_QUALITY_ATTRIBUTES, SELECTED_QUALITY_ATTRIBUTES
 from .utils import get_random_string
 
 
@@ -131,7 +131,7 @@ def create_reference(request):
 
             qualities = request.POST.getlist('quality[]')
 
-            create_instances(qualities, "Quality_attribute", owl_path)
+            create_instances(qualities, "Quality_Attribute", owl_path)
 
             selected_qa = ' , '.join([":{}".format(quality) for quality in qualities])
             query_part1 = """
@@ -297,3 +297,32 @@ def report(request, file_name):
 def delete_all_architectures(request):
     Architecture.objects.filter(owner=request.user).delete()
     return render(request, "dashboard_home.html")
+
+
+@login_required(login_url='/')
+def analysis_architecture(request):
+    context = {}
+    # architecture_id = request.GET.get("architecture_id")
+    architecture_id = 42
+    architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
+    owl_path = architecture.owl_file
+
+    # get all objects that's type is quality attribute
+    query_result = query_manual(SELECTED_QUALITY_ATTRIBUTES, owl_path)
+    result = pars_concerns_query(query_result)
+
+    # search relations in reference architecture
+    for quality in result:
+        for quality2 in result:
+            if quality != quality2:
+                query = """SELECT ?relation_label
+                WHERE {{ 
+                :{} ?rel :{} .
+                 ?rel rdfs:label ?relation_label.
+                }}
+                ORDER BY ?relation""".format(quality, quality2)
+                query_result = query_reference(query)
+                relations = pars_relation_label(query_result)
+                context[quality] = [quality2, ] + relations
+
+    return render(request, "dashboard_home.html", context)

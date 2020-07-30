@@ -39,3 +39,14 @@ SELECT ?pattern_label
 }
 ORDER BY ?pattern_label
 """
+
+SELECTED_QUALITY_ATTRIBUTES = """
+    PREFIX : <http://archaide.ml/ontology#>
+    SELECT ?subject
+        WHERE { ?subject rdf:type :Quality_Attribute} ORDER BY ?subject"""
+
+RELATION = """
+SELECT ?relation
+	WHERE { :Security ?rel :Performance}
+	ORDER BY ?relation
+"""

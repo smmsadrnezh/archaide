@@ -67,8 +67,10 @@ def pars_query_all_attribute_tactics(query_result):
 def pars_patterns_tactic_label(query_result):
     return [(row.asdict()['tlabel'].value, row.asdict()['plabel'].value) for row in query_result]
 
+
 def triple_count(rdf_path):
     return len(Graph().parse(rdf_path))
+
 
 def create_comprises_augments(tuples, owl_path):
     pairs = tuple(tuples)
@@ -84,6 +86,7 @@ def create_comprises_augments(tuples, owl_path):
         g.add((tactic_instance, augments_rel, pattern_instance))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
+
 def create_is_achieved_by_achieves(tuples, owl_path):
     pairs = tuple(tuples)
     for pair in pairs:
@@ -98,6 +101,7 @@ def create_is_achieved_by_achieves(tuples, owl_path):
         g.add((tactic_instance, achieves_rel, concern_instance))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
+
 def get_concerns(owl_path):
     g = Graph()
     g.parse(owl_path, format='application/rdf+xml', )
@@ -105,6 +109,7 @@ def get_concerns(owl_path):
 
     query_result = query_manual(CONCERNS, owl_path)
     return pars_concerns_query(query_result)
+
 
 def pars_concerns_query(query_result):
     result = list()
@@ -114,6 +119,7 @@ def pars_concerns_query(query_result):
 
     return result
 
+
 def export(source_path, serializer, export_path):
     g = Graph()
     g.parse(source_path, format='application/rdf+xml', )
@@ -121,3 +127,6 @@ def export(source_path, serializer, export_path):
 
     g.serialize(destination=export_path, format=serializer)
 
+
+def pars_relation_label(query_result):
+    return [row.asdict()['relation_label'].value for row in query_result]
