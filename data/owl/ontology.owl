@@ -296,6 +296,7 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Ignore_Faulty_Behaviour"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Increase_Competence_Set"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Non-Stop_Forwarding"/>
+        <isAchievedBy rdf:resource="http://archaide.ml/ontology#PIng_Echo"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Passive_Redundancy"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Predictive_Model"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Reconfiguration"/>
@@ -309,11 +310,9 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Timestamp"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Transactions"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Voting"/>
-        <isAchievedBy rdf:resource="http://archaide.ml/ontology#PIng_Echo"/>
         <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Modifiability"/>
         <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
         <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Testability"/>
-        <weaken rdf:resource="http://archaide.ml/ontology#Modifiability"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Security"/>
         <weaken rdf:resource="http://archaide.ml/ontology#Testability"/>
         <rdfs:label>Availability</rdfs:label>
@@ -901,12 +900,32 @@
     
 
 
+    <!-- http://archaide.ml/ontology#PIng_Echo -->
+
+    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#PIng_Echo">
+        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
+        <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
+        <rdfs:label>PIng_Echo</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://archaide.ml/ontology#Passive_Redundancy -->
 
     <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Passive_Redundancy">
         <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
         <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
         <rdfs:label>Passive Redundancy</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaide.ml/ontology#Pause_Resume -->
+
+    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Pause_Resume">
+        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
+        <achieves rdf:resource="http://archaide.ml/ontology#Usability"/>
+        <rdfs:label>Pause_Resume</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1006,6 +1025,16 @@
         <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
         <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
         <rdfs:label>Reconfiguration</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaide.ml/ontology#Record_Playback -->
+
+    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Record_Playback">
+        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
+        <achieves rdf:resource="http://archaide.ml/ontology#Testability"/>
+        <rdfs:label>Record_Playback</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1282,9 +1311,9 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Limit_Non-deteminism"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Limit_Structural_Complexity"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Localize_State_Storage"/>
+        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Record_Playback"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Sanbox"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Specialized_Interfaces"/>
-        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Record_Playback"/>
         <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
         <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Usability"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Availability"/>
@@ -1339,8 +1368,8 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Maintain_System_Model"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Maintain_Task_Model"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Maintain_User_Model"/>
-        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Undo"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Pause_Resume"/>
+        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Undo"/>
         <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Performance"/>
         <isStrengthenedBy rdf:resource="http://archaide.ml/ontology#Testability"/>
         <isWeakenedBy rdf:resource="http://archaide.ml/ontology#Security"/>
@@ -1435,36 +1464,6 @@
         <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
         <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
         <rdfs:label>Voting</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://archaide.ml/ontology#Pause_Resume -->
-
-    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Pause_Resume">
-        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
-        <achieves rdf:resource="http://archaide.ml/ontology#Usability"/>
-        <rdfs:label>Pause_Resume</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://archaide.ml/ontology#PIng_Echo -->
-
-    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#PIng_Echo">
-        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
-        <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
-        <rdfs:label>PIng_Echo</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://archaide.ml/ontology#Record_Playback -->
-
-    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Record_Playback">
-        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
-        <achieves rdf:resource="http://archaide.ml/ontology#Testability"/>
-        <rdfs:label>Record_Playback</rdfs:label>
     </owl:NamedIndividual>
     
 
