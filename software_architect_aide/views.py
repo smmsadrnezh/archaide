@@ -217,7 +217,9 @@ def create_reference(request):
             architecture = Architecture.objects.filter(owner=request.user).latest('id')
             architecture.name = request.POST.get('name')
             architecture.save()
-            context = {'success': True, 'current_step': 1}
+            query_result = query_reference(ALL_QUALITY_ATTRIBUTES)
+            qualities = pars_query_all_attributes(query_result)
+            context = {'success': True, 'current_step': 1, 'qualities': qualities}
     else:
         query_result = query_reference(ALL_QUALITY_ATTRIBUTES)
         qualities = pars_query_all_attributes(query_result)
