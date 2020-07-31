@@ -1,10 +1,9 @@
 import subprocess
 
 from rdflib import Graph
+from rdflib import Literal
 from rdflib import URIRef
 from rdflib.namespace import OWL, RDF, RDFS
-from rdflib import Literal
-from rdflib import Namespace
 
 import software_architect_aide.visualize
 from software_architect_aide.local_settings import BASE_DIR

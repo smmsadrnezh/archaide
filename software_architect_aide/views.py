@@ -289,12 +289,12 @@ def evolution(request):
         current_step = int(request.POST.get('step'))
         if current_step == 1:
             owl_path = architecture.owl_file.path
-            prefix = BASE_DIR + '/media/owl/'
-            new_owl_path = prefix + 'evolution_{}.owl'.format(get_random_string())
-            copyfile(owl_path, new_owl_path)  # TODO: This line has bug!
+            file_name = 'evolution_{}.owl'.format(get_random_string())
+            new_owl_path = os.path.join(settings.MEDIA_ROOT, 'owl', file_name)
+            copyfile(owl_path, new_owl_path)
             new_architecture = Architecture(owner=request.user, creation_method='evolution',
                                             parent_architecture=architecture)
-            new_architecture.owl_file.name = os.path.join('owl', new_owl_path)
+            new_architecture.owl_file.name = os.path.join('owl', file_name)
             new_architecture.save()
 
             delete_concern_candidates = request.POST.getlist('architecture_concern[]')
