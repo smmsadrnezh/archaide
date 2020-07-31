@@ -130,3 +130,7 @@ def export(source_path, serializer, export_path):
 
 def pars_relation_label(query_result):
     return [row.asdict()['relation_label'].value for row in query_result]
+
+
+def pars_concern_decision(query_result):
+    return [(row.asdict()['concern_label'].value, row.asdict()['decision_label'].value) for row in query_result]
