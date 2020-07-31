@@ -289,30 +289,32 @@ def evolution(request):
         if current_step == 1:
             owl_path = architecture.owl_file.path
             new_owl_path = 'evolution_{}.owl'.format(get_random_string())
-            copyfile(owl_path, new_owl_path)  # TODO: Find new file name
+            copyfile(owl_path, new_owl_path)
             new_architecture = Architecture(owner=request.user, creation_method='evolution',
                                             parent_architecture=architecture)
             new_architecture.owl_file.name = os.path.join('owl', new_owl_path)
             new_architecture.save()
 
-            delete_concern_candidates = request.POST.getlist('delete_concern[]')
+            delete_concern_candidates = request.POST.getlist('architecture_concern[]')
             delete_concern_candidates_string = ' , '.join(
                 [":{}".format(delete_concern_candidate) for delete_concern_candidate in delete_concern_candidates])
             query = """
+            PREFIX : <http://archaide.ml/ontology#>
             SELECT ?decision_label ?concern_label
                 WHERE {{?decision :achieves ?concern .
                     ?decision rdfs:label ?decision_label . 
                     ?concern rdfs:label ?concern_label . 
                 Filter (?concern in ({})) .
             }}
-             ORDER BY ?object ?subject
+             ORDER BY ?concern_label ?decision_label
             """.format(delete_concern_candidates_string)
             query_result = query_manual(query, owl_path)
             result = pars_concern_decision(query_result)
 
             # TODO:
-            delete_concerns_candidates = {'delete_concern': [{'decision1': ['concerns']}, {'decision2': ['concerns']}]}
-
+            delete_concerns_candidates = {
+                'delete_concern': [{'decision1': ['concerns']}, {'decision2': ['concerns']}], }
+            delete_concerns_candidates = {(pair[0]): [] for pair in result}
             context = {'architecture': architecture, 'delete_concerns_candidates': delete_concerns_candidates,
                        'current_step': current_step + 1}
         elif current_step == 2:

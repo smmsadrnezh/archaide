@@ -2,7 +2,8 @@ import subprocess
 
 from rdflib import Graph
 from rdflib import URIRef
-from rdflib.namespace import OWL, RDF
+from rdflib.namespace import OWL, RDF, RDFS
+from rdflib import Literal
 
 import software_architect_aide.visualize
 from software_architect_aide.local_settings import BASE_DIR
@@ -18,9 +19,11 @@ def create_instances(instances_name, class_name, owl_path):
         instance = URIRef(BASE_URI + instance_name)
         class_ = URIRef(BASE_URI + class_name)
         g = Graph()
+        name = Literal(instance_name)
         g.parse(owl_path, format='application/rdf+xml', )
         g.bind("owl", OWL)
         g.add((instance, RDF.type, class_))
+        g.add((instance, RDFS.label, name))
         g.serialize(destination=owl_path, format="application/rdf+xml")
 
 
