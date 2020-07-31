@@ -289,15 +289,15 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Condition_Monitoring"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Degardation"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Escalating_Restart"/>
+        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Exception_Detection"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Exception_Handling"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Exception_Prevention"/>
-        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Exeption_Detection"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Heartbeat"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Ignore_Faulty_Behaviour"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Increase_Competence_Set"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Non-Stop_Forwarding"/>
-        <isAchievedBy rdf:resource="http://archaide.ml/ontology#PIng_Echo"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Passive_Redundancy"/>
+        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Ping_Echo"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Predictive_Model"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Reconfiguration"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Removal_From_Service"/>
@@ -489,6 +489,16 @@
     
 
 
+    <!-- http://archaide.ml/ontology#Exception_Detection -->
+
+    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Exception_Detection">
+        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
+        <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
+        <rdfs:label>Exception Detection</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
     <!-- http://archaide.ml/ontology#Exception_Handling -->
 
     <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Exception_Handling">
@@ -515,16 +525,6 @@
         <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
         <achieves rdf:resource="http://archaide.ml/ontology#Testability"/>
         <rdfs:label>Executable Assertions</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
-    <!-- http://archaide.ml/ontology#Exeption_Detection -->
-
-    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Exeption_Detection">
-        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
-        <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
-        <rdfs:label>Exeption Detection</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -900,16 +900,6 @@
     
 
 
-    <!-- http://archaide.ml/ontology#PIng_Echo -->
-
-    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#PIng_Echo">
-        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
-        <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
-        <rdfs:label>PIng_Echo</rdfs:label>
-    </owl:NamedIndividual>
-    
-
-
     <!-- http://archaide.ml/ontology#Passive_Redundancy -->
 
     <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Passive_Redundancy">
@@ -957,6 +947,16 @@
         <strengthen rdf:resource="http://archaide.ml/ontology#Security"/>
         <strengthen rdf:resource="http://archaide.ml/ontology#Usability"/>
         <rdfs:label>Performance</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://archaide.ml/ontology#Ping_Echo -->
+
+    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Ping_Echo">
+        <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
+        <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
+        <rdfs:label>Ping_Echo</rdfs:label>
     </owl:NamedIndividual>
     
 

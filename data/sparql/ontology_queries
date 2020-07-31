@@ -44,3 +44,38 @@ SELECT ?subject ?object
 	}
 ORDER BY ?object ?subject
 #################################################################################################
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+ PREFIX : <http://archaide.ml/ontology#>
+            SELECT ?decision_label ?concern_label
+                WHERE {
+	  ?decision :achieves ?concern .
+                    ?decision rdfs:label ?decision_label .
+                    ?concern rdfs:label ?concern_label .
+                    Filter (?concern in (:Security)) .
+{
+	select ?concern_label
+	{
+		?concern :isAchievedBy ?decision .
+		?concern rdfs:label ?concern_label .
+	}
+}}
+             ORDER BY ?concern_label ?decision_label
+
+##############################################################3
+ PREFIX : <http://archaide.ml/ontology#>
+            SELECT distinct ?input_concern ?decision_label  ?concern_label
+                WHERE {
+	  ?decision :achieves ?input_concern .
+                    ?decision rdfs:label ?decision_label .
+                    Filter (?input_concern in (:Security , :Performance)) .
+{
+	select ?concern_label
+	{
+		?concern :isAchievedBy ?decision .
+		?concern rdfs:label ?concern_label .
+	}
+}}
+             ORDER BY ?input_concern ?concern_label ?decision_label
