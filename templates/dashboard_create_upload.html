@@ -22,6 +22,7 @@
 
             <div class="center aligned row">
                 <form class="ui form" method="post" action="{% url 'create_upload' %}" enctype="multipart/form-data">
+                    <div class="ui error message"></div>
                     {% csrf_token %}
                     <div class="field">
                         <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">

@@ -223,6 +223,33 @@
             $(".pan").pan();
         })
     </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".ui.form").form({
+                fields: {
+                    name: {
+                        identifier: "name",
+                        rules: [
+                            {
+                                type: "empty",
+                                prompt: "لطفا نام معماری را وارد کنید."
+                            }
+                        ]
+                    }
+                }
+            });
+        });
+
+        $('.message .close')
+            .on('click', function () {
+                $(this)
+                    .closest('.message')
+                    .transition('fade')
+                ;
+            })
+        ;
+    </script>
 {% endblock %}
 
 
