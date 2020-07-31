@@ -117,7 +117,11 @@
                                 {% endfor %}
                             </div>
                         {% elif current_step == 2 %}
-                            مرحلهٔ دو
+                            <div class="ui segment">
+                                {% for concern in concerns.items %}
+                                    {{ concern }}
+                                {% endfor %}
+                            </div>
                         {% elif current_step == 3 %}
                             <div class="ui segment">
                                 <div class="ui dividing header">
