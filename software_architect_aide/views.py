@@ -7,7 +7,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
-    query_reference, pars_patterns_tactic_label, query_manual, pars_concerns_query, pars_relation_label
+    query_reference, pars_patterns_tactic_label, query_manual, pars_concerns_query, pars_relation_label, \
+    pars_concern_decision
 from .common import create_instances
 from .common import export, pars_query_all_attributes, pars_query_two_label
 from .common import visualize, triple_count
@@ -281,8 +282,10 @@ def tradeoff(request):
 
 @login_required(login_url='/')
 def evolution(request):
-    architecture_id = request.GET.get("architecture_id")
+    # architecture_id = request.GET.get("architecture_id")
+    # architecture_id = request.GET.get("architecture_id")
     architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
+    owl_path = architecture.owl_file
     if request.method == 'POST':
         current_step = int(request.POST.get('step'))
         if current_step == 1:
@@ -295,6 +298,19 @@ def evolution(request):
             new_architecture.save()
 
             delete_concern_candidates = request.POST.getlist('delete_concern[]')
+            delete_concern_candidates_string = ' , '.join(
+                [":{}".format(delete_concern_candidate) for delete_concern_candidate in delete_concern_candidates])
+            query = """
+            SELECT ?decision_label ?concern_label
+                WHERE {{?decision :achieves ?concern .
+                    ?decision rdfs:label ?decision_label . 
+                    ?concern rdfs:label ?concern_label . 
+                Filter (?concern in ({})) .
+            }}
+             ORDER BY ?object ?subject
+            """.format(delete_concern_candidates_string)
+            query_result = query_manual(query, owl_path)
+            result = pars_concern_decision(query_result)
 
             # TODO:
             delete_concerns_candidates = {'delete_concern': [{'decision1': ['concerns']}, {'decision2': ['concerns']}]}
@@ -365,7 +381,7 @@ def evolution(request):
             context = {'success': True, 'current_step': 1}
 
     else:
-        architecture_concerns = 'get'  # TODO: Get All Architecture Concerns
+        architecture_concerns = get_concerns(owl_path=owl_path)
         context = {'architecture_concerns': architecture_concerns, 'architecture': architecture, 'current_step': 1}
     return render(request, 'dashboard_evolution.html', context)
 
