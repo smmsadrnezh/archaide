@@ -144,19 +144,17 @@ def delete_concerns(concerns, owl_path):
     g.parse(owl_path, format='application/rdf+xml')
     g.bind("owl", OWL)
 
-    ns1 = Namespace("http://archaide.ml/ontology#")
     for concern in concerns:
         concern_uri = URIRef(BASE_URI + concern)
-        g.remove((concern_uri, ns1.isAchievedBy, None))
-        g.serialize(destination=owl_path, format='application/rdf+xml')
+        g.remove((concern_uri, None, None))
+    g.serialize(destination=owl_path, format='application/rdf+xml')
 
 
 def delete_decisions(decisions, owl_path):
     g = Graph()
     g.parse(owl_path, format='application/rdf+xml')
     g.bind("owl", OWL)
-    ns1 = Namespace("http://archaide.ml/ontology#")
     for decision in decisions:
         decision_uri = URIRef(BASE_URI + decision)
-        g.remove((decision_uri, ns1.achieves, None))
-        g.serialize(destination=owl_path, format='application/rdf+xml')
+        g.remove((decision_uri, None, None))
+    g.serialize(destination=owl_path, format='application/rdf+xml')
