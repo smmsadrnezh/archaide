@@ -187,7 +187,7 @@
 	<h1 class="title">Ontology:&nbsp;<a href="javascript:showpanel('ontoinfo');">http://archaide.ml/ontology</a></h1>
 
 	<p>
-    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 31st July 2020 23:21 </small>
+    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 31st July 2020 23:25 </small>
   </p>
 
 	<hr>
@@ -224,7 +224,7 @@
 
 
 	<hr>
-    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 31st July 2020 23:21 </small>
+    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 31st July 2020 23:25 </small>
 
 
 
@@ -499,11 +499,11 @@
 	
 
 	
-		<p><b class="section-title">In Domain Of:</b> <a href="javascript:showpanel('12');"  class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('15');"  class="prop">ontology:isWeakenedBy</a> | <a href="javascript:showpanel('16');"  class="prop">ontology:strengthen</a> | <a href="javascript:showpanel('17');"  class="prop">ontology:weaken</a>  </p>
+		<p><b class="section-title">In Domain Of:</b> <a href="javascript:showpanel('12');"  class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('14');"  class="prop">ontology:isStrengthenedBy</a> | <a href="javascript:showpanel('15');"  class="prop">ontology:isWeakenedBy</a> | <a href="javascript:showpanel('16');"  class="prop">ontology:strengthen</a> | <a href="javascript:showpanel('17');"  class="prop">ontology:weaken</a>  </p>
 	
 	
 	
-		<p><b class="section-title">In Range Of:</b> <a href="javascript:showpanel('12');" class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('15');" class="prop">ontology:isWeakenedBy</a> | <a href="javascript:showpanel('16');" class="prop">ontology:strengthen</a> | <a href="javascript:showpanel('17');" class="prop">ontology:weaken</a>  </p>
+		<p><b class="section-title">In Range Of:</b> <a href="javascript:showpanel('12');" class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('14');" class="prop">ontology:isStrengthenedBy</a> | <a href="javascript:showpanel('15');" class="prop">ontology:isWeakenedBy</a> | <a href="javascript:showpanel('16');" class="prop">ontology:strengthen</a> | <a href="javascript:showpanel('17');" class="prop">ontology:weaken</a>  </p>
 	
 
 	<hr>
@@ -772,6 +772,8 @@
 
 
 	
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
+	
 	
 	
 	
@@ -797,7 +799,8 @@
         owl:TransitiveProperty ;
     rdfs:label &quot;comprises&quot; ;
     rdfs:domain :Pattern ;
-    rdfs:range :Tactic .
+    rdfs:range :Tactic ;
+    rdfs:subPropertyOf owl:topObjectProperty .
 
 </pre>
 
@@ -931,9 +934,12 @@
 
 
 	
+		<hr>
+	
 
 
 	
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
 	
 	
 	
@@ -943,6 +949,11 @@
 	
 	
 	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
+	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
 	
 	
 	<hr>
@@ -953,6 +964,9 @@
 
 :isStrengthenedBy a owl:ObjectProperty ;
     rdfs:label &quot;isStrengthenedBy&quot; ;
+    rdfs:domain :Quality_Attribute ;
+    rdfs:range :Quality_Attribute ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
     owl:inverseOf :strengthen .
 
 </pre>
@@ -981,6 +995,8 @@
 
 
 	
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
+	
 	
 	
 	
@@ -1006,6 +1022,7 @@
     rdfs:label &quot;isWeakenedBy&quot; ;
     rdfs:domain :Quality_Attribute ;
     rdfs:range :Quality_Attribute ;
+    rdfs:subPropertyOf owl:topObjectProperty ;
     owl:inverseOf :weaken .
 
 </pre>
@@ -1034,6 +1051,8 @@
 
 
 	
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
+	
 	
 	
 	
@@ -1058,7 +1077,8 @@
 :strengthen a owl:ObjectProperty ;
     rdfs:label &quot;strengthen&quot; ;
     rdfs:domain :Quality_Attribute ;
-    rdfs:range :Quality_Attribute .
+    rdfs:range :Quality_Attribute ;
+    rdfs:subPropertyOf owl:topObjectProperty .
 
 </pre>
 
@@ -1086,6 +1106,8 @@
 
 
 	
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
+	
 	
 	
 	
@@ -1110,7 +1132,8 @@
 :weaken a owl:ObjectProperty ;
     rdfs:label &quot;weaken&quot; ;
     rdfs:domain :Quality_Attribute ;
-    rdfs:range :Quality_Attribute .
+    rdfs:range :Quality_Attribute ;
+    rdfs:subPropertyOf owl:topObjectProperty .
 
 </pre>
 
@@ -1142,7 +1165,7 @@
 	
 	
 	
-		<p><b class="section-title">Has Sub Property (direct):</b> <a href="javascript:showpanel('9');" class="prop">ontology:achieves</a> | <a href="javascript:showpanel('10');" class="prop">ontology:augments</a> | <a href="javascript:showpanel('12');" class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('13');" class="prop">ontology:isAchievedBy</a>  </p>
+		<p><b class="section-title">Has Sub Property (direct):</b> <a href="javascript:showpanel('9');" class="prop">ontology:achieves</a> | <a href="javascript:showpanel('10');" class="prop">ontology:augments</a> | <a href="javascript:showpanel('11');" class="prop">ontology:comprises</a> | <a href="javascript:showpanel('12');" class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('13');" class="prop">ontology:isAchievedBy</a> | <a href="javascript:showpanel('14');" class="prop">ontology:isStrengthenedBy</a> | <a href="javascript:showpanel('15');" class="prop">ontology:isWeakenedBy</a> | <a href="javascript:showpanel('16');" class="prop">ontology:strengthen</a> | <a href="javascript:showpanel('17');" class="prop">ontology:weaken</a>  </p>
 	
 	
 	
@@ -1301,7 +1324,7 @@ owl:topObjectProperty a owl:ObjectProperty,
 
 
 
-	var json2 = {"children": [{"qname": "ontology:comprises", "name": "comprises", "objid": 11, "size": 1, "realsize": 0}, {"qname": "ontology:isStrengthenedBy", "name": "isStrengthenedBy", "objid": 14, "size": 1, "realsize": 0}, {"qname": "ontology:isWeakenedBy", "name": "isWeakenedBy", "objid": 15, "size": 1, "realsize": 0}, {"qname": "ontology:strengthen", "name": "strengthen", "objid": 16, "size": 1, "realsize": 0}, {"qname": "ontology:weaken", "name": "weaken", "objid": 17, "size": 1, "realsize": 0}, {"qname": "owl:topObjectProperty", "name": "topObjectProperty", "objid": 18, "size": 9, "realsize": 4, "children": [{"qname": "ontology:achieves", "name": "achieves", "objid": 9, "size": 1, "realsize": 0}, {"qname": "ontology:augments", "name": "augments", "objid": 10, "size": 1, "realsize": 0}, {"qname": "ontology:hasNoEffectOn", "name": "hasNoEffectOn", "objid": 12, "size": 1, "realsize": 0}, {"qname": "ontology:isAchievedBy", "name": "isAchievedBy", "objid": 13, "size": 1, "realsize": 0}]}], "name": "Properties", "id": "None"};
+	var json2 = {"children": [{"qname": "owl:topObjectProperty", "name": "topObjectProperty", "objid": 18, "size": 14, "realsize": 9, "children": [{"qname": "ontology:achieves", "name": "achieves", "objid": 9, "size": 1, "realsize": 0}, {"qname": "ontology:augments", "name": "augments", "objid": 10, "size": 1, "realsize": 0}, {"qname": "ontology:comprises", "name": "comprises", "objid": 11, "size": 1, "realsize": 0}, {"qname": "ontology:hasNoEffectOn", "name": "hasNoEffectOn", "objid": 12, "size": 1, "realsize": 0}, {"qname": "ontology:isAchievedBy", "name": "isAchievedBy", "objid": 13, "size": 1, "realsize": 0}, {"qname": "ontology:isStrengthenedBy", "name": "isStrengthenedBy", "objid": 14, "size": 1, "realsize": 0}, {"qname": "ontology:isWeakenedBy", "name": "isWeakenedBy", "objid": 15, "size": 1, "realsize": 0}, {"qname": "ontology:strengthen", "name": "strengthen", "objid": 16, "size": 1, "realsize": 0}, {"qname": "ontology:weaken", "name": "weaken", "objid": 17, "size": 1, "realsize": 0}]}], "name": "Properties", "id": "None"};
 
 
 	
