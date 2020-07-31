@@ -106,7 +106,6 @@ def get_concerns(owl_path):
     g = Graph()
     g.parse(owl_path, format='application/rdf+xml', )
     g.bind("owl", OWL)
-
     query_result = query_manual(CONCERNS, owl_path)
     return pars_concerns_query(query_result)
 

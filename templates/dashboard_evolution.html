@@ -21,7 +21,7 @@
                 </div>
             {% endif %}
             <div class="center aligned row">
-                <form class="ui form" method="post" action="{% url 'evolution' %}">
+                <form class="ui form" method="post" action="{% url 'evolution' %}?architecture_id={{ architecture.id }}">
                     {% csrf_token %}
                     <div class="ui secondary segments manual">
                         <div class="ui center aligned segment">
@@ -103,7 +103,19 @@
                             </div>
                         {% endif %}
                         {% if current_step == 1 %}
-                            مرحلهٔ یک
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    دغدغه‌ها
+                                </div>
+                                {% for architecture_concern in architecture_concerns %}
+                                    <div class="field">
+                                        <div class="ui checkbox">
+                                            <input name="architecture_concern[]" value="{{ architecture_concern }}" type="checkbox">
+                                            <label>{{ architecture_concern }}</label>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
                         {% elif current_step == 2 %}
                             مرحلهٔ دو
                         {% elif current_step == 3 %}

@@ -282,14 +282,12 @@ def tradeoff(request):
 
 @login_required(login_url='/')
 def evolution(request):
-    # architecture_id = request.GET.get("architecture_id")
-    # architecture_id = request.GET.get("architecture_id")
+    architecture_id = request.GET.get("architecture_id")
     architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
-    owl_path = architecture.owl_file
     if request.method == 'POST':
         current_step = int(request.POST.get('step'))
         if current_step == 1:
-            owl_path = architecture.owl_file
+            owl_path = architecture.owl_file.path
             new_owl_path = 'evolution_{}.owl'.format(get_random_string())
             copyfile(owl_path, new_owl_path)  # TODO: Find new file name
             new_architecture = Architecture(owner=request.user, creation_method='evolution',
@@ -338,7 +336,6 @@ def evolution(request):
             create_instances(risk_list, 'Risk_Mitigation', owl_path)
 
             context = {'current_step': current_step + 1}
-
         elif current_step == 4:
 
             pattern_list = request.POST.getlist('pattern[]')
@@ -351,7 +348,6 @@ def evolution(request):
 
             instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': get_concerns(owl_path)}
             context = {'instances': instances, 'current_step': current_step + 1}
-
         elif current_step == 5:
 
             comprises_pattern = request.POST.getlist('comprises_pattern[]')
@@ -379,9 +375,9 @@ def evolution(request):
             architecture.name = "{} نسخهٔ {}".format(architecture.parent_architecture.name, number + 1)
             architecture.save()
             context = {'success': True, 'current_step': 1}
-
     else:
-        architecture_concerns = get_concerns(owl_path=owl_path)
+        owl_path = architecture.owl_file.path
+        architecture_concerns = get_concerns(owl_path)
         context = {'architecture_concerns': architecture_concerns, 'architecture': architecture, 'current_step': 1}
     return render(request, 'dashboard_evolution.html', context)
 
