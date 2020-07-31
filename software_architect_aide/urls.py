@@ -34,7 +34,7 @@ urlpatterns = [path('admin/', admin.site.urls), path('dashboard/', views.dashboa
                path('dashboard/report/html_multi/<str:file_name>/', views.report_multi,
                     name='report-multi-index'),
                path('dashboard/report/html_multi/', views.report_multi_index, name='report-multi_index'),
-               path('dashboard/report/<str:report_name>/*', views.report, name='report'),
+               path('dashboard/report/<str:report_name>/', views.report, name='report'),
                path('dashboard/delete_all_architectures/', views.delete_all_architectures,
                     name='delete_all_architectures'),
                path('', include('accounts.urls', namespace='accounts')),

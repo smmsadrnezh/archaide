@@ -233,7 +233,7 @@
 	<h1 class="title">Graph:&nbsp;<a href="" target="_blank">http://archaide.ml/ontology</a></h1>
 	<h3></h3>
 
-	<p><small>created at:  30th July 2020 18:55</small></p>
+	<p><small>created at:  31st July 2020 17:59</small></p>
 
 
 
@@ -278,7 +278,7 @@
 
 	
 		<fieldset> <legend>Classes (7)</legend>
-			<span><a href="#ontology:Businness_Need">ontology:Businness_Need</a></span>
+			<span><a href="#ontology:Business_Need">ontology:Business_Need</a></span>
 			|
 			<span><a href="#ontology:Concern">ontology:Concern</a></span>
 			|
@@ -298,12 +298,14 @@
 
 	
 
-	<fieldset> <legend>Object Properties (8)</legend>
+	<fieldset> <legend>Object Properties (10)</legend>
 		&nbsp;<a href="#ontology:achieves">ontology:achieves</a>
 		|  <a href="#ontology:augments">ontology:augments</a>
 		|  <a href="#ontology:comprises">ontology:comprises</a>
 		|  <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a>
 		|  <a href="#ontology:isAchievedBy">ontology:isAchievedBy</a>
+		|  <a href="#ontology:isStrengthenedBy">ontology:isStrengthenedBy</a>
+		|  <a href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a>
 		|  <a href="#ontology:strengthen">ontology:strengthen</a>
 		|  <a href="#ontology:weaken">ontology:weaken</a>
 		|  <a href="#owl:topObjectProperty">owl:topObjectProperty</a>
@@ -337,7 +339,7 @@
 
 
 
-				<h3 class="entity-section">Class: <a name="ontology:Businness_Need" href="#ontology:Businness_Need">ontology:Businness_Need</a>
+				<h3 class="entity-section">Class: <a name="ontology:Business_Need" href="#ontology:Business_Need">ontology:Business_Need</a>
 					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
 				</h3>
 				<hr>
@@ -351,7 +353,7 @@
 
                             <ul>
 
-                              <li><a style="font-weight: bold;">ontology:Businness_Need</a>
+                              <li><a style="font-weight: bold;">ontology:Business_Need</a>
 
                               
                                 </li>
@@ -370,7 +372,7 @@
 
                 
                 <p class="section-desc">
-                    <small>NOTE</small> ontology:Businness_Need is a leaf node.</p>
+                    <small>NOTE</small> ontology:Business_Need is a leaf node.</p>
                 
 
 				<p class="section-desc"><b>Description</b>
@@ -396,7 +398,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:Businness_Need a owl:Class ;<br>    rdfs:label &quot;Businness Need&quot; ;<br>    rdfs:subClassOf :Concern .</p>
+<p>:Business_Need a owl:Class ;<br>    rdfs:label &quot;Business Need&quot; ;<br>    rdfs:subClassOf :Concern .</p>
 
 <p></p></code>
 				</div>
@@ -428,7 +430,7 @@
 
                               
                                   <ul>
-                                    <li><a href="#ontology:Businness_Need">ontology:Businness_Need</a></li><li><a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a></li><li><a href="#ontology:Risk_Mitigation">ontology:Risk_Mitigation</a></li>
+                                    <li><a href="#ontology:Business_Need">ontology:Business_Need</a></li><li><a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a></li><li><a href="#ontology:Risk_Mitigation">ontology:Risk_Mitigation</a></li>
                                   </ul>
                               
                                 </li>
@@ -702,7 +704,17 @@
 
 
 				
+					<p class="section-desc"><b>Property Domain of:</b>
+                        <br>
+                        <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a> | <a href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a> | <a href="#ontology:strengthen">ontology:strengthen</a> | <a href="#ontology:weaken">ontology:weaken</a>  
+                    </p>
+				
 
+				
+					<p class="section-desc"><b>Property Range of:</b>
+                        <br>
+                        <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a> | <a href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a> | <a href="#ontology:strengthen">ontology:strengthen</a> | <a href="#ontology:weaken">ontology:weaken</a>  
+                    </p>
 				
 
 
@@ -1085,7 +1097,15 @@
 				
 
 				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
 
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
 				
 
 
@@ -1093,7 +1113,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:hasNoEffectOn a owl:ObjectProperty ;<br>    rdfs:label &quot;hasNoEffectOn&quot; ;<br>    rdfs:subPropertyOf owl:topObjectProperty .</p>
+<p>:hasNoEffectOn a owl:ObjectProperty ;<br>    rdfs:label &quot;hasNoEffectOn&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute ;<br>    rdfs:subPropertyOf owl:topObjectProperty .</p>
 
 <p></p></code>
 				</div>
@@ -1160,14 +1180,14 @@
 
 			<div class="entity-div">
 
-				<h3 class="entity-section">Object Property: <a name="ontology:strengthen" href="#ontology:strengthen">ontology:strengthen</a>
+				<h3 class="entity-section">Object Property: <a name="ontology:isStrengthenedBy" href="#ontology:isStrengthenedBy">ontology:isStrengthenedBy</a>
 					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
 				</h3>
 				<hr>
 
                 
                 <p class="section-desc">
-                    <small>NOTE</small> ontology:strengthen is a leaf node.</p>
+                    <small>NOTE</small> ontology:isStrengthenedBy is a leaf node.</p>
                 
 
 				<p class="section-desc"><b>Description</b>
@@ -1194,7 +1214,113 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:strengthen a owl:ObjectProperty ;<br>    rdfs:label &quot;strengthen&quot; ;<br>    owl:inverseOf :weaken .</p>
+<p>:isStrengthenedBy a owl:ObjectProperty ;<br>    rdfs:label &quot;isStrengthenedBy&quot; ;<br>    owl:inverseOf :strengthen .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:isWeakenedBy" href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:isWeakenedBy is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+
+				
+
+				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:isWeakenedBy a owl:ObjectProperty ;<br>    rdfs:label &quot;isWeakenedBy&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute ;<br>    owl:inverseOf :weaken .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:strengthen" href="#ontology:strengthen">ontology:strengthen</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:strengthen is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+
+				
+
+				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:strengthen a owl:ObjectProperty ;<br>    rdfs:label &quot;strengthen&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute .</p>
 
 <p></p></code>
 				</div>
@@ -1231,7 +1357,15 @@
 				
 
 				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
 
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
 				
 
 
@@ -1239,7 +1373,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:weaken a owl:ObjectProperty ;<br>    rdfs:label &quot;weaken&quot; .</p>
+<p>:weaken a owl:ObjectProperty ;<br>    rdfs:label &quot;weaken&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute .</p>
 
 <p></p></code>
 				</div>
@@ -1331,7 +1465,7 @@
 
 
 	<hr>
-	<small>Ontology documentation automatically generated by <a class="greylink"  href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 30th July 2020 18:55</small>
+	<small>Ontology documentation automatically generated by <a class="greylink"  href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 31st July 2020 17:59</small>
 
 
 </body>
@@ -1571,7 +1705,7 @@
 	<h1 class="title">Graph:&nbsp;<a href="" target="_blank">http://archaide.ml/ontology</a></h1>
 	<h3></h3>
 
-	<p><small>Ontology documentation automatically generated by <a class="greylink" href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 30th July 2020 18:55</small></p>
+	<p><small>Ontology documentation automatically generated by <a class="greylink" href="http://lambdamusic.github.io/Ontospy/">Ontospy</a> on 31st July 2020 17:59</small></p>
 
 
 
@@ -1616,7 +1750,7 @@
 
 	
 		<fieldset> <legend>Classes (7)</legend>
-			<span><a href="#ontology:Businness_Need">ontology:Businness_Need</a></span>
+			<span><a href="#ontology:Business_Need">ontology:Business_Need</a></span>
 			|
 			<span><a href="#ontology:Concern">ontology:Concern</a></span>
 			|
@@ -1636,12 +1770,14 @@
 
 	
 
-	<fieldset> <legend>Object Properties (8)</legend>
+	<fieldset> <legend>Object Properties (10)</legend>
 		&nbsp;<a href="#ontology:achieves">ontology:achieves</a>
 		|  <a href="#ontology:augments">ontology:augments</a>
 		|  <a href="#ontology:comprises">ontology:comprises</a>
 		|  <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a>
 		|  <a href="#ontology:isAchievedBy">ontology:isAchievedBy</a>
+		|  <a href="#ontology:isStrengthenedBy">ontology:isStrengthenedBy</a>
+		|  <a href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a>
 		|  <a href="#ontology:strengthen">ontology:strengthen</a>
 		|  <a href="#ontology:weaken">ontology:weaken</a>
 		|  <a href="#owl:topObjectProperty">owl:topObjectProperty</a>
@@ -1675,7 +1811,7 @@
 
 
 
-				<h3 class="entity-section">Class: <a name="ontology:Businness_Need" href="#ontology:Businness_Need">ontology:Businness_Need</a>
+				<h3 class="entity-section">Class: <a name="ontology:Business_Need" href="#ontology:Business_Need">ontology:Business_Need</a>
 					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
 				</h3>
 				<hr>
@@ -1689,7 +1825,7 @@
 
                             <ul>
 
-                              <li><a style="font-weight: bold;">ontology:Businness_Need</a>
+                              <li><a style="font-weight: bold;">ontology:Business_Need</a>
 
                               
                                 </li>
@@ -1708,7 +1844,7 @@
 
                 
                 <p class="section-desc">
-                    <small>NOTE</small> ontology:Businness_Need is a leaf node.</p>
+                    <small>NOTE</small> ontology:Business_Need is a leaf node.</p>
                 
 
 				<p class="section-desc"><b>Description</b>
@@ -1734,7 +1870,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:Businness_Need a owl:Class ;<br>    rdfs:label &quot;Businness Need&quot; ;<br>    rdfs:subClassOf :Concern .</p>
+<p>:Business_Need a owl:Class ;<br>    rdfs:label &quot;Business Need&quot; ;<br>    rdfs:subClassOf :Concern .</p>
 
 <p></p></code>
 				</div>
@@ -1766,7 +1902,7 @@
 
                               
                                   <ul>
-                                    <li><a href="#ontology:Businness_Need">ontology:Businness_Need</a></li><li><a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a></li><li><a href="#ontology:Risk_Mitigation">ontology:Risk_Mitigation</a></li>
+                                    <li><a href="#ontology:Business_Need">ontology:Business_Need</a></li><li><a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a></li><li><a href="#ontology:Risk_Mitigation">ontology:Risk_Mitigation</a></li>
                                   </ul>
                               
                                 </li>
@@ -2040,7 +2176,17 @@
 
 
 				
+					<p class="section-desc"><b>Property Domain of:</b>
+                        <br>
+                        <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a> | <a href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a> | <a href="#ontology:strengthen">ontology:strengthen</a> | <a href="#ontology:weaken">ontology:weaken</a>  
+                    </p>
+				
 
+				
+					<p class="section-desc"><b>Property Range of:</b>
+                        <br>
+                        <a href="#ontology:hasNoEffectOn">ontology:hasNoEffectOn</a> | <a href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a> | <a href="#ontology:strengthen">ontology:strengthen</a> | <a href="#ontology:weaken">ontology:weaken</a>  
+                    </p>
 				
 
 
@@ -2423,7 +2569,15 @@
 				
 
 				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
 
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
 				
 
 
@@ -2431,7 +2585,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:hasNoEffectOn a owl:ObjectProperty ;<br>    rdfs:label &quot;hasNoEffectOn&quot; ;<br>    rdfs:subPropertyOf owl:topObjectProperty .</p>
+<p>:hasNoEffectOn a owl:ObjectProperty ;<br>    rdfs:label &quot;hasNoEffectOn&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute ;<br>    rdfs:subPropertyOf owl:topObjectProperty .</p>
 
 <p></p></code>
 				</div>
@@ -2498,14 +2652,14 @@
 
 			<div class="entity-div">
 
-				<h3 class="entity-section">Object Property: <a name="ontology:strengthen" href="#ontology:strengthen">ontology:strengthen</a>
+				<h3 class="entity-section">Object Property: <a name="ontology:isStrengthenedBy" href="#ontology:isStrengthenedBy">ontology:isStrengthenedBy</a>
 					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
 				</h3>
 				<hr>
 
                 
                 <p class="section-desc">
-                    <small>NOTE</small> ontology:strengthen is a leaf node.</p>
+                    <small>NOTE</small> ontology:isStrengthenedBy is a leaf node.</p>
                 
 
 				<p class="section-desc"><b>Description</b>
@@ -2532,7 +2686,113 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:strengthen a owl:ObjectProperty ;<br>    rdfs:label &quot;strengthen&quot; ;<br>    owl:inverseOf :weaken .</p>
+<p>:isStrengthenedBy a owl:ObjectProperty ;<br>    rdfs:label &quot;isStrengthenedBy&quot; ;<br>    owl:inverseOf :strengthen .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:isWeakenedBy" href="#ontology:isWeakenedBy">ontology:isWeakenedBy</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:isWeakenedBy is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+
+				
+
+				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:isWeakenedBy a owl:ObjectProperty ;<br>    rdfs:label &quot;isWeakenedBy&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute ;<br>    owl:inverseOf :weaken .</p>
+
+<p></p></code>
+				</div>
+
+			</div>
+
+			
+
+			<div class="entity-div">
+
+				<h3 class="entity-section">Object Property: <a name="ontology:strengthen" href="#ontology:strengthen">ontology:strengthen</a>
+					<small>&nbsp;&nbsp;<a href="#a-z" class="backlink">back to top</a></small>
+				</h3>
+				<hr>
+
+                
+                <p class="section-desc">
+                    <small>NOTE</small> ontology:strengthen is a leaf node.</p>
+                
+
+				<p class="section-desc"><b>Description</b>
+                    <br>
+                    
+                </p>
+
+                
+
+				
+
+
+
+				
+
+				
+
+				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
+
+
+                <small class="implementation_title">Implementation:</small>
+				<div class="implementation">
+					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
+
+<p>:strengthen a owl:ObjectProperty ;<br>    rdfs:label &quot;strengthen&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute .</p>
 
 <p></p></code>
 				</div>
@@ -2569,7 +2829,15 @@
 				
 
 				
+					<p class="section-desc"><b>Class Domain for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
+				
 
+				
+					<p class="section-desc"><b>Class Range for:</b>
+                        <br>
+                        <a href="#ontology:Quality_Attribute">ontology:Quality_Attribute</a>  </p>
 				
 
 
@@ -2577,7 +2845,7 @@
 				<div class="implementation">
 					<code><p>@prefix : &lt;http://archaide.ml/ontology#&gt; .<br>@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .<br>@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .</p>
 
-<p>:weaken a owl:ObjectProperty ;<br>    rdfs:label &quot;weaken&quot; .</p>
+<p>:weaken a owl:ObjectProperty ;<br>    rdfs:label &quot;weaken&quot; ;<br>    rdfs:domain :Quality_Attribute ;<br>    rdfs:range :Quality_Attribute .</p>
 
 <p></p></code>
 				</div>
@@ -2669,7 +2937,7 @@
 
 
 	<hr>
-	<small>created at:  30th July 2020 18:55</small>
+	<small>created at:  31st July 2020 17:59</small>
 
 
 </body>

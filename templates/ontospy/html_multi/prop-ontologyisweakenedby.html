@@ -346,7 +346,7 @@
 
             
           
-              <li class="second-level" style="line-height: 20px;" id="sd_9"><a class="active"  href="/dashboard/report/html_multi/prop-ontologyachieves.html">ontology:achieves</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_9"><a   href="/dashboard/report/html_multi/prop-ontologyachieves.html">ontology:achieves</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_10"><a   href="/dashboard/report/html_multi/prop-ontologyaugments.html">ontology:augments</a></li>
           
@@ -358,7 +358,7 @@
           
               <li class="second-level" style="line-height: 20px;" id="sd_14"><a   href="/dashboard/report/html_multi/prop-ontologyisstrengthenedby.html">ontology:isStrengthenedBy</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_15"><a   href="/dashboard/report/html_multi/prop-ontologyisweakenedby.html">ontology:isWeakenedBy</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_15"><a class="active"  href="/dashboard/report/html_multi/prop-ontologyisweakenedby.html">ontology:isWeakenedBy</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_16"><a   href="/dashboard/report/html_multi/prop-ontologystrengthen.html">ontology:strengthen</a></li>
           
@@ -464,7 +464,7 @@
           <a href="/dashboard/report/html_multi/entities-tree-properties.html">Properties</a>
     </li>
       <li class="active">
-            http://archaide.ml/ontology#achieves
+            http://archaide.ml/ontology#isWeakenedBy
         </li>
   </ol>
 
@@ -485,7 +485,7 @@
 
             <h1>
 
-                ontology:achieves
+                ontology:isWeakenedBy
                 
                     <small class="label label-info label-xs ">leaf node</small>
                   
@@ -501,23 +501,17 @@
                 <ul>
                     
 
-                        
-
-                        <li>
-
-                          <a href="/dashboard/report/html_multi/prop-owltopobjectproperty.html" title="'topObjectProperty'">owl:topObjectProperty</a>
+                        <li><a href="/dashboard/report/html_multi/entities-tree-properties.html">rdf:Property</a>
 
                           <ul>
+                            <li><a style="font-weight: bold;" title="'isWeakenedBy'">ontology:isWeakenedBy</a>
 
-                            <li><a style="font-weight: bold;" title="'achieves'">ontology:achieves</a>
                             
                               </li>
 
                           </ul>
 
-                          </li>
-                        
-
+                        </li>
                     
 
                 </ul>
@@ -534,7 +528,7 @@
              </div>
              <div class="panel-body">
 
-                 <code>http://archaide.ml/ontology#achieves</code>
+                 <code>http://archaide.ml/ontology#isWeakenedBy</code>
              </div>
            </div>
             </div></div>
@@ -549,7 +543,7 @@
              </div>
              <div class="panel-body">
 
-                 achieves
+                 isWeakenedBy
              </div>
            </div>
             </div></div>
@@ -559,23 +553,6 @@
             
 
 
-
-            
-
-                    <div class="row"><div class="col-md-12">
-                      <div class="panel panel-default">
-                    <div class="panel-heading">
-                      <h3 class="panel-title">Inherits from</h3>
-                    </div>
-                    <div class="panel-body">
-
-                    
-                            <li><a href="/dashboard/report/html_multi/prop-owltopobjectproperty.html" title="http://www.w3.org/2002/07/owl#topObjectProperty">owl:topObjectProperty</a></li>
-                    
-
-                    </div>
-                  </div>
-                   </div></div>
 
             
 
@@ -600,7 +577,7 @@
                      
                          
                          
-                              <a href="/dashboard/report/html_multi/class-ontologyconcern.html" title="http://archaide.ml/ontology#Concern">ontology:Concern</a>
+                              <a href="/dashboard/report/html_multi/class-ontologyquality_attribute.html" title="http://archaide.ml/ontology#Quality_Attribute">ontology:Quality_Attribute</a>
                            
                            
                          
@@ -608,14 +585,14 @@
                    </td>
 
                     <td>
-                      ontology:achieves
+                      ontology:isWeakenedBy
                     </td>
 
                     <td>
                       
                           
                           
-                               <a href="/dashboard/report/html_multi/class-ontologydecision.html" title="http://archaide.ml/ontology#Decision">ontology:Decision</a>
+                               <a href="/dashboard/report/html_multi/class-ontologyquality_attribute.html" title="http://archaide.ml/ontology#Quality_Attribute">ontology:Quality_Attribute</a>
                             
                             
                           
@@ -641,13 +618,11 @@
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">owl:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2002/07/owl#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 <span class="k">@prefix</span><span class="w"> </span><span class="nn">rdfs:</span><span class="w"> </span><span class="nv">&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 
-<span class="nn">:</span><span class="nt">achieves</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">ObjectProperty</span><span class="p">,</span><span class="w"></span>
-<span class="w">        </span><span class="nn">owl:</span><span class="nt">TransitiveProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;achieves&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">domain</span><span class="w"> </span><span class="nn">:</span><span class="nt">Concern</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">range</span><span class="w"> </span><span class="nn">:</span><span class="nt">Decision</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">subPropertyOf</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">topObjectProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">owl:</span><span class="nt">inverseOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">isAchievedBy</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="nn">:</span><span class="nt">isWeakenedBy</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">ObjectProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;isWeakenedBy&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">domain</span><span class="w"> </span><span class="nn">:</span><span class="nt">Quality_Attribute</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">range</span><span class="w"> </span><span class="nn">:</span><span class="nt">Quality_Attribute</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">owl:</span><span class="nt">inverseOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">weaken</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 </pre></div>
 
 
@@ -747,7 +722,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_9").offset().top - 100
+          scrollTop: $("#sd_15").offset().top - 100
       }, 100);
     });
 

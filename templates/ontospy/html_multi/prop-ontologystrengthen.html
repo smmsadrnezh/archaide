@@ -324,7 +324,7 @@
 
             
           
-              <li class="second-level" style="line-height: 20px;" id="sd_2"><a  href="/dashboard/report/html_multi/class-ontologybusinness_need.html">ontology:Businness_Need</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_2"><a  href="/dashboard/report/html_multi/class-ontologybusiness_need.html">ontology:Business_Need</a></li>
           
               <li class="second-level" style="line-height: 20px;" id="sd_3"><a  href="/dashboard/report/html_multi/class-ontologyconcern.html">ontology:Concern</a></li>
           
@@ -341,7 +341,7 @@
         
 
         
-            <li class="-second-level" id="sd_properties"><a  href="/dashboard/report/html_multi/entities-tree-properties.html">Properties (8)</a>
+            <li class="-second-level" id="sd_properties"><a  href="/dashboard/report/html_multi/entities-tree-properties.html">Properties (10)</a>
             </li>
 
             
@@ -356,11 +356,15 @@
           
               <li class="second-level" style="line-height: 20px;" id="sd_13"><a   href="/dashboard/report/html_multi/prop-ontologyisachievedby.html">ontology:isAchievedBy</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_14"><a class="active"  href="/dashboard/report/html_multi/prop-ontologystrengthen.html">ontology:strengthen</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_14"><a   href="/dashboard/report/html_multi/prop-ontologyisstrengthenedby.html">ontology:isStrengthenedBy</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_15"><a   href="/dashboard/report/html_multi/prop-ontologyweaken.html">ontology:weaken</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_15"><a   href="/dashboard/report/html_multi/prop-ontologyisweakenedby.html">ontology:isWeakenedBy</a></li>
           
-              <li class="second-level" style="line-height: 20px;" id="sd_16"><a   href="/dashboard/report/html_multi/prop-owltopobjectproperty.html">owl:topObjectProperty</a></li>
+              <li class="second-level" style="line-height: 20px;" id="sd_16"><a class="active"  href="/dashboard/report/html_multi/prop-ontologystrengthen.html">ontology:strengthen</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_17"><a   href="/dashboard/report/html_multi/prop-ontologyweaken.html">ontology:weaken</a></li>
+          
+              <li class="second-level" style="line-height: 20px;" id="sd_18"><a   href="/dashboard/report/html_multi/prop-owltopobjectproperty.html">owl:topObjectProperty</a></li>
           
 
         
@@ -571,7 +575,12 @@
                <tr>
                    <td>
                      
-                         <a>owl:Thing</a> (inferred)
+                         
+                         
+                              <a href="/dashboard/report/html_multi/class-ontologyquality_attribute.html" title="http://archaide.ml/ontology#Quality_Attribute">ontology:Quality_Attribute</a>
+                           
+                           
+                         
                      
                    </td>
 
@@ -581,7 +590,12 @@
 
                     <td>
                       
-                          <a>owl:Thing</a> (inferred)
+                          
+                          
+                               <a href="/dashboard/report/html_multi/class-ontologyquality_attribute.html" title="http://archaide.ml/ontology#Quality_Attribute">ontology:Quality_Attribute</a>
+                            
+                            
+                          
                       
                     </td>
             </table>
@@ -606,7 +620,8 @@
 
 <span class="nn">:</span><span class="nt">strengthen</span><span class="w"> </span><span class="kt">a</span><span class="w"> </span><span class="nn">owl:</span><span class="nt">ObjectProperty</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="nn">rdfs:</span><span class="nt">label</span><span class="w"> </span><span class="s">&quot;strengthen&quot;</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="nn">owl:</span><span class="nt">inverseOf</span><span class="w"> </span><span class="nn">:</span><span class="nt">weaken</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">domain</span><span class="w"> </span><span class="nn">:</span><span class="nt">Quality_Attribute</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="nn">rdfs:</span><span class="nt">range</span><span class="w"> </span><span class="nn">:</span><span class="nt">Quality_Attribute</span><span class="w"> </span><span class="p">.</span><span class="w"></span>
 </pre></div>
 
 
@@ -645,7 +660,7 @@
   <footer class="footer">
     <div class="container">
     
-      <p class="text-muted">Documentation automatically generated on 30th July 2020 with <a href="/dashboard/report/html_multi/http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v1.9.8.3)</p>
+      <p class="text-muted">Documentation automatically generated on 31st July 2020 with <a href="/dashboard/report/html_multi/http://lambdamusic.github.io/Ontospy/">Ontospy</a> (v1.9.8.3)</p>
 
     
     </div>
@@ -706,7 +721,7 @@ $('#search-input-sidebar').keyup(function() {
 
     $(document).ready(function (){
       $('#sidebar-wrapper').animate({
-          scrollTop: $("#sd_14").offset().top - 100
+          scrollTop: $("#sd_16").offset().top - 100
       }, 100);
     });
 

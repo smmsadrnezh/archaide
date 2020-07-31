@@ -187,7 +187,7 @@
 	<h1 class="title">Ontology:&nbsp;<a href="javascript:showpanel('ontoinfo');">http://archaide.ml/ontology</a></h1>
 
 	<p>
-    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 30th July 2020 18:55 </small>
+    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 31st July 2020 17:59 </small>
   </p>
 
 	<hr>
@@ -207,7 +207,7 @@
 
 	
 		<div class="row">
-			<h3>Properties (8)</h3>
+			<h3>Properties (10)</h3>
 			<div class="col-md-12" id="graph_properties">
 
 
@@ -224,7 +224,7 @@
 
 
 	<hr>
-    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 30th July 2020 18:55 </small>
+    <small class="credits">Ontology documentation automatically generated with <a class="greylink" href="http://lambdamusic.github.io/Ontospy/" target="_blank">Ontospy</a> on 31st July 2020 17:59 </small>
 
 
 
@@ -257,13 +257,13 @@
 <div class="hidden" id="2">
 
 	
-	<h2 class="entity-section">Class: <a href="http://archaide.ml/ontology#Businness_Need" class="class" target="_blank"
-                                          title="Try to open original URI">ontology:Businness_Need</a>
+	<h2 class="entity-section">Class: <a href="http://archaide.ml/ontology#Business_Need" class="class" target="_blank"
+                                          title="Try to open original URI">ontology:Business_Need</a>
 	</h2>
 	<hr>
 
     
-	<p><b class="section-title">Label: </b>Businness Need</p>
+	<p><b class="section-title">Label: </b>Business Need</p>
     
     
 
@@ -294,8 +294,8 @@
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
-:Businness_Need a owl:Class ;
-    rdfs:label &quot;Businness Need&quot; ;
+:Business_Need a owl:Class ;
+    rdfs:label &quot;Business Need&quot; ;
     rdfs:subClassOf :Concern .
 
 </pre>
@@ -330,7 +330,7 @@
 	
 
 	
-		<p><b class="section-title">Has Sub Class (direct):</b> <a href="javascript:showpanel('2');" class="class">ontology:Businness_Need</a> | <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a> | <a href="javascript:showpanel('7');" class="class">ontology:Risk_Mitigation</a>  </p>
+		<p><b class="section-title">Has Sub Class (direct):</b> <a href="javascript:showpanel('2');" class="class">ontology:Business_Need</a> | <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a> | <a href="javascript:showpanel('7');" class="class">ontology:Risk_Mitigation</a>  </p>
 	
 	
 	
@@ -499,7 +499,11 @@
 	
 
 	
+		<p><b class="section-title">In Domain Of:</b> <a href="javascript:showpanel('12');"  class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('15');"  class="prop">ontology:isWeakenedBy</a> | <a href="javascript:showpanel('16');"  class="prop">ontology:strengthen</a> | <a href="javascript:showpanel('17');"  class="prop">ontology:weaken</a>  </p>
 	
+	
+	
+		<p><b class="section-title">In Range Of:</b> <a href="javascript:showpanel('12');" class="prop">ontology:hasNoEffectOn</a> | <a href="javascript:showpanel('15');" class="prop">ontology:isWeakenedBy</a> | <a href="javascript:showpanel('16');" class="prop">ontology:strengthen</a> | <a href="javascript:showpanel('17');" class="prop">ontology:weaken</a>  </p>
 	
 
 	<hr>
@@ -654,7 +658,7 @@
 
 
 	
-		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('16');" class="prop">owl:topObjectProperty</a>  </p>
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
 	
 	
 	
@@ -711,7 +715,7 @@
 
 
 	
-		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('16');" class="prop">owl:topObjectProperty</a>  </p>
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
 	
 	
 	
@@ -821,7 +825,7 @@
 
 
 	
-		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('16');" class="prop">owl:topObjectProperty</a>  </p>
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
 	
 	
 	
@@ -831,7 +835,11 @@
 	
 	
 	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
 	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
 	
 	
 	<hr>
@@ -842,6 +850,8 @@
 
 :hasNoEffectOn a owl:ObjectProperty ;
     rdfs:label &quot;hasNoEffectOn&quot; ;
+    rdfs:domain :Quality_Attribute ;
+    rdfs:range :Quality_Attribute ;
     rdfs:subPropertyOf owl:topObjectProperty .
 
 </pre>
@@ -870,7 +880,7 @@
 
 
 	
-		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('16');" class="prop">owl:topObjectProperty</a>  </p>
+		<p><b  class="section-title">Has Super Property (direct):</b> <a href="javascript:showpanel('18');" class="prop">owl:topObjectProperty</a>  </p>
 	
 	
 	
@@ -909,13 +919,13 @@
 
 <div class="hidden" id="14">
 	
-	<h2 class="entity-section">Property: <a  href="http://archaide.ml/ontology#strengthen" class="prop"  target="_blank"
-                                          title="Try to open original URI">ontology:strengthen</a>
+	<h2 class="entity-section">Property: <a  href="http://archaide.ml/ontology#isStrengthenedBy" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:isStrengthenedBy</a>
 	</h2>
 	<hr>
 
     
-	<p><b class="section-title">Label: </b>Strengthen</p>
+	<p><b class="section-title">Label: </b>IsStrengthenedBy</p>
     
     
 
@@ -941,9 +951,9 @@
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
-:strengthen a owl:ObjectProperty ;
-    rdfs:label &quot;strengthen&quot; ;
-    owl:inverseOf :weaken .
+:isStrengthenedBy a owl:ObjectProperty ;
+    rdfs:label &quot;isStrengthenedBy&quot; ;
+    owl:inverseOf :strengthen .
 
 </pre>
 
@@ -953,6 +963,111 @@
 
 
 <div class="hidden" id="15">
+	
+	<h2 class="entity-section">Property: <a  href="http://archaide.ml/ontology#isWeakenedBy" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:isWeakenedBy</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>IsWeakenedBy</p>
+    
+    
+
+
+	
+		<hr>
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
+	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:isWeakenedBy a owl:ObjectProperty ;
+    rdfs:label &quot;isWeakenedBy&quot; ;
+    rdfs:domain :Quality_Attribute ;
+    rdfs:range :Quality_Attribute ;
+    owl:inverseOf :weaken .
+
+</pre>
+
+
+</div>
+
+
+
+<div class="hidden" id="16">
+	
+	<h2 class="entity-section">Property: <a  href="http://archaide.ml/ontology#strengthen" class="prop"  target="_blank"
+                                          title="Try to open original URI">ontology:strengthen</a>
+	</h2>
+	<hr>
+
+    
+	<p><b class="section-title">Label: </b>Strengthen</p>
+    
+    
+
+
+	
+		<hr>
+	
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
+	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
+	
+	
+	<hr>
+	<b class="section-title">Implementation:</b>
+	<pre class="turtlesource">@prefix : &lt;http://archaide.ml/ontology#&gt; .
+@prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
+
+:strengthen a owl:ObjectProperty ;
+    rdfs:label &quot;strengthen&quot; ;
+    rdfs:domain :Quality_Attribute ;
+    rdfs:range :Quality_Attribute .
+
+</pre>
+
+
+</div>
+
+
+
+<div class="hidden" id="17">
 	
 	<h2 class="entity-section">Property: <a  href="http://archaide.ml/ontology#weaken" class="prop"  target="_blank"
                                           title="Try to open original URI">ontology:weaken</a>
@@ -966,6 +1081,8 @@
 
 
 	
+		<hr>
+	
 
 
 	
@@ -977,7 +1094,11 @@
 	
 	
 	
+		<p><b class="section-title">Domain:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
 	
+	
+	
+		<p><b class="section-title">Range:</b> <a href="javascript:showpanel('6');" class="class">ontology:Quality_Attribute</a>  </p>
 	
 	
 	<hr>
@@ -987,7 +1108,9 @@
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 
 :weaken a owl:ObjectProperty ;
-    rdfs:label &quot;weaken&quot; .
+    rdfs:label &quot;weaken&quot; ;
+    rdfs:domain :Quality_Attribute ;
+    rdfs:range :Quality_Attribute .
 
 </pre>
 
@@ -996,7 +1119,7 @@
 
 
 
-<div class="hidden" id="16">
+<div class="hidden" id="18">
 	
 	<h2 class="entity-section">Property: <a  href="http://www.w3.org/2002/07/owl#topObjectProperty" class="prop"  target="_blank"
                                           title="Try to open original URI">owl:topObjectProperty</a>
@@ -1130,7 +1253,7 @@ owl:topObjectProperty a owl:ObjectProperty,
 
 
 
-	var json1 = {"children": [{"qname": "ontology:Concern", "name": "Concern", "objid": 3, "size": 8, "realsize": 3, "children": [{"qname": "ontology:Businness_Need", "name": "Businness Need", "objid": 2, "size": 1, "realsize": 0}, {"qname": "ontology:Quality_Attribute", "name": "Quality Attribute", "objid": 6, "size": 1, "realsize": 0}, {"qname": "ontology:Risk_Mitigation", "name": "Risk Mitigation", "objid": 7, "size": 1, "realsize": 0}]}, {"qname": "ontology:Decision", "name": "Decision", "objid": 4, "size": 7, "realsize": 2, "children": [{"qname": "ontology:Pattern", "name": "Pattern", "objid": 5, "size": 1, "realsize": 0}, {"qname": "ontology:Tactic", "name": "Tactic", "objid": 8, "size": 1, "realsize": 0}]}], "name": "owl:Thing", "id": "None"};
+	var json1 = {"children": [{"qname": "ontology:Concern", "name": "Concern", "objid": 3, "size": 8, "realsize": 3, "children": [{"qname": "ontology:Business_Need", "name": "Business Need", "objid": 2, "size": 1, "realsize": 0}, {"qname": "ontology:Quality_Attribute", "name": "Quality Attribute", "objid": 6, "size": 1, "realsize": 0}, {"qname": "ontology:Risk_Mitigation", "name": "Risk Mitigation", "objid": 7, "size": 1, "realsize": 0}]}, {"qname": "ontology:Decision", "name": "Decision", "objid": 4, "size": 7, "realsize": 2, "children": [{"qname": "ontology:Pattern", "name": "Pattern", "objid": 5, "size": 1, "realsize": 0}, {"qname": "ontology:Tactic", "name": "Tactic", "objid": 8, "size": 1, "realsize": 0}]}], "name": "owl:Thing", "id": "None"};
 
 	
 	var variable_height1 = 800;
@@ -1178,7 +1301,7 @@ owl:topObjectProperty a owl:ObjectProperty,
 
 
 
-	var json2 = {"children": [{"qname": "ontology:comprises", "name": "comprises", "objid": 11, "size": 1, "realsize": 0}, {"qname": "ontology:strengthen", "name": "strengthen", "objid": 14, "size": 1, "realsize": 0}, {"qname": "ontology:weaken", "name": "weaken", "objid": 15, "size": 1, "realsize": 0}, {"qname": "owl:topObjectProperty", "name": "topObjectProperty", "objid": 16, "size": 9, "realsize": 4, "children": [{"qname": "ontology:achieves", "name": "achieves", "objid": 9, "size": 1, "realsize": 0}, {"qname": "ontology:augments", "name": "augments", "objid": 10, "size": 1, "realsize": 0}, {"qname": "ontology:hasNoEffectOn", "name": "hasNoEffectOn", "objid": 12, "size": 1, "realsize": 0}, {"qname": "ontology:isAchievedBy", "name": "isAchievedBy", "objid": 13, "size": 1, "realsize": 0}]}], "name": "Properties", "id": "None"};
+	var json2 = {"children": [{"qname": "ontology:comprises", "name": "comprises", "objid": 11, "size": 1, "realsize": 0}, {"qname": "ontology:isStrengthenedBy", "name": "isStrengthenedBy", "objid": 14, "size": 1, "realsize": 0}, {"qname": "ontology:isWeakenedBy", "name": "isWeakenedBy", "objid": 15, "size": 1, "realsize": 0}, {"qname": "ontology:strengthen", "name": "strengthen", "objid": 16, "size": 1, "realsize": 0}, {"qname": "ontology:weaken", "name": "weaken", "objid": 17, "size": 1, "realsize": 0}, {"qname": "owl:topObjectProperty", "name": "topObjectProperty", "objid": 18, "size": 9, "realsize": 4, "children": [{"qname": "ontology:achieves", "name": "achieves", "objid": 9, "size": 1, "realsize": 0}, {"qname": "ontology:augments", "name": "augments", "objid": 10, "size": 1, "realsize": 0}, {"qname": "ontology:hasNoEffectOn", "name": "hasNoEffectOn", "objid": 12, "size": 1, "realsize": 0}, {"qname": "ontology:isAchievedBy", "name": "isAchievedBy", "objid": 13, "size": 1, "realsize": 0}]}], "name": "Properties", "id": "None"};
 
 
 	

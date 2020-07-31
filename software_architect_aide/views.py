@@ -12,7 +12,6 @@ from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_a
 from .common import create_instances
 from .common import export, pars_query_all_attributes, pars_query_two_label
 from .common import visualize, triple_count
-from .local_settings import BASE_DIR
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTES, SELECTED_QUALITY_ATTRIBUTES
 from .utils import get_random_string
