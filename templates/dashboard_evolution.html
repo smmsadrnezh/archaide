@@ -7,37 +7,155 @@
             <div class="row">
                 <h1 class="ui huge dividing header">تکامل معماری نرم‌افزار</h1>
             </div>
-            <div class="blurring dimmable image">
-                <div class="ui dimmer">
+            {% if success %}
+                <div class="ui positive icon small message">
+                    <i class="small inbox icon"></i>
                     <div class="content">
-                        <div class="center">
-                            <div class="ui list">
-                                <div class="item">
-                                    <div class="header">نام معماری</div>
-                                    {{ architecture.name }}
-                                </div>
-                                <div class="item">
-                                    <div class="header">تعداد سه‌تایی‌ها</div>
-                                    {{ architecture.triple_count }}
-                                </div>
-                                <div class="item">
-                                    <div class="header">نحوهٔ ساخت</div>
-                                    {{ architecture.get_creation_method_display }}
-                                </div>
-                                <div class="item">
-                                    <div class="header">تاریخ ایجاد</div>
-                                    {{ architecture.date_added }}
-                                </div>
-                            </div>
+                        <div class="header">
+                            تکامل معماری
                         </div>
+                        <p>
+                            تکامل معماری با موفقیت انجام شد. <a href="{% url 'dashboard' %}"> نمایش مشخصات معماری‌ها</a>
+                        </p>
                     </div>
                 </div>
-                <img style="width: 100%;" src="/media/visual/{{ architecture.owl_file }}.png">
+            {% endif %}
+            <div class="center aligned row">
+                <form class="ui form" method="post" action="{% url 'evolution' %}">
+                    {% csrf_token %}
+                    <div class="ui secondary segments manual">
+                        <div class="ui center aligned segment">
+                            <div class="ui ordered steps">
+                                <div class="{% if current_step == 1 %}active{% else %}completed{% endif %} step">
+                                    <div class="content">
+                                        <div class="title">حذف دغدغه‌ها</div>
+                                        <div class="description">دغدغه‌ها را انتخاب کنید.</div>
+                                    </div>
+                                </div>
+                                <div class="{% if current_step == 1 or current_step == 2 %}active{% else %}completed{% endif %} step">
+                                    <div class="content">
+                                        <div class="title">بررسی روابط</div>
+                                        <div class="description">روابط را بررسی کنید.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="{% if current_step == 1 or current_step == 2 or current_step == 3 %}active{% else %}completed{% endif %} step">
+                                    <div class="content">
+                                        <div class="title">دغدغه‌های جدید</div>
+                                        <div class="description">دغدغه‌ها را وارد کنید.</div>
+                                    </div>
+                                </div>
+                                <div class="{% if current_step == 1 or current_step == 2 or current_step == 3 or current_step == 4 %}active{% else %}completed{% endif %} step">
+                                    <div class="content">
+                                        <div class="title">تصمیم‌ها</div>
+                                        <div class="description">تصمیم‌ها را وارد کنید.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="active step">
+                                    <div class="content">
+                                        <div class="title">روابط جدید</div>
+                                        <div class="description">روابط را مشخص کنید.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blurring dimmable image">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <div class="center">
+                                            <div class="ui list">
+                                                <div class="item">
+                                                    <div class="header">نام معماری</div>
+                                                    {{ architecture.name }}
+                                                </div>
+                                                <div class="item">
+                                                    <div class="header">تعداد سه‌تایی‌ها</div>
+                                                    {{ architecture.triple_count }}
+                                                </div>
+                                                <div class="item">
+                                                    <div class="header">نحوهٔ ساخت</div>
+                                                    {{ architecture.get_creation_method_display }}
+                                                </div>
+                                                <div class="item">
+                                                    <div class="header">تاریخ ایجاد</div>
+                                                    {{ architecture.date_added }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <img alt="تصویر هستان‌شناسی" style="width: 100%;" src="/media/visual/{{ architecture.owl_file }}.png">
+                            </div>
+                        </div>
+                        <input type="hidden" name="step" value="{{ current_step }}">
+                        {% if current_step == 3 or current_step == 4 or current_step == 5 %}
+                            <div class="ui segment">
+                                <div class="sixteen column">
+                                    <div class="ui yellow small message">
+                                        <i class="close icon"></i>
+                                        <div class="header">
+                                            اطلاعات حتما باید با زبان انگلیسی وارد شود!
+                                        </div>
+                                        لطفا اطلاعات خواسته شده در فرم‌ها را با صفحهٔ کلید انگلیسی وارد کنید.
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                        {% if current_step == 1 %}
+                            مرحلهٔ یک
+                        {% elif current_step == 2 %}
+                            مرحلهٔ دو
+                        {% elif current_step == 3 %}
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    دغدغه‌ها
+                                </div>
+                                <div class="field" id="quality_input">
+                                    <label><a><i class="small add icon"></i></a> ویژگی‌های
+                                        کیفی:</label> {% include 'dashboard_create_manual_field.html' with placeholder="ویژگی کیفی" name="quality" %}
+                                </div>
+                                <div class="field" id="business_input">
+                                    <label><a><i class="small add icon"></i></a> نیازمندی‌های
+                                        حرفه:</label> {% include 'dashboard_create_manual_field.html' with placeholder="نیازمندی حرفه" name="business" %}
+                                </div>
+                                <div class="field" id="risk_input">
+                                    <label><a><i class="small add icon"></i></a>
+                                        مخاطره‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="مخاطره" name="risk" %}
+                                </div>
+                            </div>
+                        {% elif current_step == 4 %}
+                            <div class="ui segment">
+                                <div class="ui dividing header">
+                                    تصمیم‌ها
+                                </div>
+                                <div class="field" id="tactic_input">
+                                    <label><a><i class="small add icon"></i></a>
+                                        راهکنش‌ها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="راهکنش" name="tactic" %}
+                                </div>
+                                <div class="field" id="pattern_input">
+                                    <label><a><i class="small add icon"></i></a>
+                                        الگوها:</label> {% include 'dashboard_create_manual_field.html' with placeholder="الگو" name="pattern" %}
+                                </div>
+                            </div>
+                        {% elif current_step == 5 %}
+                            <div class="ui segment">
+                                <div class="ui dividing header" id="comprises"><a><i class="small add icon"></i></a>
+                                    روابط دربرگیرندهٔ (comprises)
+                                </div>
+                                {% include 'dashboard_create_manual_field_comprises.html' %}
+                                <div class="ui dividing header" id="is_achieved_by">
+                                    <a><i class="small add icon"></i></a> روابط نائل می‌شود توسطِ (isAchievedBy)
+                                </div>
+                                {% include 'dashboard_create_manual_field_is_achieved_by.html' %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <button class="ui positive button" type="submit" onclick="loading()">
+                        {% if current_step == 4 %}ایجاد
+                            معماری{% else %}مرحلهٔ بعد{% endif %}</button>
+                </form>
             </div>
-
-            <div class="ui hidden section divider"></div>
         </div>
-
-
     </div>
 {% endblock %}
