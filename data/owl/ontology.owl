@@ -141,11 +141,11 @@
     
 
 
-    <!-- http://archaide.ml/ontology#Businness_Need -->
+    <!-- http://archaide.ml/ontology#Business_Need -->
 
-    <owl:Class rdf:about="http://archaide.ml/ontology#Businness_Need">
+    <owl:Class rdf:about="http://archaide.ml/ontology#Business_Need">
         <rdfs:subClassOf rdf:resource="http://archaide.ml/ontology#Concern"/>
-        <rdfs:label>Businness Need</rdfs:label>
+        <rdfs:label>Business Need</rdfs:label>
     </owl:Class>
     
 
@@ -287,7 +287,7 @@
         <hasNoEffectOn rdf:resource="http://archaide.ml/ontology#Usability"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Active_Redundancy"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Condition_Monitoring"/>
-        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Degardation"/>
+        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Degradation"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Escalating_Restart"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Exception_Detection"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Exception_Handling"/>
@@ -407,22 +407,22 @@
     
 
 
-    <!-- http://archaide.ml/ontology#Degardation -->
+    <!-- http://archaide.ml/ontology#Degradation -->
 
-    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Degardation">
+    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Degradation">
         <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
         <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
-        <rdfs:label>Degardation</rdfs:label>
+        <rdfs:label>Degradation</rdfs:label>
     </owl:NamedIndividual>
     
 
 
-    <!-- http://archaide.ml/ontology#Detect_Inrustion -->
+    <!-- http://archaide.ml/ontology#Detect_Intrusion -->
 
-    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Detect_Inrustion">
+    <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Detect_Intrusion">
         <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
         <achieves rdf:resource="http://archaide.ml/ontology#Security"/>
-        <rdfs:label>Detect Intrustion</rdfs:label>
+        <rdfs:label>Detect Intrusion</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -584,7 +584,7 @@
     <owl:NamedIndividual rdf:about="http://archaide.ml/ontology#Increase_Resource_Efficiency">
         <rdf:type rdf:resource="http://archaide.ml/ontology#Tactic"/>
         <achieves rdf:resource="http://archaide.ml/ontology#Performance"/>
-        <rdfs:label>Increase Resource Efficincy</rdfs:label>
+        <rdfs:label>Increase Resource Efficiency</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -841,7 +841,7 @@
         <comprises rdf:resource="http://archaide.ml/ontology#Use_An_Intermediary"/>
         <comprises rdf:resource="http://archaide.ml/ontology#Use_Encapsulation"/>
         <comprises rdf:resource="http://archaide.ml/ontology#Use_Runtime_Binding"/>
-        <rdfs:label>Model-View-Controler</rdfs:label>
+        <rdfs:label>Model-View-Controller</rdfs:label>
     </owl:NamedIndividual>
     
 
@@ -1183,7 +1183,7 @@
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Authenticate_Actors"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Authorize_Actors"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Change_Default_Settings"/>
-        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Detect_Inrustion"/>
+        <isAchievedBy rdf:resource="http://archaide.ml/ontology#Detect_Intrusion"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Detect_Message_Delay"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Detect_Service_Denial"/>
         <isAchievedBy rdf:resource="http://archaide.ml/ontology#Encrypt_Data"/>
