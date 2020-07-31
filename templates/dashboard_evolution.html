@@ -25,7 +25,7 @@
                     {% csrf_token %}
                     <div class="ui secondary segments manual">
                         <div class="ui center aligned segment">
-                            <div class="ui ordered steps">
+                            <div class="ui ordered steps" style="width: 100%;">
                                 <div class="{% if current_step == 1 %}active{% else %}completed{% endif %} step">
                                     <div class="content">
                                         <div class="title">حذف دغدغه‌ها</div>
@@ -118,9 +118,47 @@
                             </div>
                         {% elif current_step == 2 %}
                             <div class="ui segment">
-                                {% for concern in concerns.items %}
-                                    {{ concern }}
-                                {% endfor %}
+                                <div class="ui dividing header">
+                                    بررسی روابط و انتخاب تصمیم‌های مرتبط برای حذف
+                                </div>
+                                <table class="ui celled padded selectable table">
+                                    <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>دغدغه</th>
+                                        <th>تصمیم</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for concern, decisions in concerns.items %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>
+                                                <div class="field">
+                                                    <div class="ui checkbox">
+                                                        <input name="delete_concern[]" value="{{ concern }}" type="checkbox">
+                                                        <label>{{ concern }}</label>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+
+                                                {% for decision in decisions %}
+                                                    <div>
+                                                        <div class="field">
+                                                            <div class="ui checkbox">
+                                                                <input name="delete_decision[]" value="{{ decision }}" type="checkbox">
+                                                                <label>{{ decision }}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+
                             </div>
                         {% elif current_step == 3 %}
                             <div class="ui segment">
