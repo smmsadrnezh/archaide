@@ -125,13 +125,14 @@
                                 <div class="ui dividing header">
                                     تأیید و ثبت معماری
                                 </div>
+                                <div class="ui error message"></div>
                                 <div class="field">
                                     <label>نام معماری:</label> <input type="text" name="name" placeholder="نام معماری">
                                 </div>
                             </div>
                         {% endif %}
                     </div>
-                    <button class="ui positive button" type="submit" onclick="loading()">
+                    <button class="ui positive button" type="submit" {% if not current_step == 4 %}onclick="loading()"{% endif %}>
                         {% if current_step == 4 %}ایجاد
                             معماری{% else %}مرحلهٔ بعد{% endif %}</button>
                 </form>
