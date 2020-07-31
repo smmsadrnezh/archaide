@@ -16,15 +16,16 @@ BASE_URI = "http://archaide.ml/ontology#"
 
 def create_instances(instances_name, class_name, owl_path):
     for instance_name in instances_name:
-        instance = URIRef(BASE_URI + instance_name)
-        class_ = URIRef(BASE_URI + class_name)
-        g = Graph()
-        name = Literal(instance_name)
-        g.parse(owl_path, format='application/rdf+xml', )
-        g.bind("owl", OWL)
-        g.add((instance, RDF.type, class_))
-        g.add((instance, RDFS.label, name))
-        g.serialize(destination=owl_path, format="application/rdf+xml")
+        if instance_name != '':
+            instance = URIRef(BASE_URI + instance_name)
+            class_ = URIRef(BASE_URI + class_name)
+            g = Graph()
+            name = Literal(instance_name)
+            g.parse(owl_path, format='application/rdf+xml', )
+            g.bind("owl", OWL)
+            g.add((instance, RDF.type, class_))
+            g.add((instance, RDFS.label, name))
+            g.serialize(destination=owl_path, format="application/rdf+xml")
 
 
 def visualize(rdf_path, image_path):
@@ -78,31 +79,33 @@ def triple_count(rdf_path):
 def create_comprises_augments(tuples, owl_path):
     pairs = tuple(tuples)
     for pair in pairs:
-        pattern_instance = URIRef(BASE_URI + pair[0])
-        tactic_instance = URIRef(BASE_URI + pair[1])
-        comprises_rel = URIRef(BASE_URI + "comprises")
-        augments_rel = URIRef(BASE_URI + "augments")
-        g = Graph()
-        g.parse(owl_path, format='application/rdf+xml', )
-        g.bind("owl", OWL)
-        g.add((pattern_instance, comprises_rel, tactic_instance))
-        g.add((tactic_instance, augments_rel, pattern_instance))
-        g.serialize(destination=owl_path, format="application/rdf+xml")
+        if pair[0] != '' and pair[1] != '0':
+            pattern_instance = URIRef(BASE_URI + pair[0])
+            tactic_instance = URIRef(BASE_URI + pair[1])
+            comprises_rel = URIRef(BASE_URI + "comprises")
+            augments_rel = URIRef(BASE_URI + "augments")
+            g = Graph()
+            g.parse(owl_path, format='application/rdf+xml', )
+            g.bind("owl", OWL)
+            g.add((pattern_instance, comprises_rel, tactic_instance))
+            g.add((tactic_instance, augments_rel, pattern_instance))
+            g.serialize(destination=owl_path, format="application/rdf+xml")
 
 
 def create_is_achieved_by_achieves(tuples, owl_path):
     pairs = tuple(tuples)
     for pair in pairs:
-        concern_instance = URIRef(BASE_URI + pair[0])
-        tactic_instance = URIRef(URIRef(BASE_URI + pair[1]))
-        is_achieved_by_rel = URIRef(BASE_URI + "isAchievedBy")
-        achieves_rel = URIRef(BASE_URI + "achieves")
-        g = Graph()
-        g.parse(owl_path, format='application/rdf+xml', )
-        g.bind("owl", OWL)
-        g.add((concern_instance, is_achieved_by_rel, tactic_instance))
-        g.add((tactic_instance, achieves_rel, concern_instance))
-        g.serialize(destination=owl_path, format="application/rdf+xml")
+        if pair[0] != '' and pair[1] != '0':
+            concern_instance = URIRef(BASE_URI + pair[0])
+            tactic_instance = URIRef(URIRef(BASE_URI + pair[1]))
+            is_achieved_by_rel = URIRef(BASE_URI + "isAchievedBy")
+            achieves_rel = URIRef(BASE_URI + "achieves")
+            g = Graph()
+            g.parse(owl_path, format='application/rdf+xml', )
+            g.bind("owl", OWL)
+            g.add((concern_instance, is_achieved_by_rel, tactic_instance))
+            g.add((tactic_instance, achieves_rel, concern_instance))
+            g.serialize(destination=owl_path, format="application/rdf+xml")
 
 
 def get_concerns(owl_path):
