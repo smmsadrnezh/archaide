@@ -4,6 +4,7 @@ from rdflib import Graph
 from rdflib import URIRef
 from rdflib.namespace import OWL, RDF, RDFS
 from rdflib import Literal
+from rdflib.plugins.sparql import processUpdate
 
 import software_architect_aide.visualize
 from software_architect_aide.local_settings import BASE_DIR
@@ -136,3 +137,23 @@ def pars_relation_label(query_result):
 
 def pars_concern_decision(query_result):
     return [(row.asdict()['concern_label'].value, row.asdict()['decision_label'].value) for row in query_result]
+
+
+def delete_concerns(concerns, owl_path):
+    g = Graph()
+    g.parse(owl_path, format='application/rdf+xml')
+    g.bind("owl", OWL)
+    for concern in concerns:
+        concern_uri = URIRef(BASE_URI + concern)
+        relation_uri = URIRef(BASE_URI + "isAchievedBy")
+        g.remove((concern_uri, relation_uri, None))
+
+
+def delete_decisions(decisions, owl_path):
+    g = Graph()
+    g.parse(owl_path, format='application/rdf+xml')
+    g.bind("owl", OWL)
+    for decision in decisions:
+        decision_uri = URIRef(BASE_URI + decision)
+        relation_uri = URIRef(BASE_URI + "achieves")
+        g.remove((decision_uri, relation_uri, None))

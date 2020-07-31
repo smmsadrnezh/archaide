@@ -8,10 +8,11 @@ from django.shortcuts import render, get_object_or_404
 
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
     query_reference, pars_patterns_tactic_label, query_manual, pars_concerns_query, pars_relation_label, \
-    pars_concern_decision
+    pars_concern_decision, delete_decisions, delete_concerns
 from .common import create_instances
 from .common import export, pars_query_all_attributes, pars_query_two_label
 from .common import visualize, triple_count
+from .local_settings import BASE_DIR
 from .models import Architecture
 from .queries import ALL_QUALITY_ATTRIBUTES, SELECTED_QUALITY_ATTRIBUTES
 from .utils import get_random_string
@@ -288,7 +289,8 @@ def evolution(request):
         current_step = int(request.POST.get('step'))
         if current_step == 1:
             owl_path = architecture.owl_file.path
-            new_owl_path = 'evolution_{}.owl'.format(get_random_string())
+            prefix = BASE_DIR + '/media/owl/'
+            new_owl_path = prefix + 'evolution_{}.owl'.format(get_random_string())
             copyfile(owl_path, new_owl_path)  # TODO: This line has bug!
             new_architecture = Architecture(owner=request.user, creation_method='evolution',
                                             parent_architecture=architecture)
@@ -316,11 +318,15 @@ def evolution(request):
                 concerns[delete_concern].append(decision)
             context = {'architecture': architecture, 'concerns': concerns, 'current_step': current_step + 1}
         elif current_step == 2:
+            owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
             delete_concern_list = request.POST.getlist('delete_concern[]')
             delete_decision_list = request.POST.getlist('delete_decision[]')
 
             # TODO: Delete Concerns in delete_concern_list and their relations with decisions
             # TODO: Delete Decisions in delete_decision_list and their relations with concerns
+
+            delete_decisions(delete_decision_list, owl_path)
+            delete_concerns(delete_concern_list, owl_path)
 
             context = {'architecture': architecture, 'current_step': current_step + 1}
         elif current_step == 3:
