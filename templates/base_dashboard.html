@@ -250,6 +250,18 @@
             })
         ;
     </script>
+    <script>
+        var tour = {
+            data: [
+                {element: '#id', 'tooltip': 'This is a tooltip for some element #id'},
+                {element: 'ul li:last a', 'tooltip': 'The last link of some ul list'},
+                {element: '.class', 'tooltip': 'A tooltip for some class'}
+            ],
+            controlsPosition: 'RT'
+        }
+
+        $.aSimpleTour(tour);
+    </script>
 {% endblock %}
 
 
