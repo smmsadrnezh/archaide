@@ -51,6 +51,7 @@
     <!-- http://archaide.ml/ontology#comprises -->
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#comprises">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#TransitiveProperty"/>
         <rdfs:domain rdf:resource="http://archaide.ml/ontology#Pattern"/>
         <rdfs:range rdf:resource="http://archaide.ml/ontology#Tactic"/>
@@ -85,6 +86,7 @@
     <!-- http://archaide.ml/ontology#isStrengthenedBy -->
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#isStrengthenedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://archaide.ml/ontology#strengthen"/>
         <rdfs:label>isStrengthenedBy</rdfs:label>
     </owl:ObjectProperty>
@@ -94,6 +96,7 @@
     <!-- http://archaide.ml/ontology#isWeakenedBy -->
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#isWeakenedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <owl:inverseOf rdf:resource="http://archaide.ml/ontology#weaken"/>
         <rdfs:domain rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:range rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
@@ -105,6 +108,7 @@
     <!-- http://archaide.ml/ontology#strengthen -->
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#strengthen">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:range rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:label>strengthen</rdfs:label>
@@ -115,6 +119,7 @@
     <!-- http://archaide.ml/ontology#weaken -->
 
     <owl:ObjectProperty rdf:about="http://archaide.ml/ontology#weaken">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
         <rdfs:domain rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:range rdf:resource="http://archaide.ml/ontology#Quality_Attribute"/>
         <rdfs:label>weaken</rdfs:label>
