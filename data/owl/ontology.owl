@@ -1465,31 +1465,6 @@
         <achieves rdf:resource="http://archaide.ml/ontology#Availability"/>
         <rdfs:label>Voting</rdfs:label>
     </owl:NamedIndividual>
-    
-
-
-    <!-- 
-    ///////////////////////////////////////////////////////////////////////////////////////
-    //
-    // General axioms
-    //
-    ///////////////////////////////////////////////////////////////////////////////////////
-     -->
-
-    <rdf:Description>
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointProperties"/>
-        <owl:members rdf:parseType="Collection">
-            <rdf:Description rdf:about="http://archaide.ml/ontology#achieves"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#augments"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#comprises"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#hasNoEffectOn"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#isAchievedBy"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#isStrengthenedBy"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#isWeakenedBy"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#strengthen"/>
-            <rdf:Description rdf:about="http://archaide.ml/ontology#weaken"/>
-        </owl:members>
-    </rdf:Description>
 </rdf:RDF>
 
 

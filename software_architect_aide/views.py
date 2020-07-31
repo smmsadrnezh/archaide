@@ -5,7 +5,6 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
     query_reference, pars_patterns_tactic_label, query_manual, pars_concerns_query, pars_relation_label, \
     pars_concern_decision, delete_decisions, delete_concerns
