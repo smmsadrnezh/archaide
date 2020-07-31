@@ -289,7 +289,7 @@ def evolution(request):
         if current_step == 1:
             owl_path = architecture.owl_file.path
             new_owl_path = 'evolution_{}.owl'.format(get_random_string())
-            copyfile(owl_path, new_owl_path)
+            copyfile(owl_path, new_owl_path)  # TODO: This line has bug!
             new_architecture = Architecture(owner=request.user, creation_method='evolution',
                                             parent_architecture=architecture)
             new_architecture.owl_file.name = os.path.join('owl', new_owl_path)
