@@ -5,6 +5,7 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+
 from .common import MANUAL_ONTOLOGY_PATH, create_comprises_augments, create_is_achieved_by_achieves, get_concerns, \
     query_reference, pars_patterns_tactic_label, query_manual, pars_concerns_query, pars_relation_label, \
     pars_concern_decision, delete_decisions, delete_concerns
@@ -323,7 +324,8 @@ def evolution(request):
             delete_decisions(delete_decision_list, owl_path)
             delete_concerns(delete_concern_list, owl_path)
 
-            context = {'architecture': architecture, 'current_step': current_step + 1}
+            context = {'architecture': architecture, 'current_step': current_step + 1,
+                       'fields': [['risk', 'مخاطره'], ['quality', 'ویژگی کیفی'], ['business', 'نیازمندی حرفه']]}
         elif current_step == 3:
             new_architecture = Architecture.objects.filter(owner=request.user).latest('id')
             owl_path = new_architecture.owl_file.path
@@ -336,7 +338,8 @@ def evolution(request):
             create_instances(business_list, 'Business_Need', owl_path)
             create_instances(risk_list, 'Risk_Mitigation', owl_path)
 
-            context = {'architecture': architecture, 'current_step': current_step + 1}
+            context = {'architecture': architecture, 'current_step': current_step + 1,
+                       'fields': [['pattern', 'الگو'], ['tactic', 'راهکنش']]}
         elif current_step == 4:
 
             pattern_list = request.POST.getlist('pattern[]')

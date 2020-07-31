@@ -29,7 +29,7 @@
                                 <div class="{% if current_step == 1 %}active{% else %}completed{% endif %} step">
                                     <div class="content">
                                         <div class="title">حذف دغدغه‌ها</div>
-                                        <div class="description">دغدغه‌ها را انتخاب کنید.</div>
+                                        <div class="description">دغدغه را انتخاب کنید.</div>
                                     </div>
                                 </div>
                                 <div class="{% if current_step == 1 or current_step == 2 %}active{% else %}completed{% endif %} step">
@@ -41,8 +41,8 @@
                                 </div>
                                 <div class="{% if current_step == 1 or current_step == 2 or current_step == 3 %}active{% else %}completed{% endif %} step">
                                     <div class="content">
-                                        <div class="title">دغدغه‌های جدید</div>
-                                        <div class="description">دغدغه‌ها را وارد کنید.</div>
+                                        <div class="title">دغدغه‌ها</div>
+                                        <div class="description">دغدغه را وارد کنید.</div>
                                     </div>
                                 </div>
                                 <div class="{% if current_step == 1 or current_step == 2 or current_step == 3 or current_step == 4 %}active{% else %}completed{% endif %} step">
@@ -55,7 +55,7 @@
                                 <div class="active step">
                                     <div class="content">
                                         <div class="title">روابط جدید</div>
-                                        <div class="description">روابط را مشخص کنید.
+                                        <div class="description">روابط را وارد کنید.
                                         </div>
                                     </div>
                                 </div>
@@ -107,6 +107,11 @@
                                 <div class="ui dividing header">
                                     دغدغه‌ها
                                 </div>
+                                {% if not architecture_concerns %}
+                                    <div class="field">
+                                        در این معماری هیچ دغدغه‌ای برای انتخاب وجود ندارد.
+                                    </div>
+                                {% endif %}
                                 {% for architecture_concern in architecture_concerns %}
                                     <div class="field">
                                         <div class="ui checkbox">
@@ -130,6 +135,13 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    {% if not concerns %}
+                                        <tr>
+                                            <th colspan="3">
+                                                هیچ دغدغه‌ای را برای حذف انتخاب نکردید.
+                                            </th>
+                                        </tr>
+                                    {% endif %}
                                     {% for concern, decisions in concerns.items %}
                                         <tr>
                                             <td>{{ forloop.counter }}</td>
