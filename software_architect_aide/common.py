@@ -4,7 +4,7 @@ from rdflib import Graph
 from rdflib import URIRef
 from rdflib.namespace import OWL, RDF, RDFS
 from rdflib import Literal
-from rdflib.plugins.sparql import processUpdate
+from rdflib import Namespace
 
 import software_architect_aide.visualize
 from software_architect_aide.local_settings import BASE_DIR
@@ -143,17 +143,20 @@ def delete_concerns(concerns, owl_path):
     g = Graph()
     g.parse(owl_path, format='application/rdf+xml')
     g.bind("owl", OWL)
+
+    ns1 = Namespace("http://archaide.ml/ontology#")
     for concern in concerns:
         concern_uri = URIRef(BASE_URI + concern)
-        relation_uri = URIRef(BASE_URI + "isAchievedBy")
-        g.remove((concern_uri, relation_uri, None))
+        g.remove((concern_uri, ns1.isAchievedBy, None))
+        g.serialize(destination=owl_path, format='application/rdf+xml')
 
 
 def delete_decisions(decisions, owl_path):
     g = Graph()
     g.parse(owl_path, format='application/rdf+xml')
     g.bind("owl", OWL)
+    ns1 = Namespace("http://archaide.ml/ontology#")
     for decision in decisions:
         decision_uri = URIRef(BASE_URI + decision)
-        relation_uri = URIRef(BASE_URI + "achieves")
-        g.remove((decision_uri, relation_uri, None))
+        g.remove((decision_uri, ns1.achieves, None))
+        g.serialize(destination=owl_path, format='application/rdf+xml')

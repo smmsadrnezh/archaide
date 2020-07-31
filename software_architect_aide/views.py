@@ -322,9 +322,6 @@ def evolution(request):
             delete_concern_list = request.POST.getlist('delete_concern[]')
             delete_decision_list = request.POST.getlist('delete_decision[]')
 
-            # TODO: Delete Concerns in delete_concern_list and their relations with decisions
-            # TODO: Delete Decisions in delete_decision_list and their relations with concerns
-
             delete_decisions(delete_decision_list, owl_path)
             delete_concerns(delete_concern_list, owl_path)
 
