@@ -289,7 +289,7 @@ def evolution(request):
         if current_step == 1:
             owl_path = architecture.owl_file.path
             new_owl_path = 'evolution_{}.owl'.format(get_random_string())
-            copyfile(owl_path, new_owl_path)
+            copyfile(owl_path, new_owl_path)  # TODO: This line has bug!
             new_architecture = Architecture(owner=request.user, creation_method='evolution',
                                             parent_architecture=architecture)
             new_architecture.owl_file.name = os.path.join('owl', new_owl_path)
@@ -322,10 +322,10 @@ def evolution(request):
             # TODO: Delete Concerns in delete_concern_list and their relations with decisions
             # TODO: Delete Decisions in delete_decision_list and their relations with concerns
 
-            context = {'current_step': current_step + 1}
+            context = {'architecture': architecture, 'current_step': current_step + 1}
         elif current_step == 3:
             new_architecture = Architecture.objects.filter(owner=request.user).latest('id')
-            owl_path = new_architecture.owl_file
+            owl_path = new_architecture.owl_file.path
 
             quality_list = request.POST.getlist('quality[]')
             business_list = request.POST.getlist('business[]')
@@ -335,7 +335,7 @@ def evolution(request):
             create_instances(business_list, 'Business_Need', owl_path)
             create_instances(risk_list, 'Risk_Mitigation', owl_path)
 
-            context = {'current_step': current_step + 1}
+            context = {'architecture': architecture, 'current_step': current_step + 1}
         elif current_step == 4:
 
             pattern_list = request.POST.getlist('pattern[]')
@@ -347,7 +347,7 @@ def evolution(request):
             create_instances(tactic_list, 'Tactic', owl_path)
 
             instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': get_concerns(owl_path)}
-            context = {'instances': instances, 'current_step': current_step + 1}
+            context = {'architecture': architecture, 'instances': instances, 'current_step': current_step + 1}
         elif current_step == 5:
 
             comprises_pattern = request.POST.getlist('comprises_pattern[]')
@@ -374,7 +374,7 @@ def evolution(request):
             number = Architecture.objects.filter(parent_architecture=architecture.parent_architecture).count()
             architecture.name = "{} نسخهٔ {}".format(architecture.parent_architecture.name, number + 1)
             architecture.save()
-            context = {'success': True, 'current_step': 1}
+            context = {'architecture': architecture, 'success': True, 'current_step': 1}
     else:
         owl_path = architecture.owl_file.path
         architecture_concerns = get_concerns(owl_path)
