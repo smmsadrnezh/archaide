@@ -10,4 +10,6 @@ class Architecture(models.Model):
     owl_file = FileField(upload_to='owl', unique=True)
     triple_count = models.IntegerField(default=0)
     creation_method = models.CharField(max_length=30, choices=(
-    ('manual', 'ساخت دستی'), ('reference', 'براساس معماری مرجع'), ('upload', 'بارگذاری هستان‌شناسی')))
+        ('manual', 'ساخت دستی'), ('reference', 'براساس معماری مرجع'), ('evolution', 'تکامل معماری'),
+        ('upload', 'بارگذاری هستان‌شناسی')))
+    parent_architecture = models.ForeignKey('self', null=True, default=None, on_delete=models.SET_NULL)

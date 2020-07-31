@@ -248,12 +248,6 @@ def architecture_export(request, architecture_id):
 
 @login_required(login_url='/')
 def tradeoff(request):
-    context = {'': '', }
-    return render(request, 'dashboard_tradeoff.html', context)
-
-
-@login_required(login_url='/')
-def tradeoff(request):
     architecture_id = request.GET.get("architecture_id")
     if architecture_id:
         architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
@@ -287,7 +281,92 @@ def tradeoff(request):
 
 @login_required(login_url='/')
 def evolution(request):
-    context = {'': '', }
+    architecture_id = request.GET.get("architecture_id")
+    architecture = get_object_or_404(Architecture, owner=request.user, id=architecture_id)
+    if request.method == 'POST':
+        current_step = int(request.POST.get('step'))
+        if current_step == 1:
+            owl_path = architecture.owl_file
+            new_owl_path = 'evolution_{}.owl'.format(get_random_string())
+            copyfile(owl_path, new_owl_path)  # TODO: Find new file name
+            new_architecture = Architecture(owner=request.user, creation_method='evolution',
+                                            parent_architecture=architecture)
+            new_architecture.owl_file.name = os.path.join('owl', new_owl_path)
+            new_architecture.save()
+
+            delete_concern_candidates = request.POST.getlist('delete_concern[]')
+
+            # TODO:
+            delete_concerns_candidates = {'delete_concern': [{'decision1': ['concerns']}, {'decision2': ['concerns']}]}
+
+            context = {'architecture': architecture, 'delete_concerns_candidates': delete_concerns_candidates,
+                       'current_step': current_step + 1}
+        elif current_step == 2:
+            delete_concern_list = request.POST.getlist('delete_concern[]')
+            delete_decision_list = request.POST.getlist('delete_decision[]')
+
+            # TODO: Delete Concerns in delete_concern_list and their relations with decisions
+            # TODO: Delete Decisions in delete_decision_list and their relations with concerns
+
+            context = {'current_step': current_step + 1}
+        elif current_step == 3:
+            new_architecture = Architecture.objects.filter(owner=request.user).latest('id')
+            owl_path = new_architecture.owl_file
+
+            quality_list = request.POST.getlist('quality[]')
+            business_list = request.POST.getlist('business[]')
+            risk_list = request.POST.getlist('risk[]')
+
+            create_instances(quality_list, 'Quality_Attribute', owl_path)
+            create_instances(business_list, 'Business_Need', owl_path)
+            create_instances(risk_list, 'Risk_Mitigation', owl_path)
+
+            context = {'current_step': current_step + 1}
+
+        elif current_step == 4:
+
+            pattern_list = request.POST.getlist('pattern[]')
+            tactic_list = request.POST.getlist('tactic[]')
+
+            owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
+
+            create_instances(pattern_list, 'Pattern', owl_path)
+            create_instances(tactic_list, 'Tactic', owl_path)
+
+            instances = {'patterns': pattern_list, 'tactics': tactic_list, 'concerns': get_concerns(owl_path)}
+            context = {'instances': instances, 'current_step': current_step + 1}
+
+        elif current_step == 5:
+
+            comprises_pattern = request.POST.getlist('comprises_pattern[]')
+            comprises_tactic = request.POST.getlist('comprises_tactic[]')
+
+            is_achieved_by_concern = request.POST.getlist('is_achieved_by_concern[]')
+            is_achieved_by_tactic = request.POST.getlist('is_achieved_by_tactic[]')
+
+            comprises = zip(comprises_pattern, comprises_tactic)
+            is_achieved_by = zip(is_achieved_by_concern, is_achieved_by_tactic)
+
+            owl_path = Architecture.objects.filter(owner=request.user).latest('id').owl_file.path
+            create_comprises_augments(comprises, owl_path)
+            create_is_achieved_by_achieves(is_achieved_by, owl_path)
+
+            architecture = Architecture.objects.filter(owner=request.user).latest('id')
+            rdf_path = architecture.owl_file.path
+            architecture.triple_count = triple_count(rdf_path)
+            architecture.save()
+
+            image_path = os.path.join(settings.MEDIA_ROOT, 'visual', architecture.owl_file.name + '.png')
+            visualize(rdf_path, image_path)
+
+            number = Architecture.objects.filter(parent_architecture=architecture.parent_architecture).count()
+            architecture.name = "{} نسخهٔ {}".format(architecture.parent_architecture.name, number + 1)
+            architecture.save()
+            context = {'success': True, 'current_step': 1}
+
+    else:
+        architecture_concerns = 'get'  # TODO: Get All Architecture Concerns
+        context = {'architecture_concerns': architecture_concerns, 'architecture': architecture, 'current_step': 1}
     return render(request, 'dashboard_evolution.html', context)
 
 
