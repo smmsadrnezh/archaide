@@ -311,12 +311,10 @@ def evolution(request):
             query_result = query_manual(query, owl_path)
             result = pars_concern_decision(query_result)
 
-            # TODO:
-            delete_concerns_candidates = {
-                'delete_concern': [{'decision1': ['concerns']}, {'decision2': ['concerns']}], }
-            delete_concerns_candidates = {(pair[0]): [] for pair in result}
-            context = {'architecture': architecture, 'delete_concerns_candidates': delete_concerns_candidates,
-                       'current_step': current_step + 1}
+            concerns = {concern: [] for concern, _ in result}
+            for delete_concern, decision in result:
+                concerns[delete_concern].append(decision)
+            context = {'architecture': architecture, 'concerns': concerns, 'current_step': current_step + 1}
         elif current_step == 2:
             delete_concern_list = request.POST.getlist('delete_concern[]')
             delete_decision_list = request.POST.getlist('delete_decision[]')
