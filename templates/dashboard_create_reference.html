@@ -76,37 +76,49 @@
                                 <div class="ui dividing header">
                                     راهکنش‌ها
                                 </div>
-                                {% for quality, tactics in quality_tactics_dict.items %}
-                                    {{ quality }}
-                                    {% for tactic in tactics %}
-                                        <div class="field">
-                                            <div class="ui checkbox">
-                                                <input name="tactic[]" value="{{ quality }},{{ tactic }}" type="checkbox">
-                                                <label>{{ tactic }}</label>
-                                            </div>
+                                <div class="ui accordion">
+                                    {% for quality, tactics in quality_tactics_dict.items %}
+                                        <div class="title active">
+                                            <i class="dropdown icon"></i> {{ quality }}
+                                        </div>
+                                        <div class="content active">
+                                            {% for tactic in tactics %}
+                                                <div class="field">
+                                                    <div class="ui checkbox">
+                                                        <input name="tactic[]" value="{{ quality }},{{ tactic }}" type="checkbox">
+                                                        <label>{{ tactic }}</label>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
                                         </div>
                                     {% endfor %}
-                                {% endfor %}
+                                </div>
                             </div>
                         {% elif current_step == 3 %}
                             <div class="ui segment">
                                 <div class="ui dividing header">
                                     رابطهٔ الگوها و راهکنش‌ها
                                 </div>
-                                {% for tactic, patterns in pattern_tactics_dict.items %}
-                                    {% with forloop.counter as tactic_counter %}
-                                        {{ tactic }}
-                                        {% for pattern in patterns %}
-                                            <div class="field">
-                                                <div class="ui radio checkbox">
-                                                    <input name="pattern[{{ tactic_counter }}]" value="{{ tactic }},{{ pattern }}" type="radio">
-                                                    <label>{{ pattern }}</label>
-                                                </div>
+                                <div class="ui accordion">
+                                    {% for tactic, patterns in pattern_tactics_dict.items %}
+                                        {% with forloop.counter as tactic_counter %}
+                                            <div class="title active">
+                                                <i class="dropdown icon"></i> {{ tactic }}
                                             </div>
-                                        {% endfor %}
-                                        <input name="tactic_counter" type="hidden" value="{{ tactic_counter }}">
-                                    {% endwith %}
-                                {% endfor %}
+                                            <div class="content active">
+                                                {% for pattern in patterns %}
+                                                    <div class="field">
+                                                        <div class="ui radio checkbox">
+                                                            <input name="pattern[{{ tactic_counter }}]" value="{{ tactic }},{{ pattern }}" type="radio">
+                                                            <label>{{ pattern }}</label>
+                                                        </div>
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                            <input name="tactic_counter" type="hidden" value="{{ tactic_counter }}">
+                                        {% endwith %}
+                                    {% endfor %}
+                                </div>
                             </div>
                         {% elif current_step == 4 %}
                             <div class="ui segment">
