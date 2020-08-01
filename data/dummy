@@ -1,0 +1,25 @@
+business need:
+	The system must deploy on Microsoft Windows XP and Linux.
+	The system must encrypt all network traffic.
+
+quality_attribute:
+	safety
+	portability
+
+pattern:
+	soa
+	broker
+	repository
+
+
+risk:
+	Employee Turnover
+	Requirements Inflation
+
+tactic:
+	
+	encapsulation
+	split module
+	
+
+
