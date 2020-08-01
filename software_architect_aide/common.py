@@ -17,6 +17,7 @@ BASE_URI = "http://archaide.ml/ontology#"
 def create_instances(instances_name, class_name, owl_path):
     for instance_name in instances_name:
         if instance_name != '':
+            instance_name = instance_name.replace(' ', '')
             instance = URIRef(BASE_URI + instance_name)
             class_ = URIRef(BASE_URI + class_name)
             g = Graph()
@@ -80,8 +81,10 @@ def create_comprises_augments(tuples, owl_path):
     pairs = tuple(tuples)
     for pair in pairs:
         if pair[0] != '' and pair[1] != '0':
-            pattern_instance = URIRef(BASE_URI + pair[0])
-            tactic_instance = URIRef(BASE_URI + pair[1])
+            pattern_name = pair[0].replace(' ', '')
+            tactic_name = pair[1].replace(' ', '')
+            pattern_instance = URIRef(BASE_URI + pattern_name)
+            tactic_instance = URIRef(BASE_URI + tactic_name)
             comprises_rel = URIRef(BASE_URI + "comprises")
             augments_rel = URIRef(BASE_URI + "augments")
             g = Graph()
@@ -96,8 +99,10 @@ def create_is_achieved_by_achieves(tuples, owl_path):
     pairs = tuple(tuples)
     for pair in pairs:
         if pair[0] != '' and pair[1] != '0':
-            concern_instance = URIRef(BASE_URI + pair[0])
-            tactic_instance = URIRef(URIRef(BASE_URI + pair[1]))
+            concern_name = pair[0].replace(' ', '')
+            tactic_name = pair[1].replace(' ', '')
+            concern_instance = URIRef(BASE_URI + concern_name)
+            tactic_instance = URIRef(URIRef(BASE_URI + tactic_name))
             is_achieved_by_rel = URIRef(BASE_URI + "isAchievedBy")
             achieves_rel = URIRef(BASE_URI + "achieves")
             g = Graph()
